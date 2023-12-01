@@ -19,10 +19,7 @@ namespace App.API.Entities
         [ForeignKey(nameof(Tag))]
         [Column(nameof(Tag_Id))]
         public int Tag_Id { get; set; }
-
-
-        [ForeignKey(nameof(Tag))]
-        [Column(nameof(Tag_Id))]
         public Tag Tag { get; set; }   = null!;
+
     }
 }
