@@ -1,10 +1,12 @@
 ﻿using App.API.Entities;
 using App.Models.Dtos;
+using AutoMapper;
 
-namespace App.API.Extentions
+namespace App.API.Extentions.DtosExtentions
 {
     static public class UserExtentions
-    { 
+    {
+
         static public User ToEntity(this UserCreateDto userCreateDto)
         {
 

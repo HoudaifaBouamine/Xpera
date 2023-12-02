@@ -2,6 +2,7 @@ using App.API.Data;
 using App.API.Repositories.Implimentations;
 using App.API.Repositories.Interfaces;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();

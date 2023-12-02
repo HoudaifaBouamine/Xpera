@@ -1,5 +1,5 @@
 ﻿using App.API.Entities;
-using App.API.Extentions;
+using App.API.Extentions.DtosExtentions;
 using App.API.Repositories.Interfaces;
 using App.Models.Dtos;
 using Microsoft.AspNetCore.Http;
