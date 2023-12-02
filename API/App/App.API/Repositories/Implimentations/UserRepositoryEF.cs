@@ -1,6 +1,7 @@
 ﻿using App.API.Data;
 using App.API.Entities;
 using App.API.Repositories.Interfaces;
+using App.Models.Dtos;
 using Microsoft.EntityFrameworkCore;
 
 namespace App.API.Repositories.Implimentations

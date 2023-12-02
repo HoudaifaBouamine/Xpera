@@ -1,5 +1,7 @@
 ﻿using App.API.Entities;
+using App.API.Extentions;
 using App.API.Repositories.Interfaces;
+using App.Models.Dtos;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,19 +18,19 @@ namespace App.API.Controllers
         }
 
         [HttpGet("id")]
-        public async Task<ActionResult<User>> Get(int id)
+        public async Task<ActionResult<UserReadDto>> Get(int id)
         {
             User? user = await _userRepository.Read(id);
 
             if(user == null) return NotFound();
 
-            return Ok(user);
+            return Ok(user.ToDto());
         }
 
         [HttpPost]
-        public async Task<ActionResult<User>> Post([FromBody] User user)
+        public async Task<ActionResult<User>> Post([FromBody] UserCreateDto user)
         {
-            User? createdUser = await _userRepository.Create(user);
+            User? createdUser = await _userRepository.Create(user.ToEntity());
 
             if(createdUser == null) return BadRequest("Failed To Create New User");
 
