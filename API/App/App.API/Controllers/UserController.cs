@@ -1,7 +1,7 @@
 ﻿using App.API.Entities;
 using App.API.Extentions.DtosExtentions;
 using App.API.Repositories.Interfaces;
-using App.Models.Dtos;
+using App.Models.Dtos.User;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 

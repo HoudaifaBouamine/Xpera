@@ -11,6 +11,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<AppDbContext>();
 builder.Services.AddScoped<IUserRepository,UserRepositoryEF>();
+builder.Services.AddScoped<IPostRepository,PostRepositoryEF>();
 
 var app = builder.Build();
 

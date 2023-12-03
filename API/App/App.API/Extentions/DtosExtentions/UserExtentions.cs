@@ -1,5 +1,5 @@
 ﻿using App.API.Entities;
-using App.Models.Dtos;
+using App.Models.Dtos.User;
 using AutoMapper;
 
 namespace App.API.Extentions.DtosExtentions
