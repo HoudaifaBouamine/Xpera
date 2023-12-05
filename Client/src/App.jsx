@@ -5,9 +5,10 @@ import NavBar from "./navBar/navBar.jsx"
 function App() {
     return (
 <div>
-<NavBar/>
+  <NavBar/>
 </div>
     );
 };
 
 export default App
+

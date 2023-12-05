@@ -79,3 +79,56 @@ color:rgba(255, 255, 255, 1);
     box-shadow: 0px 2px 16px 0px rgba(70, 102, 255, 0.50);
   
 }
+.Frame34{
+display: flex;
+  width: 90rem;
+  padding: 3rem 7.5rem;
+  align-items: center;
+  gap: 3.8125rem;
+  background: #FFF;
+
+}
+.Frame33{
+display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+.hightlight{
+width: 34.25rem;
+color: #000;
+
+  /* Big Title */
+  font-family: Nunito;
+  font-size: 3.815rem;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  text-transform: capitalize;
+}
+.hightlight1{
+width: 34.25rem;
+color: #2454FF;
+  /* Big Title */
+  font-family: Nunito;
+  font-size: 3.815rem;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  text-transform: capitalize;
+}
+.paragraph{
+  width: 39.1875rem;
+    height: 5.375rem;
+    color: rgba(0, 0, 0, 0.60);
+    
+      /* Title Small */
+      font-family: Nunito;
+      font-size: 1.95313rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+}
+.paragraph2{
+
+}
