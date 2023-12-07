@@ -1,7 +1,5 @@
 import React from 'react'
 import './index.css'
-import LogIn from "../compenenet/logIn.jsx"
-import GetStarted from "../compenenet/GetStarted.jsx"
 
 const navBar = () => {
   return (
