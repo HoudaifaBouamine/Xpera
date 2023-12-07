@@ -10,14 +10,16 @@ button{
     cursor: pointer;
 
 }
+/* the NavBar Style*/
 .Frame1{
+
 display: flex;
-height: 100px;
- padding-left:3rem ;
- padding-right:0.4rem; 
+padding-right:48px;
+padding-left:48px; 
+padding-top: 8px;
+padding-bottom: 0px ; 
   justify-content: space-between;
   align-items: center;
-  background-color:gray;
 }
 .Logo{
   color: #2454FF;
@@ -26,14 +28,14 @@ height: 100px;
     font-size: 1.95313rem;
     font-style: normal;
     font-weight: 700;
-    line-height: normal;
+    line-height: 0rem;
 }
 .frame2{
 display: flex;
   justify-content: flex-end;
   align-items: center;
   gap: 2.25rem;
-  flex: 1 0 0;
+  padding: 0;
   align-self: stretch;
 }
 .Log-In-button {
@@ -82,96 +84,33 @@ display: inline-flex;
     box-shadow: 0px 2px 16px 0px rgba(70, 102, 255, 0.50);
   
 }
-
-.hero-text{
-  gap: 0;
-  }
-.hightlight{
-
-}
-.hightlight1{
-width: 31.8125rem;
-color: #2454FF;
-  /* Big Title */
-color: #2454FF;
-  /* Big Title */
-  font-family: Nunito;
-  font-size: 3.815rem;
-  font-style: normal;
-  font-weight: 900;
-  line-height: normal;
-  text-transform: capitalize;
-}
-.paragraph{
-height: 5.375rem;
-  max-width: 37.5rem;
-  flex-shrink: 0;
-  align-self: stretch;
-  color: rgba(0, 0, 0, 0.60);
-  
-    /* Title Small */
-    font-family: Nunito;
-    font-size: 1.95313rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-}
-.frame35{
+/* the Hero Style*/
+.hero-page{
   display: flex;
-    width: 25.4375rem;
-    align-items: center;
-    gap: 3rem;
-}
-.paragraph2{
-color: rgba(0, 0, 0, 0.60);
-
-  /* Big Text */
-  font-family: Nunito;
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 1.6875rem;
-  /* 135% */
-  max-width: 37.5rem;
-    align-self: stretch;
-    
-      /* Big Text */
-      font-family: Nunito;
-      font-size: 1.25rem;
-      font-style: normal;
-      font-weight: 600;
-      line-height: 1.6875rem;
-      background-color: red;
-      /* 135% */
-}
-.Hightlight_05{
-max-width: 670px;
-height: auto;
-}
-.Misc_01{
-  width: 4.375rem;
-    height: 4.375rem;
-    flex-shrink: 0;
-}
-.Pngopreview{
-max-width: 670px;
-height: auto;
-
-}
-.vector{
-  width: 14.0625rem;
-    height: 32.75rem;
-    position: absolute;
-      left: 34.1875rem;
-      top: -9.6875rem;
-      fill: #B6C6FF;
-}
-.Hero-page{
-display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  gap: 0.625rem;
-  flex:1;
-  height: calc( 100vh - 100px);
-  border: #000;
+  height: 32rem;
+ flex:1;
+  padding:0 4rem;
 }
+.hero-text{
+  display:flex;
+  flex-direction: column;
+  gap: 1.5rem;
+ 
+
+}
+.hero-button{
+  display:flex;
+  gap : 2rem;
+}
+.hero-image{
+ scale: 0.8;
+ 
+}
+
+
+
+
+
+
