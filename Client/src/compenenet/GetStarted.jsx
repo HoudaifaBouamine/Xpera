@@ -1,5 +1,5 @@
 import React from 'react'
-import "../navBar/index.css"
+import "../LandingPage/Style/index.css"
 const GetStarted = ({texte}) => {
   return (
     <div>
