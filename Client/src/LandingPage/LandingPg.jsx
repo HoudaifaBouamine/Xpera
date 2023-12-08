@@ -13,10 +13,12 @@ const LandingPg = () => {
         <NavBar/>
            <div className='hero-page'>
           <div className='hero-text'>
-            <h1>Your Guide to Honest <span> Reviews</span></h1>
-            <p>Unveiling the Tech Truths: Your Ultimate IT Review Hub</p>
-            <p>Your concise guide to honest IT reviews. Dive into expert insights and user experiences. Trust the reviews that matter, empower your tech choices</p>
-              <div className='hero-button'>
+            
+            <h1 className='hero-text1'>Your Guide to Honest <span className='hero-text2'> Reviews</span></h1>
+            <p className='hero-paragraph1'>Unveiling the Tech Truths: Your Ultimate IT Review Hub</p>        
+            <p className='hero-paragraph2'>Your concise guide to honest IT reviews. Dive into expert insights and user experiences. Trust the reviews that matter, empower your tech choices</p>
+
+             <div className='hero-button'>
                 <GetStarted text={"Get Started"}/>
                 <LogIn text={"Log in"}/>
                  </div>
