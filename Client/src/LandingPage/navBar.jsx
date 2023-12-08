@@ -5,9 +5,9 @@ import SecondaryButton from "../compenenet/SecondaryButton"
 
 const navBar = () => {
   return (
-   <div className ="Frame1">
+   <div className ="navBar">
         <h1 className="Logo">LOGO</h1>
-      <div className='frame2'>
+      <div className='navBar-button'>
         <CTA_Button text={"Get Started"}/>
         <SecondaryButton text={"Log in"}/>
       </div>

@@ -1,17 +1,23 @@
 
-button{
+*{
+  margin:0;
+  padding: 0;
+
+}
+
+button {
   padding: 0.75rem 1.5rem;
   border-radius: 0.75rem;
   font-family: Nunito;
-    font-size: 10px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 1.6875rem;
-    cursor: pointer;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.6875rem;
+  cursor: pointer;
 
 }
 /* the NavBar Style*/
-.Frame1{
+.navBar{
 
 display: flex;
 padding-right:48px;
@@ -30,7 +36,7 @@ padding-bottom: 0px ;
     font-weight: 700;
     line-height: 0rem;
 }
-.frame2{
+.navBar-button{
 display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -47,43 +53,7 @@ display: flex;
     transition: background-color 0.3s ease;
     /* Big Text */
 }
-.Log-In-button:hover {
-  background-color: rgba(36, 84, 255, 0.1);  
-}
-.Log-In-button:active {
-  border-radius: 0.75rem;
-    border: 2px solid #2454FF;
-    background: rgba(182, 198, 255, 0.60);
-    box-shadow: 0px 2px 16px 0px rgba(70, 102, 255, 0.50);
-}
 
-.Getstarted-button{
- 
-display: inline-flex;
-  padding: 0.75rem 1.5rem;
-  justify-content: center;
-  align-items: center;
-  gap: 0.625rem;
-  border-radius: 0.75rem;
-    background: rgba(36, 84, 255, 1);
-    color :rgba(255, 255, 255, 1);
-    border: 2px solid rgba(36, 84, 255, 1);
- 
-
-} 
-.Getstarted-button:hover {
-  border-radius: 0.75rem;
-    background: rgba(109, 141, 255, 1);
-    color:rgba(255, 255, 255, 1); 
-    transition: background-color 0.5s ease;
-}
-.Getstarted-button:active:hover{ 
-  border-radius: 0.75rem;
-    border: 2px solid #6D8DFF;
-    background: #2454FF;
-    box-shadow: 0px 2px 16px 0px rgba(70, 102, 255, 0.50);
-  
-}
 /* the Hero Style*/
 .hero-page{
   display: flex;
@@ -93,24 +63,80 @@ display: inline-flex;
  flex:1;
   padding:0 4rem;
 }
-.hero-text{
-  display:flex;
+.hero-text{ 
+  display: flex;
+  height: 30;
+  gap:1.5rem;
   flex-direction: column;
-  gap: 1.5rem;
- 
-
+  justify-content: flex-start;
 }
 .hero-button{
   display:flex;
   gap : 2rem;
 }
 .hero-image{
- scale: 0.8;
+ scale: 0.65;
  
 }
+.hero-text1{
 
+  color: #000;
+    font-family: Nunito;
+    font-size: 3.815rem;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    text-transform: capitalize;
 
+}
+.hero-text2{
+  
+  color: #2454FF;
+    /* Big Title */
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    text-transform: capitalize;
+}
+.hero-paragraph1{
+  
+  color: rgba(0, 0, 0, 0.60);
+    /* Title Small */
+    font-family: Nunito;
+    font-size: 1.95313rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  
+}
+.hero-paragraph2{
 
+color: rgba(0, 0, 0, 0.60);
+ 
+  /* Big Text */
+  font-family: Nunito;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.375rem;
+  /* 110% */
+}
+.star{
+  width: 3.84806rem;
+    height: 4.30469rem;
+}
+.Object{
+  position: absolute;
+    left: -1rem;
+    bottom: 5.4375rem;
+}
+.Object1{
+position: absolute;
+  right: 30.75rem;
+
+  top: 3.25rem;
+}
 
 
 
