@@ -5,7 +5,7 @@ using System.Net.Mail;
 
 namespace App.API.Entities
 {
-    //[Index(nameof(Email), IsUnique = true)]
+    [Index(nameof(Email), IsUnique = true)]
     public class User
     {
 

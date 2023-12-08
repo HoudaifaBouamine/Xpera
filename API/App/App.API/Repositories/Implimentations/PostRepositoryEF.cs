@@ -46,5 +46,9 @@ namespace App.API.Repositories.Implimentations
             return await _AppDbContext.Tags.FromSql($"SELECT T.* FROM   Posts p  JOIN PostsHaveTags pht  ON p.Post_Id = PHT.Post_Id  JOIN Tags t  ON pht.Tag_Id = t.Tag_Id  where P.Post_Id = {id};").ToListAsync(); 
         }
 
+        public async Task<List<Post>> ReadUserPostsAsync(int user_Id)
+        {
+            return await _AppDbContext.Posts.Where(p=>p.User_Id == user_Id).ToListAsync();
+        }
     }
 }

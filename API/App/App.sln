@@ -5,7 +5,7 @@ VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.API", "App.API\App.API.csproj", "{075B8989-D815-4092-8F2E-889768CDA9DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Models", "App.Models\App.Models.csproj", "{72C8B151-2845-4D18-B483-786CB3956B60}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Models", "App.Models\App.Models.csproj", "{72C8B151-2845-4D18-B483-786CB3956B60}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

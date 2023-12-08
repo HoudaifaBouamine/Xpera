@@ -1,0 +1,19 @@
+GET 	: /api/post/{id} 	           : Read post by post id
+GET  	: /api/post/user_id/{user_id} : Read all user posts by user id
+GET  	: /api/post                   : Read all posts
+
+POST 	: /api/post                   : Create a post
+
+PUT  	: /api/post/{id}              : Update a post
+
+DELETE  : /api/post/{id}	      : Delete a post
+
+////////////////////////////////////////////////////
+
+GET     : /api/user/{id}              : Read User by id
+
+POST    : /api/user                   : Create User 
+
+PUT     : /api/user/{id}              : Update a User
+
+DELETE  : /api/user/{id}              : Delete a user
