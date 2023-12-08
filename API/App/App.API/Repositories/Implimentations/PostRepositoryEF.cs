@@ -15,12 +15,13 @@ namespace App.API.Repositories.Implimentations
         
         }
 
-        public async Task<Post?> Create(Post post,List<Tag> tags)
+        public async Task<Post?> Create(Post post,IEnumerable<Tag> tags)
         {
             var e = await _AppDbContext.Posts.AddAsync(post);
 
             Post? thePost = e.Entity;
 
+            await _AppDbContext.SaveChangesAsync();
 
             foreach(Tag tag in tags)
             {
@@ -37,6 +38,11 @@ namespace App.API.Repositories.Implimentations
             return thePost;
         }
 
+        public async Task<List<Tag>> GetTagsByIds(IEnumerable<int> tags_ids)
+        {
+            return await _AppDbContext.Tags.Where(t => tags_ids.Contains(t.Tag_Id)).ToListAsync();
+        }
+
         public async Task<Post?> Read(int id)
         {
             return await _AppDbContext.Posts.Where(p => p.Post_Id == id).FirstOrDefaultAsync();
@@ -50,5 +56,7 @@ namespace App.API.Repositories.Implimentations
         {
             return await _AppDbContext.Posts.Where(p=>p.User_Id == user_Id).ToListAsync();
         }
+
+
     }
 }

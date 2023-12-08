@@ -1,5 +1,6 @@
 ﻿using App.API.Entities;
-using App.Models.Dtos.User;
+using App.Models.Dtos.User.Command;
+using App.Models.Dtos.User.Query;
 using AutoMapper;
 
 namespace App.API.Extentions.DtosExtentions
