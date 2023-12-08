@@ -57,5 +57,17 @@ namespace App.API.Controllers
             return Ok(postesAsDto);
         }
 
+        [HttpGet("tag/{tag}")]
+
+        public async Task<ActionResult<IEnumerable<PostReadDto>>> GetTagPosts(int tag_Id)
+        {
+            return NotFound(new NotImplementedException());
+        }
+
+        public async Task<ActionResult<IEnumerable<PostReadDto>>> GetAllPosts()
+        {
+            return NotFound(new NotImplementedException());
+        }
+
     }
 }

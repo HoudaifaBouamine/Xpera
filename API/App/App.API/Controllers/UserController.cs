@@ -2,7 +2,8 @@
 using App.API.Extentions.DtosExtentions;
 using App.API.Repositories.Interfaces;
 using App.Models.Dtos.Post;
-using App.Models.Dtos.User;
+using App.Models.Dtos.User.Command;
+using App.Models.Dtos.User.Query;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 

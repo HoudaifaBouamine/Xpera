@@ -1,5 +1,6 @@
 ﻿using App.API.Entities;
 using App.Models.Dtos.Post;
+using App.Models.Dtos.Post.Read;
 using Microsoft.Extensions.Hosting;
 using System.Linq;
 
@@ -7,9 +8,9 @@ namespace App.API.Extentions.DtosExtentions
 {
     public static class PostExtentions
     {
-        public static PostReadDto ToDto(this Post post,User user, List<Tag> tags)
+        public static PostReadFullDto ToDto(this Post post,User user, List<Tag> tags)
         {
-            return new PostReadDto()
+            return new PostReadFullDto()
             {
                 Body = post.Body,
                 PublishDateTime = post.PublishDateTime,
@@ -20,16 +21,16 @@ namespace App.API.Extentions.DtosExtentions
             };
         }
 
-        public static IEnumerable<PostReadDto> ToDtoList(this IEnumerable<Post> posts, User user, List<List<Tag>> tags)
+        public static IEnumerable<PostReadFullDto> ToDtoList(this IEnumerable<Post> posts, User user, List<List<Tag>> tags)
         {
             var postsAsList = posts.ToList();
-            var postsAsDto = new List<PostReadDto>();
+            var postsAsDto = new List<PostReadFullDto>();
 
             for (int i = 0; i < postsAsList.Count(); i++)
             {
                 postsAsDto.Add
                 (
-                    new PostReadDto()
+                    new PostReadFullDto()
                     {
                         Body = postsAsList[i].Body,
                         PublishDateTime = postsAsList[i].PublishDateTime,

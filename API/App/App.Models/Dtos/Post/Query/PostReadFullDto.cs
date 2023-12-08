@@ -10,7 +10,7 @@ using System.Formats.Asn1;
 
 namespace App.Models.Dtos.Post
 {
-    public class PostReadDto
+    public class PostReadFullDto
     {
         public int Post_Id { get; set; }
         public UserReadDto User { get; set; } = null!;
