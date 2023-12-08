@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace App.Models.Dtos.Post.Update
+namespace App.Models.Dtos.Post.Create
 {
     public class PostUpdateDto
     {

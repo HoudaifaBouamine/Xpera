@@ -11,7 +11,6 @@ namespace App.Models.Dtos.Post.Create
         public int User_Id { get; set; }
         public string Title { get; set; } = string.Empty;
         public string Body { get; set; } = string.Empty;
-        public DateTime PublishDateTime { get; set; }
-        public IEnumerable<TagDto> Tags { get; set; } = null!;
+        public IEnumerable<int> Tags_Ids { get; set; } = null!;
     }
 }
