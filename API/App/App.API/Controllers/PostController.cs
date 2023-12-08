@@ -32,5 +32,30 @@ namespace App.API.Controllers
 
             return postsAsDto;
         }
+
+        [HttpGet("User_Id/{user_Id}")]
+        public async Task<ActionResult<IEnumerable<PostReadDto>>> GetUserPosts(int user_Id)
+        {
+            IEnumerable<Post> posts = await _postRepository.ReadUserPostsAsync(user_Id);
+
+            var tags = new List<List<Tag>>();
+
+            var user = await _userRepository.Read(user_Id);
+
+            if (user == null)
+            {
+                return NotFound($"User with User_Id = \'{user_Id}\' is not found");
+            }
+
+            foreach (var post in posts)
+            {
+                tags.Add(await _postRepository.ReadPostTags(post.Post_Id));
+            }
+
+            var postesAsDto = posts.ToDtoList(user!, tags);
+
+            return Ok(postesAsDto);
+        }
+
     }
 }

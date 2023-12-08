@@ -27,5 +27,11 @@ namespace App.API.Repositories.Implimentations
         {
             return await dbContext.Users.Where(u=>u.User_Id == id).FirstOrDefaultAsync();
         }
+
+        public async Task<User?> Read(string email)
+        {
+            User? user = await dbContext.Users.Where(u=>u.Email == email).FirstOrDefaultAsync();
+            return user;
+        }
     }
 }

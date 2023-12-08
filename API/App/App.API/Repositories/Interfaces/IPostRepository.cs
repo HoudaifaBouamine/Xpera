@@ -10,5 +10,6 @@ namespace App.API.Repositories.Interfaces
 
         public Task<List<Tag>> ReadPostTags(int id);
 
+        public Task<List<Post>> ReadUserPostsAsync(int user_Id);
     }
 }
