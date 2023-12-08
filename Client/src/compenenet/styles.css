@@ -1,0 +1,154 @@
+*{
+  font-family: Nunito;
+ 
+}
+
+
+.div-test{
+  width: 1rem;
+  height: 1rem;
+  background-color: red;
+}
+
+button{
+  width: fit-content;
+  border-radius: 0.75rem;
+  color: #FFF;
+  border: none;
+  /* Big Text */
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.4rem; /* 135% */
+}
+
+/* Normal state */
+a {
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.6875rem; /* 135% */
+}
+
+/* Hover state */
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Clicked state (active) */
+a:active {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+input{
+  display: flex;
+  padding: 0.8125rem 1rem;
+  align-items: center;
+  align-self: stretch;
+  border-radius: 0.5rem;
+  border: 1px solid var(--contentColor-20, rgba(0, 0, 0, 0.20));
+  background: var(--whiteColor, #FFF);
+  color: var(--contentColor-60, rgba(0, 0, 0, 0.60));
+  font-variant-numeric: lining-nums tabular-nums;
+  outline: none;
+  /* Input Body */
+  
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 1.4rem */
+}
+
+input:hover{
+  border-radius: 0.5rem;
+  border: 1px solid var(--blue1, #2454FF);
+  background: var(--whiteColor, #FFF);
+}
+
+input:focus{
+  border: 1px solid #2454FF;
+  background: var(--whiteColor, #FFF);
+  /* Focus Effect */
+  box-shadow: 0px 2px 16px 0px rgba(70, 102, 255, 0.50);
+}
+
+input:valid{
+  color: var(--contentColor, #000);
+  font-variant-numeric: lining-nums tabular-nums;
+  
+  /* Input Body */
+  
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 1.4rem */
+}
+
+
+
+
+
+
+.CTA-button{
+  padding: 0.75rem 1.5rem;
+  background: #2454FF;
+}
+
+.big-CTA-button{
+  padding: 1rem 2rem;
+  background-color: #2454FF;
+}
+
+.big-CTA-button:hover , .CTA-button:hover{
+  background: #6D8DFF;
+}
+
+
+.big-CTA-button:active , .CTA-button:active{
+  
+  border: 1px solid #6D8DFF;
+  background: #2454FF;
+  /* Focus Effect */
+  box-shadow: 0px 2px 16px 0px rgba(70, 102, 255, 0.50);
+}
+
+
+.secondary-button{
+  color: #2454FF;
+  background-color: transparent;
+  border-radius: 0.75rem;
+  border: 2px solid rgba(36, 84, 255, 0.60);
+}
+
+.secondary-button:hover{
+  background: rgba(109, 141, 255, 0.10);
+}
+
+.secondary-button:active{
+  border-radius: 0.75rem;
+  border: 2px solid #2454FF;
+  background: rgba(182, 198, 255, 0.60);
+  
+  /* Focus Effect */
+  box-shadow: 0px 2px 16px 0px rgba(70, 102, 255, 0.50);
+}
+
+.teritiary-button{
+  color: #2454FF;
+}
+.teritiary-button:hover{
+  color: rgba(36, 84, 255, 0.60)
+}
+
+.teritiary-button:active{
+  /* Focus Effect */
+  text-shadow: 0px 2px 16px rgba(70, 102, 255, 0.50);
+}
+
+
+

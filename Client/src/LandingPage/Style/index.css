@@ -1,0 +1,116 @@
+
+button{
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-family: Nunito;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.6875rem;
+    cursor: pointer;
+
+}
+/* the NavBar Style*/
+.Frame1{
+
+display: flex;
+padding-right:48px;
+padding-left:48px; 
+padding-top: 8px;
+padding-bottom: 0px ; 
+  justify-content: space-between;
+  align-items: center;
+}
+.Logo{
+  color: #2454FF;
+    /* Title Small */
+    font-family: Nunito;
+    font-size: 1.95313rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 0rem;
+}
+.frame2{
+display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2.25rem;
+  padding: 0;
+  align-self: stretch;
+}
+.Log-In-button {
+    
+    border: 2px solid rgba(36, 84, 255, 0.60);
+
+    background-color: white;
+    color: #2454FF;
+    transition: background-color 0.3s ease;
+    /* Big Text */
+}
+.Log-In-button:hover {
+  background-color: rgba(36, 84, 255, 0.1);  
+}
+.Log-In-button:active {
+  border-radius: 0.75rem;
+    border: 2px solid #2454FF;
+    background: rgba(182, 198, 255, 0.60);
+    box-shadow: 0px 2px 16px 0px rgba(70, 102, 255, 0.50);
+}
+
+.Getstarted-button{
+ 
+display: inline-flex;
+  padding: 0.75rem 1.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 0.75rem;
+    background: rgba(36, 84, 255, 1);
+    color :rgba(255, 255, 255, 1);
+    border: 2px solid rgba(36, 84, 255, 1);
+ 
+
+} 
+.Getstarted-button:hover {
+  border-radius: 0.75rem;
+    background: rgba(109, 141, 255, 1);
+    color:rgba(255, 255, 255, 1); 
+    transition: background-color 0.5s ease;
+}
+.Getstarted-button:active:hover{ 
+  border-radius: 0.75rem;
+    border: 2px solid #6D8DFF;
+    background: #2454FF;
+    box-shadow: 0px 2px 16px 0px rgba(70, 102, 255, 0.50);
+  
+}
+/* the Hero Style*/
+.hero-page{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 32rem;
+ flex:1;
+  padding:0 4rem;
+}
+.hero-text{
+  display:flex;
+  flex-direction: column;
+  gap: 1.5rem;
+ 
+
+}
+.hero-button{
+  display:flex;
+  gap : 2rem;
+}
+.hero-image{
+ scale: 0.8;
+ 
+}
+
+
+
+
+
+
