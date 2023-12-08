@@ -103,8 +103,6 @@ namespace App.API.Extentions.DtosExtentions
                 Tag_Name = tag.Name
             };
         }
-
-
         public static IEnumerable<Tag> ToEntities(this IEnumerable<PostHaveTagDto> poatHaveTagsDtos)
         {
 
@@ -115,6 +113,32 @@ namespace App.API.Extentions.DtosExtentions
                         Name = t.Tag_Name
                     });
 
+        }
+
+        public static IEnumerable <PostReadFullDto> ToDto(this IEnumerable<Post> posts,IEnumerable<PostHaveTagDto> tags)
+        {
+            return from p in posts select new PostReadFullDto()
+            {
+                Body = p.Body,
+                Post_Id = p.Post_Id,
+                PublishDateTime = p.PublishDateTime,
+                Tags = tags.Where(t=>t.Post_Id == p.Post_Id).ToEntities().ToDto(),
+                Title = p.Title,
+                User = p.User.ToDto()
+            };
+        }
+
+        public static IEnumerable<PostReadMinimulDto> ToMinDto(this IEnumerable<Post> posts, IEnumerable<PostHaveTagDto> tags)
+        {
+            return from p in posts
+                   select new PostReadMinimulDto()
+                   {
+                       Body = p.Body,
+                       Post_Id = p.Post_Id,
+                       PublishDateTime = p.PublishDateTime,
+                       Tags = tags.Where(t => t.Post_Id == p.Post_Id).ToEntities().ToDto(),
+                       Title = p.Title,
+                   };
         }
     }
 }

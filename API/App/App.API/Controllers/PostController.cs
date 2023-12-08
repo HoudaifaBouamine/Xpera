@@ -30,18 +30,20 @@ namespace App.API.Controllers
         }
 
         [HttpGet("User_Id/{user_Id}")]
-        private async Task<ActionResult<IEnumerable<PostReadFullDto>>> GetUserPosts(int user_Id)
+        public async Task<ActionResult<IEnumerable<PostReadFullDto>>> GetUserPosts(int user_Id)
         {
-            return NotFound(new NotImplementedException());
+            return Ok( await _queryService.ReadUserPostsAsync(user_Id) );
 
         }
 
-        [HttpGet("tag/{tag}")]
+        [HttpGet("tag/{tag_Id}")]
 
-        private async Task<ActionResult<IEnumerable<PostReadFullDto>>> GetTagPosts(int tag_Id)
+        public async Task<ActionResult<IEnumerable<PostReadFullDto>>> GetTagPosts(int tag_Id)
         {
-            return NotFound(new NotImplementedException());
+            return Ok(  await _queryService.ReadTagPostsAsync(tag_Id) );
         }
+
+
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PostReadFullDto>>> GetAllPosts()
