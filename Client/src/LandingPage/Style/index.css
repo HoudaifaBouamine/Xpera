@@ -17,6 +17,9 @@ button {
 
 }
 /* the NavBar Style*/
+.hero-button1{
+  display: none;
+}
 .navBar{
 
 display: flex;
@@ -44,15 +47,6 @@ display: flex;
   padding: 0;
   align-self: stretch;
 }
-.Log-In-button {
-    
-    border: 2px solid rgba(36, 84, 255, 0.60);
-
-    background-color: white;
-    color: #2454FF;
-    transition: background-color 0.3s ease;
-    /* Big Text */
-}
 
 /* the Hero Style*/
 .hero-page{
@@ -75,7 +69,7 @@ display: flex;
   gap : 2rem;
 }
 .hero-image{
- scale: 0.65;
+ scale: 0.6;
  
 }
 .hero-text1{
@@ -135,7 +129,158 @@ color: rgba(0, 0, 0, 0.60);
 position: absolute;
   right: 30.75rem;
 
-  top: 3.25rem;
+  top: 4rem;
+}
+.Hightlight_05{
+  position: absolute;
+    left: 1.625rem;
+    width: 3.35131rem;
+      height: 3.67169rem;
+}
+@media (max-width:1270.67px) {
+  .Hightlight_05{
+    display: none;
+  }
+}
+
+ /*                   ////////////        */
+@media (max-width:1176px){
+  .hero-image {
+   display: none;
+    }
+.hero-paragraph2 {
+     display: none;
+    }
+
+.hero-page{
+display: flex;
+
+  justify-content: center;
+  align-items: center;
+  gap: 3.8125rem;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+.hero-text{
+display: flex;
+
+  width: 36.8125rem;;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.25rem;
+
+}
+.hero-text1{
+  color: #000;
+    text-align: center;
+    /* Big Title */
+    font-family: Nunito;
+    font-size: 3.815rem;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    text-transform: capitalize;
+}
+
+.hero-text2{
+color: #2454FF;
+  /* Big Title */
+  font-family: Nunito;
+  font-size: 3.815rem;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+
+.hero-paragraph1{
+  color: rgba(0, 0, 0, 0.60);
+  
+    text-align: center;
+    /* Title Small */
+    font-family: Nunito;
+    font-size: 1.95313rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.Object1 {
+  position: absolute;
+  right: 13rem;
+  top: 4rem;
+}
+.Hightlight_05 {
+  display: block;
+      position: absolute;
+        left: 13rem;
+        top: 4.5rem;
+    }
+}
+
+@media (max-width:922.667px) {
+.Object1 {
+    position: absolute;
+    right: 1rem;
+    top: 4rem;
+  }
+  .Hightlight_05 {
+           position: absolute;
+           left: 7rem;
+           top: 4.5rem;
+         }
+}
+
+
+@media (max-width:770px) {
+.hero-paragraph1{
+  color: rgba(0, 0, 0, 0.60);
+
+text-align: center;
+/* Sub Heading */
+font-family: Nunito;
+font-size: 1.5625rem;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .navBar-button{
+    display: none;
+  }
+.Object1 {
+  position: absolute;
+  right: 0rem;
+  top: 4rem;
+}
+    .Hightlight_05 {
+      position: absolute;
+      left: 3rem;
+      top: 4.5rem;
+    }
+        .Logo{
+          padding: 1.6rem 0rem;
+        }
+
 }
 
 
