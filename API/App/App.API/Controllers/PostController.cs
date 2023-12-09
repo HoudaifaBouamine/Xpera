@@ -55,7 +55,7 @@ namespace App.API.Controllers
 
         public async Task<ActionResult<PostReadMinimulDto>> CreateNewPost([FromBody] PostCreateDto postCreate)
         {
-            return Ok( await _commandService.CreatePost(postCreate) );
+            return Ok( await _commandService.PostCreateAsync(postCreate) );
         }
     }
 }

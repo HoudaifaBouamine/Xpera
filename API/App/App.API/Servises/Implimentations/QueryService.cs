@@ -179,9 +179,25 @@ namespace App.API.Servises.Implimentations
             return tags;
         }
 
-        public Task<UserReadDto?> ReadUser(int user_id)
+        // Done
+        public async Task<UserReadDto?> ReadUserAsync(int user_id)
         {
-            throw new NotImplementedException();
+            string query = $"SELECT * FROM Users u WHERE u.User_Id = @User_Id";
+
+            using var connection = new SqlConnection(_configuration.GetConnectionString(ConnectionStringName));
+
+            User? user = await connection.QueryFirstOrDefaultAsync<User?>
+                (
+                    query,
+                    param: new { User_Id = user_id }
+                );
+
+            if (user == null)
+            {
+                return null;
+            }
+
+            return user.ToDto();
         }
 
         // Done

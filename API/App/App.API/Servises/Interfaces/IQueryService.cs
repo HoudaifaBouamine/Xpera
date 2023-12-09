@@ -42,7 +42,7 @@ namespace App.API.Servises.Interfaces
         /// </summary>
         /// <param name="user_id">Id of the user</param>
         /// <returns>User dto contain user info</returns>
-        public Task<UserReadDto?> ReadUser(int user_id);
+        public Task<UserReadDto?> ReadUserAsync(int user_id);
 
         /// <summary>
         /// Get user info of Email and password are correct

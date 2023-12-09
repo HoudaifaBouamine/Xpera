@@ -40,13 +40,27 @@ namespace App.API.Controllers
         [HttpGet("id")]
         private async Task<ActionResult<UserReadDto>> Get(int id)
         {
-            return null;
+            UserReadDto? user = await _queryService.ReadUserAsync(id);
+
+            if(user == null)
+            {
+                return NotFound($"User with id = [{id}] not found");
+            }
+
+            return Ok( user );
         }
 
-        [HttpPost]
-        private async Task<ActionResult<User>> Post([FromBody] UserCreateDto user)
+        [HttpPost("register")]
+        public async Task<ActionResult<UserReadDto>> UserRegister([FromBody] UserCreateDto user)
         {
-            return null;
+            UserReadDto? userReadDto = await _commandService.UserRegisterAsync(user);
+
+            if(userReadDto == null)
+            {
+                return BadRequest($"Failed to register user with email: [{user.Email}]");
+            }
+
+            return Ok( userReadDto );
         }
 
 

@@ -18,7 +18,7 @@ namespace App.API.Servises.Implimentations
             _userRepository = userRepository;
             _postRepository = postRepository;
         }
-        public async Task<PostReadMinimulDto?> CreatePost(PostCreateDto postToCreate)
+        public async Task<PostReadMinimulDto?> PostCreateAsync(PostCreateDto postToCreate)
         {
             Post post = postToCreate.ToEntity();
             IEnumerable<Tag> tags = await _postRepository.GetTagsByIds(  postToCreate.Tags_Ids );
@@ -35,27 +35,41 @@ namespace App.API.Servises.Implimentations
             return newPost.ToDto(tags);
         }
 
-        public Task<bool> DeletePost(int postToDelete_id)
+        public Task<bool> PostDeleteAsync(int postToDelete_id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<bool> DeleteUser(int UserToDelete_id)
+        public Task<bool> UserDeleteAsync(int UserToDelete_id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<UserReadDto?> SignInUser(UserCreateDto userToCreate)
+        public async Task<UserReadDto?> UserRegisterAsync(UserCreateDto userToCreate)
+        {
+            User? user = await _userRepository.Read(userToCreate.Email);
+
+            if(user != null)
+            {
+                return null;
+            }
+
+            User? createdUser = await _userRepository.Create(userToCreate.ToEntity());
+
+            if(createdUser == null)
+            {
+                return null;
+            }
+
+            return createdUser.ToDto();
+        }
+
+        public Task<PostReadMinimulDto?> PostUpdateAsync(PostUpdateDto postToUpdate)
         {
             throw new NotImplementedException();
         }
 
-        public Task<PostReadMinimulDto?> UpdatePost(PostUpdateDto postToUpdate)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<PostReadMinimulDto?> UpdateUser(UserUpdateDto userToUpdate)
+        public Task<PostReadMinimulDto?> UserUpdateAsync(UserUpdateDto userToUpdate)
         {
             throw new NotImplementedException();
         }
