@@ -18,6 +18,9 @@ namespace App.API.Servises.Implimentations
             _userRepository = userRepository;
             _postRepository = postRepository;
         }
+        
+        
+        // Done
         public async Task<PostReadMinimulDto?> PostCreateAsync(PostCreateDto postToCreate)
         {
             Post post = postToCreate.ToEntity();
@@ -40,21 +43,24 @@ namespace App.API.Servises.Implimentations
             throw new NotImplementedException();
         }
 
-        public Task<bool> UserDeleteAsync(int UserToDelete_id)
+        public async Task<bool> UserDeleteAsync(int UserToDelete_id)
         {
-            throw new NotImplementedException();
+            bool deleted = await _userRepository.UserDelete(UserToDelete_id);
+
+            return deleted;
         }
 
+        // Done
         public async Task<UserReadDto?> UserRegisterAsync(UserCreateDto userToCreate)
         {
-            User? user = await _userRepository.Read(userToCreate.Email);
+            User? user = await _userRepository.UserRead(userToCreate.Email);
 
             if(user != null)
             {
                 return null;
             }
 
-            User? createdUser = await _userRepository.Create(userToCreate.ToEntity());
+            User? createdUser = await _userRepository.UserCreate(userToCreate.ToEntity());
 
             if(createdUser == null)
             {

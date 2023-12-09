@@ -15,6 +15,7 @@ namespace App.API.Repositories.Implimentations
         
         }
 
+        // Done
         public async Task<Post?> Create(Post post,IEnumerable<Tag> tags)
         {
             var e = await _AppDbContext.Posts.AddAsync(post);
@@ -38,20 +39,25 @@ namespace App.API.Repositories.Implimentations
             return thePost;
         }
 
+        // Done
         public async Task<List<Tag>> GetTagsByIds(IEnumerable<int> tags_ids)
         {
             return await _AppDbContext.Tags.Where(t => tags_ids.Contains(t.Tag_Id)).ToListAsync();
         }
 
+        // Done
         public async Task<Post?> Read(int id)
         {
             return await _AppDbContext.Posts.Where(p => p.Post_Id == id).FirstOrDefaultAsync();
         }
+        
+        // Done
         public async Task<List<Tag>> ReadPostTags(int id)
         {
             return await _AppDbContext.Tags.FromSql($"SELECT T.* FROM   Posts p  JOIN PostsHaveTags pht  ON p.Post_Id = PHT.Post_Id  JOIN Tags t  ON pht.Tag_Id = t.Tag_Id  where P.Post_Id = {id};").ToListAsync(); 
         }
 
+        // Done
         public async Task<List<Post>> ReadUserPostsAsync(int user_Id)
         {
             return await _AppDbContext.Posts.Where(p=>p.User_Id == user_Id).ToListAsync();

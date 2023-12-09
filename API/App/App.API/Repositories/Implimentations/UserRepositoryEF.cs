@@ -14,7 +14,8 @@ namespace App.API.Repositories.Implimentations
             this.dbContext = dbContext;
         }
 
-        public async Task<User?> Create(User user)
+        // Done
+        public async Task<User?> UserCreate(User user)
         {
             user.User_Id = default;
             var Entity = await dbContext.Users.AddAsync(user);
@@ -23,15 +24,33 @@ namespace App.API.Repositories.Implimentations
             return User;
         }
 
-        public async Task<User?> Read(int id)
+        // Done
+        public async Task<bool> UserDelete(int user_id)
+        {
+            int rowAffected = await dbContext.Users.Where(u=>u.User_Id == user_id).ExecuteDeleteAsync();
+
+            if (rowAffected == 1)
+                return true;
+
+            return false;
+        }
+
+        // Done
+        public async Task<User?> UserRead(int id)
         {
             return await dbContext.Users.Where(u=>u.User_Id == id).FirstOrDefaultAsync();
         }
 
-        public async Task<User?> Read(string email)
+        // Done
+        public async Task<User?> UserRead(string email)
         {
             User? user = await dbContext.Users.Where(u=>u.Email == email).FirstOrDefaultAsync();
             return user;
+        }
+
+        public Task<User?> UserUpdate(User user)
+        {
+            throw new NotImplementedException();
         }
     }
 }

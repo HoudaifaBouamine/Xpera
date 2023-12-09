@@ -37,8 +37,8 @@ namespace App.API.Controllers
             return Ok ( user );
         }
 
-        [HttpGet("id")]
-        private async Task<ActionResult<UserReadDto>> Get(int id)
+        [HttpGet("{id}")]
+        public async Task<ActionResult<UserReadDto>> GetUser(int id)
         {
             UserReadDto? user = await _queryService.ReadUserAsync(id);
 
@@ -63,6 +63,15 @@ namespace App.API.Controllers
             return Ok( userReadDto );
         }
 
+        [HttpDelete("{Id}")]
+        public async Task<ActionResult> UserDelete(int Id)
+        {
+            bool deleted = await _commandService.UserDeleteAsync(Id);
 
+            if (deleted)
+                return Ok();
+
+            return NotFound();
+        }
     }
 }

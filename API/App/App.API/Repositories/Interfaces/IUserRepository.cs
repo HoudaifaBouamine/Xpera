@@ -4,9 +4,13 @@ namespace App.API.Repositories.Interfaces
 {
     public interface IUserRepository
     {
-        Task<User?> Read(int id);
-        Task<User?> Read(string email);
+        Task<User?> UserRead(int id);
+        Task<User?> UserRead(string email);
 
-        Task<User?> Create(User user);
+        Task<User?> UserCreate(User user);
+        Task<User?> UserUpdate(User user);
+        Task<bool> UserDelete(int user_id);
+
+
     }
 }
