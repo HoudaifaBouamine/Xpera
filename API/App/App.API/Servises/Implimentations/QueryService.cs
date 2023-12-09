@@ -101,6 +101,11 @@ namespace App.API.Servises.Implimentations
                     param: new { Post_Id = post_id },
                     splitOn:"Sep"
                 )).FirstOrDefault()!;
+            
+            if(postReadFullDto == null)
+            {
+                return null;
+            }
 
             var tags = await _GetTagsByPosts(new List<int>(){ postReadFullDto.Post_Id });
 

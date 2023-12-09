@@ -7,6 +7,7 @@ using App.Models.Dtos.Post.Read;
 using App.Models.Dtos.User.Command;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Reflection.Metadata.Ecma335;
 
 namespace App.API.Controllers
 {
@@ -26,7 +27,15 @@ namespace App.API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<PostReadFullDto>> GetPost(int id)
         {
-            return Ok( await _queryService.ReadPostAsync(id) );
+            PostReadFullDto? post = await _queryService.ReadPostAsync(id);
+            if(post == null)
+            {
+                return NotFound("Post Not Found");
+            }
+            else
+            {
+                return Ok(post);
+            }
         }
 
         [HttpGet("User_Id/{user_Id}")]
@@ -37,13 +46,10 @@ namespace App.API.Controllers
         }
 
         [HttpGet("tag/{tag_Id}")]
-
         public async Task<ActionResult<IEnumerable<PostReadFullDto>>> GetTagPosts(int tag_Id)
         {
             return Ok(  await _queryService.ReadTagPostsAsync(tag_Id) );
         }
-
-
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PostReadFullDto>>> GetAllPosts()
@@ -52,10 +58,24 @@ namespace App.API.Controllers
         }
 
         [HttpPost]
-
         public async Task<ActionResult<PostReadMinimulDto>> CreateNewPost([FromBody] PostCreateDto postCreate)
         {
             return Ok( await _commandService.PostCreateAsync(postCreate) );
         }
+
+        [HttpDelete("{post_id}")]
+        public async Task<ActionResult> DeletePost(int post_id)
+        {
+            if(await _commandService.PostDeleteAsync(post_id))
+            {
+                return Ok("Deleted Successfuly");
+            }
+            else
+            {
+                return NotFound("Something went wrong but I did not handel it yet (Post not exist or failed to delete)");
+            }
+        }
+
+    
     }
 }

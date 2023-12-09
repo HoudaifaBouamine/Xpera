@@ -24,11 +24,11 @@ namespace App.API.Servises.Implimentations
         public async Task<PostReadMinimulDto?> PostCreateAsync(PostCreateDto postToCreate)
         {
             Post post = postToCreate.ToEntity();
-            IEnumerable<Tag> tags = await _postRepository.GetTagsByIds(  postToCreate.Tags_Ids );
+            IEnumerable<Tag> tags = await _postRepository.TagsByIdsAsync(  postToCreate.Tags_Ids );
 
             post.PublishDateTime = DateTime.Now;
 
-            Post? newPost = await _postRepository.Create(post,tags);
+            Post? newPost = await _postRepository.PostCreateAsync(post,tags);
 
             if(newPost == null)
             {
@@ -38,11 +38,12 @@ namespace App.API.Servises.Implimentations
             return newPost.ToDto(tags);
         }
 
-        public Task<bool> PostDeleteAsync(int postToDelete_id)
+        public async Task<bool> PostDeleteAsync(int postToDelete_id)
         {
-            throw new NotImplementedException();
+            return await _postRepository.PostDeleteAsync(postToDelete_id);
         }
 
+        // Done
         public async Task<bool> UserDeleteAsync(int UserToDelete_id)
         {
             bool deleted = await _userRepository.UserDelete(UserToDelete_id);
