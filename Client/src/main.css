@@ -1,0 +1,74 @@
+@import './cssVariables.css';
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+* {
+    font-family: Nunito;
+    padding: 0;
+    margin: 0;
+}
+
+h1, h2, h3, h4 {
+    opacity: 0.9;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: var(--font-size-big-title);
+    font-weight: 800;
+}
+
+h2 {
+    font-size: var(--font-size-title);
+    font-weight: 800;
+}
+
+h3 {
+    font-size: var(--font-size-title-medium);
+    font-weight: 800;
+}
+
+h4 {
+    font-size: var(--font-size-title-small);
+    font-weight: 700;
+}
+
+h5 {
+    font-size: var(--font-size-sub-heading);
+    font-weight: 700;
+}
+
+h6 {
+    font-size: var(--font-size-big-text);
+    font-weight: 600;
+}
+
+p {
+    font-size: var(--font-size-text);
+    opacity: 0.6; /* Adjusted opacity based on your request */
+}
+
+.p-big {
+    font-size: var(--font-size-big-text);
+}
+
+.p-small {
+    font-size: var(--font-size-text-small);
+    font-weight: 400;
+}
+
+.p-caption {
+    font-size: var(--font-size-caption);
+    font-weight: 400;
+}
