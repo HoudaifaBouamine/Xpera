@@ -28,14 +28,14 @@ namespace App.API.Servises.Implimentations
             Tags = connection.Query<Tag>($"SELECT * FROM Tags").ToList();
         }
 
-
+        // Done
         public async Task<UserReadDto?> LoginUser(string email, string password)
         {
             string query = $"SELECT * FROM Users u WHERE u.Email = @UserEmail";
 
             using var connection = new SqlConnection(_configuration.GetConnectionString(ConnectionStringName));
 
-            User? user = await connection.QueryFirstAsync<User>
+            User? user = await connection.QueryFirstOrDefaultAsync<User?>
                 (
                     query,
                     param:new { UserEmail = email}
