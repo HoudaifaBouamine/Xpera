@@ -28,16 +28,38 @@ namespace App.API.Servises.Implimentations
             Tags = connection.Query<Tag>($"SELECT * FROM Tags").ToList();
         }
 
-        public Task<UserReadDto?> LoginUser(string email, string password)
+        // Done
+        public async Task<UserReadDto?> LoginUser(string email, string password)
         {
-            throw new NotImplementedException();
+            string query = $"SELECT * FROM Users u WHERE u.Email = @UserEmail";
+
+            using var connection = new SqlConnection(_configuration.GetConnectionString(ConnectionStringName));
+
+            User? user = await connection.QueryFirstOrDefaultAsync<User?>
+                (
+                    query,
+                    param:new { UserEmail = email}
+                );
+
+            if(user == null)
+            {
+                return null;
+            }
+
+            if(user.HashedPassword != _HashPassword( password ))
+            {
+                return null;
+            }
+
+            return user.ToDto();
+        }
+
+        private string _HashPassword(string password)
+        {
+            return password;
         }
 
         // Done
-        /// <summary>
-        /// Get All posts in the system
-        /// </summary>
-        /// <returns>List of PostReadFullDto</returns>
         public async Task<IEnumerable<PostReadFullDto>> ReadAllPostsAsync()
         {
             using var connection = new SqlConnection(_configuration.GetConnectionString(ConnectionStringName));
@@ -62,13 +84,34 @@ namespace App.API.Servises.Implimentations
                 splitOn:"User_Id");
         }
 
-        public Task<PostReadFullDto?> ReadPostAsync(int post_id)
+        // Done
+        public async Task<PostReadFullDto?> ReadPostAsync(int post_id)
         {
-            throw new NotImplementedException();
+            using var connection = new SqlConnection(_configuration.GetConnectionString(ConnectionStringName));
+            string query = $"SELECT p.*,1 as Sep,u.* FROM Posts p JOIN Users u ON p.User_Id = u.User_Id WHERE p.Post_Id = @Post_Id";
+
+            PostReadFullDto postReadFullDto = (await connection.QueryAsync<PostReadFullDto,User,PostReadFullDto>
+                (
+                    query,
+                    (postDto,user) =>
+                    {
+                        postDto.User = user.ToDto();
+                        return postDto;
+                    },
+                    param: new { Post_Id = post_id },
+                    splitOn:"Sep"
+                )).FirstOrDefault()!;
+
+            var tags = await _GetTagsByPosts(new List<int>(){ postReadFullDto.Post_Id });
+
+            postReadFullDto.Tags = tags.ToEntities().ToDto();
+
+            return postReadFullDto;
+
         }
 
 
-
+        // Done
         public async Task<IEnumerable<PostReadFullDto>> ReadTagPostsAsync(int tag_id)
         {
             using var connection = new SqlConnection(_configuration.GetConnectionString(ConnectionStringName));
@@ -112,7 +155,8 @@ namespace App.API.Servises.Implimentations
             return posts;
         }
 
-        private async Task< List<PostHaveTagDto> > _GetTagsByPosts(IEnumerable<int> posts_ids)
+        // Done
+        private async Task<List<PostHaveTagDto>> _GetTagsByPosts(IEnumerable<int> posts_ids)
         {
 
             using var connection = new SqlConnection(_configuration.GetConnectionString(ConnectionStringName));
@@ -135,11 +179,28 @@ namespace App.API.Servises.Implimentations
             return tags;
         }
 
-        public Task<UserReadDto?> ReadUser(int user_id)
+        // Done
+        public async Task<UserReadDto?> ReadUserAsync(int user_id)
         {
-            throw new NotImplementedException();
+            string query = $"SELECT * FROM Users u WHERE u.User_Id = @User_Id";
+
+            using var connection = new SqlConnection(_configuration.GetConnectionString(ConnectionStringName));
+
+            User? user = await connection.QueryFirstOrDefaultAsync<User?>
+                (
+                    query,
+                    param: new { User_Id = user_id }
+                );
+
+            if (user == null)
+            {
+                return null;
+            }
+
+            return user.ToDto();
         }
 
+        // Done
         public async Task<IEnumerable<PostReadMinimulDto>> ReadUserPostsAsync(int user_id)
         {
             using var connection = new SqlConnection(_configuration.GetConnectionString(ConnectionStringName));
@@ -157,5 +218,6 @@ namespace App.API.Servises.Implimentations
 
             return result;
         }
+
     }
 }

@@ -17,21 +17,21 @@ namespace App.API.Servises.Interfaces
         /// </summary>
         /// <param name="postToCreate">contatin new post's data</param>
         /// <returns>Minimul information about the new created post (including post_id) if created successfuly,otherwise return null</returns>
-        public Task<PostReadMinimulDto?> CreatePost(PostCreateDto postToCreate);
+        public Task<PostReadMinimulDto?> PostCreateAsync(PostCreateDto postToCreate);
 
         /// <summary>
         /// Update an existing post information
         /// </summary>
         /// <param name="postToUpdate">Contain the new updated data</param>
         /// <returns>return the updated post info of updated succesfuly ,otherwize return null</returns>
-        public Task<PostReadMinimulDto?> UpdatePost(PostUpdateDto postToUpdate);
+        public Task<PostReadMinimulDto?> PostUpdateAsync(PostUpdateDto postToUpdate);
 
         /// <summary>
         /// Delete an existing post by post id
         /// </summary>
         /// <param name="postToDelete_id">the post Id</param>
         /// <returns>return <c>true</c> if deleted</returns>
-        public Task<bool> DeletePost(int postToDelete_id);
+        public Task<bool> PostDeleteAsync(int postToDelete_id);
 
 
         // User
@@ -42,21 +42,21 @@ namespace App.API.Servises.Interfaces
         /// </summary>
         /// <param name="userToCreate">contatin new user's data</param>
         /// <returns>return User Read Dto if user Created Successfuly, otherwize return null</returns>
-        public Task<UserReadDto?> SignInUser(UserCreateDto userToCreate);
+        public Task<UserReadDto?> UserRegisterAsync(UserCreateDto userToCreate);
 
         /// <summary>
         /// Update an existing post information
         /// </summary>
         /// <param name="userToUpdate">Contain the new updated data</param>
         /// <returns>return the updated post info of updated succesfuly ,otherwize return null</returns>
-        public Task<PostReadMinimulDto?> UpdateUser(UserUpdateDto userToUpdate);
+        public Task<PostReadMinimulDto?> UserUpdateAsync(UserUpdateDto userToUpdate);
 
         /// <summary>
         /// Delete an existing post by post id
         /// </summary>
         /// <param name="UserToDelete_id">the user Id</param>
         /// <returns>return <c>true</c> if deleted</returns>
-        public Task<bool> DeleteUser(int UserToDelete_id);
+        public Task<bool> UserDeleteAsync(int UserToDelete_id);
 
     }
 }

@@ -24,9 +24,9 @@ namespace App.API.Controllers
 
 
         [HttpGet("{id}")]
-        private async Task<ActionResult<PostReadFullDto>> GetPost(int id)
+        public async Task<ActionResult<PostReadFullDto>> GetPost(int id)
         {
-            return NotFound( new NotImplementedException() );
+            return Ok( await _queryService.ReadPostAsync(id) );
         }
 
         [HttpGet("User_Id/{user_Id}")]
@@ -55,7 +55,7 @@ namespace App.API.Controllers
 
         public async Task<ActionResult<PostReadMinimulDto>> CreateNewPost([FromBody] PostCreateDto postCreate)
         {
-            return Ok( await _commandService.CreatePost(postCreate) );
+            return Ok( await _commandService.PostCreateAsync(postCreate) );
         }
     }
 }

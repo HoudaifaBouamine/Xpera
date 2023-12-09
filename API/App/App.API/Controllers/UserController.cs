@@ -1,10 +1,12 @@
 ﻿using App.API.Entities;
 using App.API.Extentions.DtosExtentions;
 using App.API.Repositories.Interfaces;
+using App.API.Servises.Interfaces;
 using App.Models.Dtos.Post;
 using App.Models.Dtos.User.Command;
 using App.Models.Dtos.User.Query;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace App.API.Controllers
@@ -13,40 +15,52 @@ namespace App.API.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly IUserRepository _userRepository;
-        private readonly IPostRepository _postRepository;
-        public UserController(IUserRepository userRepository,IPostRepository postRepository) 
+        readonly private ICommandService _commandService;
+        readonly private IQueryService _queryService;
+
+        public UserController(ICommandService commandService,IQueryService queryService)
         {
-            this._userRepository = userRepository;
-            this._postRepository = postRepository;
+            _commandService = commandService;
+            _queryService   = queryService;
+        }
+
+        [HttpPost("login")]
+        public async Task<ActionResult<UserReadDto>> UserLogin([FromBody] UserLoginDto userLoginDto)
+        {
+            UserReadDto? user = await _queryService.LoginUser(userLoginDto.Email,userLoginDto.Password);
+
+            if(user == null)
+            {
+                return BadRequest("Failed To Login");
+            }
+
+            return Ok ( user );
         }
 
         [HttpGet("id")]
-        public async Task<ActionResult<UserReadDto>> Get(int id)
+        private async Task<ActionResult<UserReadDto>> Get(int id)
         {
-            User? user = await _userRepository.Read(id);
+            UserReadDto? user = await _queryService.ReadUserAsync(id);
 
-            if(user == null) return NotFound();
+            if(user == null)
+            {
+                return NotFound($"User with id = [{id}] not found");
+            }
 
-            return Ok(user.ToDto());
+            return Ok( user );
         }
 
-        [HttpPost]
-        public async Task<ActionResult<User>> Post([FromBody] UserCreateDto user)
+        [HttpPost("register")]
+        public async Task<ActionResult<UserReadDto>> UserRegister([FromBody] UserCreateDto user)
         {
-            if( await _userRepository.Read(user.Email) != null)
+            UserReadDto? userReadDto = await _commandService.UserRegisterAsync(user);
+
+            if(userReadDto == null)
             {
-                return BadRequest($"User with email [{user.Email}] is already exist");
+                return BadRequest($"Failed to register user with email: [{user.Email}]");
             }
 
-            User? createdUser = await _userRepository.Create(user.ToEntity());
-
-            if (createdUser == null)
-            {
-                return BadRequest("Failed To Create New User");
-            }
-
-            return Ok(createdUser);
+            return Ok( userReadDto );
         }
 
 

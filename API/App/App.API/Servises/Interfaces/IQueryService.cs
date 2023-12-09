@@ -20,7 +20,7 @@ namespace App.API.Servises.Interfaces
         /// </summary>
         /// <param name="user_id">Key of the user</param>
         /// <returns>list of all the posts owned by the user with the selected user_id</returns>
-        public Task<IEnumerable<PostReadFullDto>> ReadUserPostsAsync(int user_id);
+        public Task<IEnumerable<PostReadMinimulDto>> ReadUserPostsAsync(int user_id);
 
         /// <summary>
         /// Get all the posts information in the system
@@ -42,7 +42,7 @@ namespace App.API.Servises.Interfaces
         /// </summary>
         /// <param name="user_id">Id of the user</param>
         /// <returns>User dto contain user info</returns>
-        public Task<UserReadDto?> ReadUser(int user_id);
+        public Task<UserReadDto?> ReadUserAsync(int user_id);
 
         /// <summary>
         /// Get user info of Email and password are correct
