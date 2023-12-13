@@ -161,5 +161,20 @@ input:valid{
 
 }
 
+.tag{
+  padding: 0.75rem 1.5rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3rem;
+  border: 1px solid #2454FF;
+}
+
+.tag:hover{
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.tag:active{
+  background: rgba(36, 84, 255, 0.08);
+}
 
 
