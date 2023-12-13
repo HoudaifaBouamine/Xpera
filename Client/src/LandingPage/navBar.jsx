@@ -1,7 +1,7 @@
 import React from 'react'
 import './Style/index.css'
-import CTA_Button from "../compenenet/CTA_Button"
-import SecondaryButton from "../compenenet/SecondaryButton"
+import CTA_Button from "../component/CTA_Button"
+import SecondaryButton from "../component/SecondaryButton"
 const navBar = () => {
   return (
    <div className ="navBar">

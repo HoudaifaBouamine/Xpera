@@ -1,8 +1,8 @@
 import React from 'react'
 import NavBar from './navBar'
 import './Style/index.css'
-import GetStarted from "../compenenet/CTA_Button"
-import LogIn  from "../compenenet/SecondaryButton"
+import GetStarted from "../component/CTA_Button"
+import LogIn  from "../component/SecondaryButton"
 
 import Hightlight_05 from './Style/assets/Highlight_05.svg'
 import Star  from './Style/assets/Misc_01.svg'
