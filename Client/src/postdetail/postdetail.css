@@ -1,0 +1,91 @@
+.post {
+  height: auto;
+  width: 60rem;
+  border-radius: 12px;
+  padding: 3rem 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 1.5rem;
+  background: #fff;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Nunito;
+  display: flex;
+  justify-content: center;
+  background: #E5E7EB;
+}
+
+.post h1 {
+font-size: 3.05188rem;
+font-style: normal;
+font-weight: 800;
+line-height: normal;
+text-transform: capitalize;
+}
+
+.post .owner .avatar {
+  height: 2.4rem;
+  width: 2.4rem;
+  border-radius: 50%;
+  border: 1px solid purple;
+}
+
+.post .owner h2 {
+  color: #000;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.post .owner h3 {
+  color: rgba(0, 0, 0, 0.40);
+font-size: 0.8rem;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+} 
+
+.post p {
+  color: rgba(0, 0, 0, 0.40);
+font-size: 1.25rem;
+font-style: normal;
+font-weight: 600;
+line-height: 1.875rem;
+text-indent: 1rem;
+border-left: 0.05rem solid #2454FF;
+padding-left: 2.5rem;
+}
+
+.post .owner {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.post .tags a {
+display: flex;
+padding: 0.75rem 1.5rem;
+justify-content: center;
+align-items: center;
+gap: 0.625rem;
+border-radius: 3rem;
+border: 1px solid #2454FF;
+}
+
+.post .tags {
+display: flex;
+padding: 0rem 1.5rem;
+align-items: flex-start;
+align-content: flex-start;
+gap: 0.75rem;
+flex-wrap: wrap;
+}
