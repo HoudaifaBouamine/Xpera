@@ -8,8 +8,8 @@ export default function() {
 
   useEffect(
     () => {
-      fetch("https://ba4a-154-121-91-232.ngrok-free.app/api/Post/3" , {
-        headers : new Headers( { 'ngrok-skip-browser-warning' : 1 } )
+      fetch("https://ba4a-154-121-91-232.ngrok-free.app/api/post/3" , {
+        headers : new Headers( { 'ngrok-skip-browser-warning' : '1' } )
       })
      .then( (result) => result.json() )
       .then ( result => console.log(result) ).catch(console.log())
