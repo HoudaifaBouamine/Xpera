@@ -1,15 +1,14 @@
 ﻿using App.API.Data;
 using App.API.Entities;
-using App.API.Repositories.Interfaces;
 using App.Models.Dtos;
 using Microsoft.EntityFrameworkCore;
 
-namespace App.API.Repositories.Implimentations
+namespace App.API.Repositories.UserRepository
 {
     public class UserRepositoryEF : IUserRepository
     {
         private readonly AppDbContext dbContext;
-        public UserRepositoryEF(AppDbContext dbContext) 
+        public UserRepositoryEF(AppDbContext dbContext)
         {
             this.dbContext = dbContext;
         }
@@ -27,7 +26,7 @@ namespace App.API.Repositories.Implimentations
         // Done
         public async Task<bool> UserDelete(int user_id)
         {
-            int rowAffected = await dbContext.Users.Where(u=>u.User_Id == user_id).ExecuteDeleteAsync();
+            int rowAffected = await dbContext.Users.Where(u => u.User_Id == user_id).ExecuteDeleteAsync();
 
             if (rowAffected == 1)
                 return true;
@@ -38,13 +37,13 @@ namespace App.API.Repositories.Implimentations
         // Done
         public async Task<User?> UserRead(int id)
         {
-            return await dbContext.Users.Where(u=>u.User_Id == id).FirstOrDefaultAsync();
+            return await dbContext.Users.Where(u => u.User_Id == id).FirstOrDefaultAsync();
         }
 
         // Done
         public async Task<User?> UserRead(string email)
         {
-            User? user = await dbContext.Users.Where(u=>u.Email == email).FirstOrDefaultAsync();
+            User? user = await dbContext.Users.Where(u => u.Email == email).FirstOrDefaultAsync();
             return user;
         }
 

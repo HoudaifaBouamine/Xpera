@@ -1,15 +1,12 @@
 ﻿using App.API.Entities;
 using App.API.Extentions.DtosExtentions;
-using App.API.Servises.Interfaces;
+using App.API.Services.Interfaces;
 using App.Models.Dtos.Post;
 using App.Models.Dtos.Post.Query;
 using App.Models.Dtos.Post.Read;
 using App.Models.Dtos.User.Query;
 using Dapper;
-using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.Extensions.Hosting;
 using System.Data.SqlClient;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace App.API.Servises.Implimentations
 {
@@ -147,7 +144,7 @@ namespace App.API.Servises.Implimentations
 
             List<PostHaveTagDto> tags = await _GetTagsByPosts(from p in posts select p.Post_Id);
 
-            for(int i = 0; i < posts.Count(); i++)
+            for(int i = 0; i < posts.Count; i++)
             {
                 posts[i].Tags = (from t in tags where t.Post_Id == posts[i].Post_Id 
                                  select new TagDto()
@@ -160,7 +157,6 @@ namespace App.API.Servises.Implimentations
             return posts;
         }
 
-        // Done
         private async Task<List<PostHaveTagDto>> _GetTagsByPosts(IEnumerable<int> posts_ids)
         {
 

@@ -1,6 +1,6 @@
 ﻿using App.API.Entities;
 
-namespace App.API.Repositories.Interfaces
+namespace App.API.Repositories.UserRepository
 {
     public interface IUserRepository
     {

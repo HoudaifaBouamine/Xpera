@@ -1,32 +1,20 @@
 ﻿using App.API.AuthenticationService;
-using App.API.Entities;
 using App.API.Extentions.DtosExtentions;
-using App.API.Repositories.Interfaces;
-using App.API.Servises.Interfaces;
-using App.Models.Dtos.Post;
+using App.API.Services.Interfaces;
 using App.Models.Dtos.User.Command;
 using App.Models.Dtos.User.Query;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace App.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class UserController(ICommandService commandService, IQueryService queryService, IAuthService authService) : ControllerBase
     {
-        private readonly ICommandService _commandService;
-        private readonly IQueryService _queryService;
-        private readonly IAuthService _authService;
-
-        public UserController(ICommandService commandService,IQueryService queryService,IAuthService authService)
-        {
-            _commandService = commandService;
-            _queryService   = queryService;
-            _authService = authService;
-        }
+        private readonly ICommandService _commandService = commandService;
+        private readonly IQueryService _queryService = queryService;
+        private readonly IAuthService _authService = authService;
 
         [HttpPost("login")]
         public async Task<ActionResult<UserReadDto>> UserLogin([FromBody] UserLoginDto userLoginDto)

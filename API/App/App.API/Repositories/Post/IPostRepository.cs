@@ -1,10 +1,10 @@
 ﻿using App.API.Entities;
 
-namespace App.API.Repositories.Interfaces
+namespace App.API.Repositories.PostRepository
 {
     public interface IPostRepository
     {
-        public Task<Post?> PostCreateAsync(Post post,IEnumerable<Tag> tags);
+        public Task<Post?> PostCreateAsync(Post post, IEnumerable<Tag> tags);
 
         public Task<Post?> PostReadAsync(int id);
 

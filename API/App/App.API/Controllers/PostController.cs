@@ -1,30 +1,18 @@
 ﻿using App.API.AuthenticationService;
-using App.API.Entities;
-using App.API.Extentions.DtosExtentions;
-using App.API.Repositories.Interfaces;
-using App.API.Servises.Interfaces;
+using App.API.Services.Interfaces;
 using App.Models.Dtos.Post.Create;
 using App.Models.Dtos.Post.Read;
-using App.Models.Dtos.User.Command;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Reflection.Metadata.Ecma335;
 
 namespace App.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PostController : ControllerBase
+    public class PostController(ICommandService commandService, IQueryService queryService) : ControllerBase
     {
-        private readonly ICommandService _commandService;
-        private readonly IQueryService _queryService;
-        public PostController(ICommandService commandService,IQueryService queryService)
-        {
-            _commandService = commandService;
-            _queryService = queryService;
-        }
-
+        private readonly ICommandService _commandService = commandService;
+        private readonly IQueryService _queryService = queryService;
 
         [HttpGet("{id}")]
         public async Task<ActionResult<PostReadFullDto>> GetPost(int id)
@@ -32,7 +20,7 @@ namespace App.API.Controllers
             PostReadFullDto? post = await _queryService.ReadPostAsync(id);
             if(post == null)
             {
-                return NotFound("Post Not Found");
+                return NotFound();
             }
             else
             {
@@ -72,11 +60,11 @@ namespace App.API.Controllers
         {
             if(await _commandService.PostDeleteAsync(post_id))
             {
-                return Ok("Deleted Successfuly");
+                return Ok();
             }
             else
             {
-                return NotFound("Something went wrong but I did not handel it yet (Post not exist or failed to delete)");
+                return NotFound();
             }
         }
 

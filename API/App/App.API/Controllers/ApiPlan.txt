@@ -1,22 +1,22 @@
 GET 	: /api/post/{id} 	      : Read post by post id					(done)
 GET  	: /api/post/user_id/{user_id} : Read all user posts by user id		(done)
-GET  	: /api/post                   : Read all posts						()
-GET     : /api/post/tag               : Read all posts with tag				()
+GET  	: /api/post                   : Read all posts						(done)
+GET     : /api/post/tag               : Read all posts with tag				(done)
 
-POST 	: /api/post                   : Create a post						()
+POST 	: /api/post                   : Create a post						(done)
 																			
-PUT  	: /api/post/{id}              : Update a post						()
+PUT  	: /api/post/{id}              : Update a post						(done)
 																			
-DELETE  : /api/post/{id}	      : Delete a post							()
+DELETE  : /api/post/{id}	      : Delete a post							(done)
 																			
-////////////////////////////////////////////////////						()
+////////////////////////////////////////////////////						(done)
 																			
-GET     : /api/user/{id}              : Read User by id						()
-GET     : /api/user/login             : Login (email & password)			()
+GET     : /api/user/{id}              : Read User by id						(done)
+GET     : /api/user/login             : Login (email & password)			(done)
 																			
-POST    : /api/signIn				  : Create User 						()
+POST    : /api/register				  : Create User 						(done)
 																			
-PUT     : /api/user/{id}              : Update a User						()
+PUT     : /api/user/{id}              : Update a User						(done)
 																			
-DELETE  : /api/user/{id}              : Delete a user						()
+DELETE  : /api/user/{id}              : Delete a user						(done)
 

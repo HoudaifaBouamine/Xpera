@@ -1,9 +1,8 @@
 ﻿using App.API.Data;
 using App.API.Entities;
-using App.API.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace App.API.Repositories.Implimentations
+namespace App.API.Repositories.PostRepository
 {
     public class PostRepositoryEF : IPostRepository
     {
