@@ -1,9 +1,12 @@
 using App.API.AuthenticationService;
 using App.API.Data;
+using App.API.Extentions;
+using App.API.Extentions.DtosExtentions;
 using App.API.Repositories.Implimentations;
 using App.API.Repositories.Interfaces;
 using App.API.Servises.Implimentations;
 using App.API.Servises.Interfaces;
+using AutoMapper;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,6 +23,7 @@ builder.Services.AddAuthorization(conf =>
         p.RequireAuthenticatedUser();
     });
 });
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddDbContext<AppDbContext>();
 builder.Services.AddScoped<IUserRepository,UserRepositoryEF>();
@@ -29,6 +33,8 @@ builder.Services.AddScoped<IQueryService,QueryService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 
 var app = builder.Build();
+
+app.UseConfigration();
 
 app.UseSwagger();
 app.UseSwaggerUI();

@@ -3,6 +3,7 @@ using App.Models.Dtos.Post;
 using App.Models.Dtos.Post.Create;
 using App.Models.Dtos.Post.Query;
 using App.Models.Dtos.Post.Read;
+using AutoMapper;
 using Microsoft.Extensions.Hosting;
 using System.Linq;
 
@@ -10,8 +11,15 @@ namespace App.API.Extentions.DtosExtentions
 {
     public static class PostExtentions
     {
+        private static IMapper _mapper = null;
+
+        public static void Configure(IMapper mapper)
+        {
+            _mapper = mapper;
+        }
         public static PostReadFullDto ToDto(this Post post, User user, List<Tag> tags)
         {
+
             return new PostReadFullDto()
             {
                 Body = post.Body,
@@ -59,15 +67,11 @@ namespace App.API.Extentions.DtosExtentions
 
         public static Post ToEntity(this PostCreateDto postCreate)
         {
-            return new Post()
-            {
-                Post_Id = default,
-                Title = postCreate.Title,
-                Body = postCreate.Body,
-                User_Id = postCreate.User_Id,
-                User = null,
-                PublishDateTime = DateTime.Now,
-            };
+            Post post = _mapper.Map<Post>(postCreate);
+            post.User = null;
+            post.PublishDateTime = DateTime.Now;
+
+            return post;
         }
 
         public static List<Tag> ToEntity(this IEnumerable<TagDto> tagsAsDto)
@@ -133,6 +137,7 @@ namespace App.API.Extentions.DtosExtentions
             return from p in posts
                    select new PostReadMinimulDto()
                    {
+                       User_Id = p.User_Id,
                        Body = p.Body,
                        Post_Id = p.Post_Id,
                        PublishDateTime = p.PublishDateTime,
