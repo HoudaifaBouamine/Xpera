@@ -22,6 +22,19 @@ namespace App.API.Extentions.DtosExtentions
 
         }
 
+        static public User ToEntity(this UserReadDto userReadDto)
+        {
+
+            return new User()
+            {
+                User_Id = default,
+                Email = userReadDto.Email,
+                FirstName = userReadDto.FirstName,
+                LastName = userReadDto.LastName,
+            };
+
+        }
+
         static public UserReadDto ToDto(this User user)
         {
             return new UserReadDto()

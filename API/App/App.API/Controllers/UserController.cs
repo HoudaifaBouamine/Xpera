@@ -1,10 +1,12 @@
-﻿using App.API.Entities;
+﻿using App.API.AuthenticationService;
+using App.API.Entities;
 using App.API.Extentions.DtosExtentions;
 using App.API.Repositories.Interfaces;
 using App.API.Servises.Interfaces;
 using App.Models.Dtos.Post;
 using App.Models.Dtos.User.Command;
 using App.Models.Dtos.User.Query;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -15,26 +17,30 @@ namespace App.API.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        readonly private ICommandService _commandService;
-        readonly private IQueryService _queryService;
+        private readonly ICommandService _commandService;
+        private readonly IQueryService _queryService;
+        private readonly IAuthService _authService;
 
-        public UserController(ICommandService commandService,IQueryService queryService)
+        public UserController(ICommandService commandService,IQueryService queryService,IAuthService authService)
         {
             _commandService = commandService;
             _queryService   = queryService;
+            _authService = authService;
         }
 
         [HttpPost("login")]
         public async Task<ActionResult<UserReadDto>> UserLogin([FromBody] UserLoginDto userLoginDto)
         {
-            UserReadDto? user = await _queryService.LoginUser(userLoginDto.Email,userLoginDto.Password);
+            UserReadDto? userRead = await _queryService.LoginUser(userLoginDto.Email,userLoginDto.Password);
 
-            if(user == null)
+            if(userRead == null)
             {
                 return BadRequest("Failed To Login");
             }
 
-            return Ok ( user );
+            await HttpContext.SignInAsync(Auth.Scheme.UserCookie, _authService.CreateUserClaimsPrincipal(userRead.ToEntity(), Auth.Scheme.UserCookie));
+
+            return Ok (userRead);
         }
 
         [HttpGet("{id}")]

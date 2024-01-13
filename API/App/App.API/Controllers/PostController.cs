@@ -1,10 +1,12 @@
-﻿using App.API.Entities;
+﻿using App.API.AuthenticationService;
+using App.API.Entities;
 using App.API.Extentions.DtosExtentions;
 using App.API.Repositories.Interfaces;
 using App.API.Servises.Interfaces;
 using App.Models.Dtos.Post.Create;
 using App.Models.Dtos.Post.Read;
 using App.Models.Dtos.User.Command;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Reflection.Metadata.Ecma335;
@@ -58,12 +60,14 @@ namespace App.API.Controllers
         }
 
         [HttpPost]
+        [Authorize(Policy =Auth.Policy.RequireUser)]
         public async Task<ActionResult<PostReadMinimulDto>> CreateNewPost([FromBody] PostCreateDto postCreate)
         {
             return Ok( await _commandService.PostCreateAsync(postCreate) );
         }
 
         [HttpDelete("{post_id}")]
+        [Authorize(Policy = Auth.Policy.RequireUser)]
         public async Task<ActionResult> DeletePost(int post_id)
         {
             if(await _commandService.PostDeleteAsync(post_id))
