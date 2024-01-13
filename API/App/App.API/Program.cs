@@ -42,4 +42,4 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run();
+app.Run("https://localhost:1234");

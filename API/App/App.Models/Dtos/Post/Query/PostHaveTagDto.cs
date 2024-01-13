@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace App.Models.Dtos.Post.Query
 {
+    /// <summary>
+    /// Reporesent the relation between Post and Tag (used to create M -> M relation between Posts & Tags tables)
+    /// </summary>
     public class PostHaveTagDto
     {
         public int Post_Id { get; set; }
