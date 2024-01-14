@@ -1,11 +1,13 @@
 ﻿using App.API.Entities;
 using App.API.Extentions.DtosExtentions;
+using App.API.Security;
 using App.API.Services.Interfaces;
 using App.Models.Dtos.Post;
 using App.Models.Dtos.Post.Query;
 using App.Models.Dtos.Post.Read;
 using App.Models.Dtos.User.Query;
 using Dapper;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace App.API.Servises.Implimentations
@@ -42,19 +44,13 @@ namespace App.API.Servises.Implimentations
                 return null;
             }
 
-            if(user.HashedPassword != _HashPassword( password ))
+            if(! SecurityService.VerifyPassword(user.HashedPassword,password))
             {
                 return null;
             }
 
             return user.ToDto();
         }
-
-        private string _HashPassword(string password)
-        {
-            return password;
-        }
-
         public async Task<IEnumerable<PostReadFullDto>> ReadAllPostsAsync()
         {
             using var connection = new SqlConnection(_configuration.GetConnectionString(ConnectionStringName));
@@ -134,7 +130,7 @@ namespace App.API.Servises.Implimentations
                 )).ToList();
 
 
-            List<PostHaveTagDto> tags = await _GetTagsByPosts(from p in posts select p.Post_Id);
+            IEnumerable<PostHaveTagDto> tags = await _GetTagsByPosts(from p in posts select p.Post_Id);
 
             for(int i = 0; i < posts.Count; i++)
             {
@@ -149,25 +145,23 @@ namespace App.API.Servises.Implimentations
             return posts;
         }
 
-        private async Task<List<PostHaveTagDto>> _GetTagsByPosts(IEnumerable<int> posts_ids)
+        private async Task<IEnumerable<PostHaveTagDto>> _GetTagsByPosts(IEnumerable<int> posts_ids)
         {
 
             using var connection = new SqlConnection(_configuration.GetConnectionString(ConnectionStringName));
-            string tagsQuery =
-                $"SELECT pht.*,1 as Sep,t.* " +
-                $"FROM PostsHaveTags pht " +
-                $"JOIN Tags t " +
-            $"ON pht.Tag_Id = t.Tag_Id " +
-            $"WHERE pht.Post_Id in @Posts_ids";
+            
+            var postIdsList = string.Join(",", posts_ids);
 
-            List<PostHaveTagDto> tags = (await connection.QueryAsync<PostHaveTag, Tag, PostHaveTagDto>(
-                tagsQuery,
+            IEnumerable<PostHaveTagDto> tags = (await connection.QueryAsync<PostHaveTag, Tag, PostHaveTagDto>(
+                "GetPostsByPostIds",
                 (postHaveTag, tag) =>
                 {
                     return postHaveTag.ToDto(tag);
                 },
-                param: new { Posts_ids = posts_ids },
-                splitOn: "Sep")).ToList();
+                commandType: CommandType.StoredProcedure,
+                param: new { PostIdsList = postIdsList },
+                splitOn: "Sep"
+            ));
 
             return tags;
         }

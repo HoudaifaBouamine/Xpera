@@ -1,4 +1,5 @@
 ﻿using App.API.Entities;
+using App.API.Security;
 using App.Models.Dtos.User.Command;
 using App.Models.Dtos.User.Query;
 using AutoMapper;
@@ -17,7 +18,10 @@ namespace App.API.Extentions.DtosExtentions
 
         static public User ToEntity(this UserCreateDto userCreateDto)
         {
-            return _mapper.Map<User>(userCreateDto);
+            var user = _mapper.Map<User>(userCreateDto);
+            user.HashedPassword = SecurityService.HashPassword( userCreateDto.Password );
+
+            return user;
         }
 
         static public User ToEntity(this UserReadDto userReadDto)
