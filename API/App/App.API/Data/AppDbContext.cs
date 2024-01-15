@@ -1,4 +1,5 @@
-﻿using App.API.Entities;
+﻿using App.API.Models;
+using App.API.Models.PostModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace App.API.Data
@@ -12,10 +13,10 @@ namespace App.API.Data
         }
 
 
-        public DbSet<User> Users { get; set; }
-        public DbSet<Post> Posts { get; set; }
-        public DbSet<Tag> Tags { get; set; }
-        public DbSet<PostHaveTag> PostsHaveTags { get; set; }
+        public DbSet<UserModel> Users { get; set; }
+        public DbSet<PostModel> Posts { get; set; }
+        public DbSet<TagModel> Tags { get; set; }
+        public DbSet<PostHaveTagRelation> PostsHaveTags { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

@@ -2,9 +2,9 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Security.Principal;
 
-namespace App.API.Entities
+namespace App.API.Models.PostModels
 {
-    public class Post
+    public class PostModel
     {
         [Key]
         [Column(nameof(Post_Id))]
@@ -13,7 +13,7 @@ namespace App.API.Entities
         [ForeignKey(nameof(User))]
         [Column(nameof(User_Id))]
         public int User_Id { get; set; }
-        public User User { get; set; } = null!;
+        public UserModel User { get; set; } = null!;
 
 
         [Column(TypeName ="nvarchar(100)")]

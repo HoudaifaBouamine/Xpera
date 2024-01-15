@@ -1,5 +1,5 @@
 ﻿using App.API.Data;
-using App.API.Entities;
+using App.API.Models.PostModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace App.API.Repositories.PostRepository
@@ -15,17 +15,17 @@ namespace App.API.Repositories.PostRepository
         }
 
         // Done
-        public async Task<Post?> PostCreateAsync(Post post,IEnumerable<Tag> tags)
+        public async Task<PostModel?> PostCreateAsync(PostModel post,IEnumerable<TagModel> tags)
         {
             var e = await _AppDbContext.Posts.AddAsync(post);
 
-            Post? thePost = e.Entity;
+            PostModel? thePost = e.Entity;
 
             await _AppDbContext.SaveChangesAsync();
 
-            foreach(Tag tag in tags)
+            foreach(TagModel tag in tags)
             {
-                PostHaveTag h = new PostHaveTag();
+                PostHaveTagRelation h = new PostHaveTagRelation();
                 h.Tag_Id = tag.Tag_Id;
                 h.Post_Id = thePost.Post_Id;
 
@@ -39,39 +39,38 @@ namespace App.API.Repositories.PostRepository
         }
 
         // Done
-        public async Task<List<Tag>> TagsByIdsAsync(IEnumerable<int> tags_ids)
+        public async Task<List<TagModel>> TagsByIdsAsync(IEnumerable<int> tags_ids)
         {
             return await _AppDbContext.Tags.Where(t => tags_ids.Contains(t.Tag_Id)).ToListAsync();
         }
 
         // Done
-        public async Task<Post?> PostReadAsync(int id)
+        public async Task<PostModel?> PostReadAsync(int id)
         {
             return await _AppDbContext.Posts.Where(p => p.Post_Id == id).FirstOrDefaultAsync();
         }
         
         // Done
-        public async Task<List<Tag>> PostTagsReadAsync(int id)
+        public async Task<List<TagModel>> PostTagsReadAsync(int id)
         {
             return await _AppDbContext.Tags.FromSql($"SELECT T.* FROM   Posts p  JOIN PostsHaveTags pht  ON p.Post_Id = PHT.Post_Id  JOIN Tags t  ON pht.Tag_Id = t.Tag_Id  where P.Post_Id = {id};").ToListAsync(); 
         }
 
         // Done
-        public async Task<List<Post>> UserPostsReadAsync(int user_Id)
+        public async Task<List<PostModel>> UserPostsReadAsync(int user_Id)
         {
             return await _AppDbContext.Posts.Where(p=>p.User_Id == user_Id).ToListAsync();
         }
 
-        public async Task<bool> PostDeleteAsync(int post_id)
+        public async Task PostDeleteAsync(int post_id)
         {
             int affectedRows = await _AppDbContext.Posts.Where(p => p.Post_Id == post_id).ExecuteDeleteAsync();
-
-            return affectedRows == 1;
         }
 
-        public Task<Post> PostUpdateAsync()
+        public async Task PostUpdateAsync(PostModel post)
         {
-            throw new NotImplementedException();
+            _AppDbContext.Posts.Update(post);
+            await _AppDbContext.SaveChangesAsync();
         }
     }
 }

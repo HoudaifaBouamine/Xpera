@@ -1,5 +1,6 @@
-﻿using App.API.Entities;
-using App.API.Extentions.DtosExtentions;
+﻿using App.API.Extentions.DtosExtentions;
+using App.API.Models;
+using App.API.Models.PostModels;
 using App.API.Security;
 using App.API.Services.Interfaces;
 using App.Models.Dtos.Post;
@@ -17,14 +18,14 @@ namespace App.API.Servises.Implimentations
         private readonly IConfiguration _configuration;
         private readonly string ConnectionStringName = "DefaultConnection";
 
-        List<Tag> Tags = null!;
+        List<TagModel> Tags = null!;
 
         public QueryService(IConfiguration configuration)
         {
             _configuration = configuration;
 
             using var connection = new SqlConnection(_configuration.GetConnectionString(ConnectionStringName));
-            Tags = connection.Query<Tag>($"SELECT * FROM Tags").ToList();
+            Tags = connection.Query<TagModel>($"SELECT * FROM Tags").ToList();
         }
 
         public async Task<UserReadDto?> LoginUser(string email, string password)
@@ -33,7 +34,7 @@ namespace App.API.Servises.Implimentations
 
             using var connection = new SqlConnection(_configuration.GetConnectionString(ConnectionStringName));
 
-            User? user = await connection.QueryFirstOrDefaultAsync<User?>
+            UserModel? user = await connection.QueryFirstOrDefaultAsync<UserModel?>
                 (
                     query,
                     param:new { Email = email}
@@ -55,7 +56,7 @@ namespace App.API.Servises.Implimentations
         {
             using var connection = new SqlConnection(_configuration.GetConnectionString(ConnectionStringName));
 
-            List<PostHaveTagDto> postHaveTagDtos = (await connection.QueryAsync<PostHaveTag, Tag, PostHaveTagDto>(
+            List<PostHaveTagDto> postHaveTagDtos = (await connection.QueryAsync<PostHaveTagRelation, TagModel, PostHaveTagDto>(
                 "exec GetPostsHaveTags",
                 (postHaveTag,tag) => 
                 {
@@ -64,7 +65,7 @@ namespace App.API.Servises.Implimentations
                 },
                 splitOn:"Tag_Id")).ToList();
 
-            return await connection.QueryAsync<Post, User, PostReadFullDto>(
+            return await connection.QueryAsync<PostModel, UserModel, PostReadFullDto>(
                 "exec GetPostsAndUsers",
                 (post, user) =>
                 {
@@ -82,7 +83,7 @@ namespace App.API.Servises.Implimentations
             using var connection = new SqlConnection(_configuration.GetConnectionString(ConnectionStringName));
             string query = $"exec GetPostById @Post_Id = {post_id}";
 
-            PostReadFullDto postReadFullDto = (await connection.QueryAsync<PostReadFullDto,User,PostReadFullDto>
+            PostReadFullDto postReadFullDto = (await connection.QueryAsync<PostReadFullDto,UserModel,PostReadFullDto>
                 (
                     query,
                     (postDto,user) =>
@@ -119,11 +120,11 @@ namespace App.API.Servises.Implimentations
             // Get Post With The Publisher (User)
             string postsQuery = $"EXEC GetPostsByTag @Tag_id = {tag_id}";
 
-            List<PostReadFullDto> posts = (await connection.QueryAsync<Post,User,PostReadFullDto>(
+            List<PostReadFullDto> posts = (await connection.QueryAsync<PostModel,UserModel,PostReadFullDto>(
                 postsQuery,
                 (post,user) =>
                 {
-                    return post.ToDto(user, new List<Tag>());
+                    return post.ToDto(user, new List<TagModel>());
                 },
                 param: new { Tag_id = tag_id },
                 splitOn:"Sep"
@@ -152,7 +153,7 @@ namespace App.API.Servises.Implimentations
             
             var postIdsList = string.Join(",", posts_ids);
 
-            IEnumerable<PostHaveTagDto> tags = (await connection.QueryAsync<PostHaveTag, Tag, PostHaveTagDto>(
+            IEnumerable<PostHaveTagDto> tags = (await connection.QueryAsync<PostHaveTagRelation, TagModel, PostHaveTagDto>(
                 "GetPostsByPostIds",
                 (postHaveTag, tag) =>
                 {
@@ -172,7 +173,7 @@ namespace App.API.Servises.Implimentations
 
             using var connection = new SqlConnection(_configuration.GetConnectionString(ConnectionStringName));
 
-            User? user = await connection.QueryFirstOrDefaultAsync<User?>
+            UserModel? user = await connection.QueryFirstOrDefaultAsync<UserModel?>
                 (
                     query,
                     param: new { User_Id = user_id }
@@ -192,7 +193,7 @@ namespace App.API.Servises.Implimentations
 
             string query = $"SELECT * FROM Posts p WHERE p.User_Id = @User_Id";
 
-            IEnumerable<Post> posts = await connection.QueryAsync<Post>(
+            IEnumerable<PostModel> posts = await connection.QueryAsync<PostModel>(
                 query,
                 param: new { User_Id = user_id }
                 );

@@ -49,14 +49,14 @@ namespace App.API.Services.Interfaces
         /// </summary>
         /// <param name="userToUpdate">Contains the new updated data.</param>
         /// <returns>Returns the updated user information if successful, otherwise returns null.</returns>
-        public Task<PostReadMinimulDto?> UserUpdateAsync(UserUpdateDto userToUpdate);
+        public Task<bool> UserUpdateAsync(UserUpdateDto userToUpdate);
 
         /// <summary>
         /// Deletes an existing user by user id.
         /// </summary>
         /// <param name="UserToDelete_id">The user Id.</param>
         /// <returns>Returns true if the user is deleted successfully.</returns>
-        public Task<bool> UserDeleteAsync(int UserToDelete_id);
+        public Task UserDeleteAsync(int UserToDelete_id);
 
         #endregion
     }

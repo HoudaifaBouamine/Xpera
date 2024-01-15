@@ -1,5 +1,5 @@
 ﻿using App.API.Data;
-using App.API.Entities;
+using App.API.Models;
 using App.Models.Dtos;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,42 +14,38 @@ namespace App.API.Repositories.UserRepository
         }
 
         // Done
-        public async Task<User?> UserCreate(User user)
+        public async Task<UserModel?> UserCreate(UserModel user)
         {
             user.User_Id = default;
             var Entity = await dbContext.Users.AddAsync(user);
             await dbContext.SaveChangesAsync();
-            User User = Entity.Entity;
+            UserModel User = Entity.Entity;
             return User;
         }
 
         // Done
-        public async Task<bool> UserDelete(int user_id)
+        public async Task UserDelete(int user_id)
         {
             int rowAffected = await dbContext.Users.Where(u => u.User_Id == user_id).ExecuteDeleteAsync();
-
-            if (rowAffected == 1)
-                return true;
-
-            return false;
         }
 
         // Done
-        public async Task<User?> UserRead(int id)
+        public async Task<UserModel?> UserRead(int id)
         {
             return await dbContext.Users.Where(u => u.User_Id == id).FirstOrDefaultAsync();
         }
 
         // Done
-        public async Task<User?> UserRead(string email)
+        public async Task<UserModel?> UserRead(string email)
         {
-            User? user = await dbContext.Users.Where(u => u.Email == email).FirstOrDefaultAsync();
+            UserModel? user = await dbContext.Users.Where(u => u.Email == email).FirstOrDefaultAsync();
             return user;
         }
 
-        public Task<User?> UserUpdate(User user)
+        public async Task UserUpdate(UserModel user)
         {
-            throw new NotImplementedException();
+            dbContext.Users.Update(user);
+            await dbContext.SaveChangesAsync();
         }
     }
 }

@@ -3,10 +3,10 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Net.Mail;
 
-namespace App.API.Entities
+namespace App.API.Models
 {
     [Index(nameof(Email), IsUnique = true)]
-    public class User
+    public class UserModel
     {
 
         [Key]

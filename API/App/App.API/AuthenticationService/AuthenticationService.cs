@@ -1,4 +1,4 @@
-﻿using App.API.Entities;
+﻿using App.API.Models;
 using App.Models.Dtos.User.Query;
 using System.Security.Claims;
 
@@ -22,7 +22,7 @@ namespace App.API.AuthenticationService
 
     public class AuthService  : IAuthService
     {
-        public ClaimsPrincipal CreateUserClaimsPrincipal(User user, string AuthSchem)
+        public ClaimsPrincipal CreateUserClaimsPrincipal(UserModel user, string AuthSchem)
         {
             List<Claim> claims = new List<Claim>
             {
@@ -41,6 +41,6 @@ namespace App.API.AuthenticationService
 
     public interface IAuthService
     {
-        ClaimsPrincipal CreateUserClaimsPrincipal(User user, string AuthSchem);
+        ClaimsPrincipal CreateUserClaimsPrincipal(UserModel user, string AuthSchem);
     }
 }

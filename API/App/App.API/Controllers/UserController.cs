@@ -60,12 +60,8 @@ namespace App.API.Controllers
         [HttpDelete("{Id}")]
         public async Task<ActionResult> UserDelete(int Id)
         {
-            bool deleted = await _commandService.UserDeleteAsync(Id);
-
-            if (deleted)
-                return Ok();
-
-            return NotFound();
+            await _commandService.UserDeleteAsync(Id);
+            return Ok();
         }
     }
 }

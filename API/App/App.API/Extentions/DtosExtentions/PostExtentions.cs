@@ -1,4 +1,5 @@
-﻿using App.API.Entities;
+﻿using App.API.Models;
+using App.API.Models.PostModels;
 using App.Models.Dtos.Post;
 using App.Models.Dtos.Post.Create;
 using App.Models.Dtos.Post.Query;
@@ -17,7 +18,7 @@ namespace App.API.Extentions.DtosExtentions
         {
             _mapper = mapper;
         }
-        public static PostReadFullDto ToDto(this Post post, User user, List<Tag> tags)
+        public static PostReadFullDto ToDto(this PostModel post, UserModel user, List<TagModel> tags)
         {
 
             return new PostReadFullDto()
@@ -31,7 +32,7 @@ namespace App.API.Extentions.DtosExtentions
             };
         }
 
-        public static IEnumerable<PostReadFullDto> ToDtoList(this IEnumerable<Post> posts, User user, List<List<Tag>> tags)
+        public static IEnumerable<PostReadFullDto> ToDtoList(this IEnumerable<PostModel> posts, UserModel user, List<List<TagModel>> tags)
         {
             var postsAsList = posts.ToList();
             var postsAsDto = new List<PostReadFullDto>();
@@ -55,7 +56,7 @@ namespace App.API.Extentions.DtosExtentions
             return postsAsDto;
         }
 
-        public static List<TagDto> ToDto(this IEnumerable<Tag> tags)
+        public static List<TagDto> ToDto(this IEnumerable<TagModel> tags)
         {
             return (from t in tags
                     select new TagDto()
@@ -65,19 +66,19 @@ namespace App.API.Extentions.DtosExtentions
                     }).ToList();
         }
 
-        public static Post ToEntity(this PostCreateDto postCreate)
+        public static PostModel ToEntity(this PostCreateDto postCreate)
         {
-            Post post = _mapper.Map<Post>(postCreate);
+            PostModel post = _mapper.Map<PostModel>(postCreate);
             post.User = null;
             post.PublishDateTime = DateTime.Now;
 
             return post;
         }
 
-        public static List<Tag> ToEntity(this IEnumerable<TagDto> tagsAsDto)
+        public static List<TagModel> ToEntity(this IEnumerable<TagDto> tagsAsDto)
         {
             return (from t in tagsAsDto
-                    select new Tag()
+                    select new TagModel()
                     {
                         Name = t.Name,
                         Tag_Id = t.Tag_Id
@@ -85,7 +86,7 @@ namespace App.API.Extentions.DtosExtentions
         }
 
 
-        public static PostReadMinimulDto ToDto(this Post post, IEnumerable<Tag> tags)
+        public static PostReadMinimulDto ToDto(this PostModel post, IEnumerable<TagModel> tags)
         {
             return new PostReadMinimulDto()
             {
@@ -98,7 +99,7 @@ namespace App.API.Extentions.DtosExtentions
             };
         }
 
-        public static PostHaveTagDto ToDto(this PostHaveTag postHaveTag, Tag tag)
+        public static PostHaveTagDto ToDto(this PostHaveTagRelation postHaveTag, TagModel tag)
         {
             return new PostHaveTagDto()
             {
@@ -107,11 +108,11 @@ namespace App.API.Extentions.DtosExtentions
                 Tag_Name = tag.Name
             };
         }
-        public static IEnumerable<Tag> ToEntities(this IEnumerable<PostHaveTagDto> poatHaveTagsDtos)
+        public static IEnumerable<TagModel> ToEntities(this IEnumerable<PostHaveTagDto> poatHaveTagsDtos)
         {
 
             return (from t in poatHaveTagsDtos
-                    select new Tag()
+                    select new TagModel()
                     {
                         Tag_Id = t.Tag_Id,
                         Name = t.Tag_Name
@@ -119,7 +120,7 @@ namespace App.API.Extentions.DtosExtentions
 
         }
 
-        public static IEnumerable <PostReadFullDto> ToDto(this IEnumerable<Post> posts,IEnumerable<PostHaveTagDto> tags)
+        public static IEnumerable <PostReadFullDto> ToDto(this IEnumerable<PostModel> posts,IEnumerable<PostHaveTagDto> tags)
         {
             return from p in posts select new PostReadFullDto()
             {
@@ -132,7 +133,7 @@ namespace App.API.Extentions.DtosExtentions
             };
         }
 
-        public static IEnumerable<PostReadMinimulDto> ToMinDto(this IEnumerable<Post> posts, IEnumerable<PostHaveTagDto> tags)
+        public static IEnumerable<PostReadMinimulDto> ToMinDto(this IEnumerable<PostModel> posts, IEnumerable<PostHaveTagDto> tags)
         {
             return from p in posts
                    select new PostReadMinimulDto()

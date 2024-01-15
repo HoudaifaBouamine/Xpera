@@ -11,7 +11,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
   <BrowserRouter>
   <Routes>
-    <Route 
+    <Route/>
   </Routes>
   </BrowserRouter>
 
