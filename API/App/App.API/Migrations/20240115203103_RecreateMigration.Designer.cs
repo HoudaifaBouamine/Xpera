@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace App.API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231207193025_LetTheEmailBeUnique")]
-    partial class LetTheEmailBeUnique
+    [Migration("20240115203103_RecreateMigration")]
+    partial class RecreateMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,33 @@ namespace App.API.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("App.API.Entities.Post", b =>
+            modelBuilder.Entity("App.API.Models.PostModels.PostHaveTagRelation", b =>
+                {
+                    b.Property<int>("PostHaveTag_Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("PostHaveTag_Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PostHaveTag_Id"));
+
+                    b.Property<int>("Post_Id")
+                        .HasColumnType("int")
+                        .HasColumnName("Post_Id");
+
+                    b.Property<int>("Tag_Id")
+                        .HasColumnType("int")
+                        .HasColumnName("Tag_Id");
+
+                    b.HasKey("PostHaveTag_Id");
+
+                    b.HasIndex("Post_Id");
+
+                    b.HasIndex("Tag_Id");
+
+                    b.ToTable("PostsHaveTags");
+                });
+
+            modelBuilder.Entity("App.API.Models.PostModels.PostModel", b =>
                 {
                     b.Property<int>("Post_Id")
                         .ValueGeneratedOnAdd()
@@ -56,33 +82,7 @@ namespace App.API.Migrations
                     b.ToTable("Posts");
                 });
 
-            modelBuilder.Entity("App.API.Entities.PostHaveTag", b =>
-                {
-                    b.Property<int>("PostHaveTag_Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("PostHaveTag_Id");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PostHaveTag_Id"));
-
-                    b.Property<int>("Post_Id")
-                        .HasColumnType("int")
-                        .HasColumnName("Post_Id");
-
-                    b.Property<int>("Tag_Id")
-                        .HasColumnType("int")
-                        .HasColumnName("Tag_Id");
-
-                    b.HasKey("PostHaveTag_Id");
-
-                    b.HasIndex("Post_Id");
-
-                    b.HasIndex("Tag_Id");
-
-                    b.ToTable("PostsHaveTags");
-                });
-
-            modelBuilder.Entity("App.API.Entities.Tag", b =>
+            modelBuilder.Entity("App.API.Models.PostModels.TagModel", b =>
                 {
                     b.Property<int>("Tag_Id")
                         .ValueGeneratedOnAdd()
@@ -100,7 +100,38 @@ namespace App.API.Migrations
                     b.ToTable("Tags");
                 });
 
-            modelBuilder.Entity("App.API.Entities.User", b =>
+            modelBuilder.Entity("App.API.Models.Post_Models.Comment_Models.CommentModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("CommentModel_Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Post_Id")
+                        .HasColumnType("int")
+                        .HasColumnName("Post_Id");
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
+
+                    b.Property<int>("User_Id")
+                        .HasColumnType("int")
+                        .HasColumnName("User_Id");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Post_Id");
+
+                    b.HasIndex("User_Id");
+
+                    b.ToTable("Comments");
+                });
+
+            modelBuilder.Entity("App.API.Models.UserModel", b =>
                 {
                     b.Property<int>("User_Id")
                         .ValueGeneratedOnAdd()
@@ -133,26 +164,15 @@ namespace App.API.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("App.API.Entities.Post", b =>
+            modelBuilder.Entity("App.API.Models.PostModels.PostHaveTagRelation", b =>
                 {
-                    b.HasOne("App.API.Entities.User", "User")
-                        .WithMany()
-                        .HasForeignKey("User_Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("App.API.Entities.PostHaveTag", b =>
-                {
-                    b.HasOne("App.API.Entities.Post", "Post")
+                    b.HasOne("App.API.Models.PostModels.PostModel", "Post")
                         .WithMany()
                         .HasForeignKey("Post_Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("App.API.Entities.Tag", "Tag")
+                    b.HasOne("App.API.Models.PostModels.TagModel", "Tag")
                         .WithMany()
                         .HasForeignKey("Tag_Id")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -161,6 +181,36 @@ namespace App.API.Migrations
                     b.Navigation("Post");
 
                     b.Navigation("Tag");
+                });
+
+            modelBuilder.Entity("App.API.Models.PostModels.PostModel", b =>
+                {
+                    b.HasOne("App.API.Models.UserModel", "User")
+                        .WithMany()
+                        .HasForeignKey("User_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("App.API.Models.Post_Models.Comment_Models.CommentModel", b =>
+                {
+                    b.HasOne("App.API.Models.PostModels.PostModel", "Post")
+                        .WithMany()
+                        .HasForeignKey("Post_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("App.API.Models.UserModel", "User")
+                        .WithMany()
+                        .HasForeignKey("User_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Post");
+
+                    b.Navigation("User");
                 });
 #pragma warning restore 612, 618
         }

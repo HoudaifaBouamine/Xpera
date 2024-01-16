@@ -3,6 +3,7 @@ using App.API.Models;
 using App.API.Models.PostModels;
 using App.API.Security;
 using App.API.Services.Interfaces;
+using App.Models.Dtos.Comment;
 using App.Models.Dtos.Post;
 using App.Models.Dtos.Post.Query;
 using App.Models.Dtos.Post.Read;
@@ -28,6 +29,8 @@ namespace App.API.Servises.Implimentations
             Tags = connection.Query<TagModel>($"SELECT * FROM Tags").ToList();
         }
 
+
+        #region User
         public async Task<UserReadDto?> LoginUser(string email, string password)
         {
             string query = $"EXEC GetUserByEmail @UserEmail = @Email";
@@ -52,6 +55,31 @@ namespace App.API.Servises.Implimentations
 
             return user.ToDto();
         }
+
+        public async Task<UserReadDto?> ReadUserAsync(int user_id)
+        {
+            string query = $"SELECT * FROM Users u WHERE u.User_Id = @User_Id";
+
+            using var connection = new SqlConnection(_configuration.GetConnectionString(ConnectionStringName));
+
+            UserModel? user = await connection.QueryFirstOrDefaultAsync<UserModel?>
+                (
+                    query,
+                    param: new { User_Id = user_id }
+                );
+
+            if (user == null)
+            {
+                return null;
+            }
+
+            return user.ToDto();
+        }
+
+        #endregion
+
+
+        #region Post
         public async Task<IEnumerable<PostReadFullDto>> ReadAllPostsAsync()
         {
             using var connection = new SqlConnection(_configuration.GetConnectionString(ConnectionStringName));
@@ -75,7 +103,6 @@ namespace App.API.Servises.Implimentations
                 },
                 splitOn:"User_Id");
         }
-
         public async Task<PostReadFullDto?> ReadPostAsync(int post_id)
         {
             if (post_id <= 0) return null;
@@ -107,7 +134,6 @@ namespace App.API.Servises.Implimentations
             return postReadFullDto;
 
         }
-
         public async Task<IEnumerable<PostReadFullDto>> ReadTagPostsAsync(int tag_id)
         {
             if(tag_id <= 0)
@@ -145,7 +171,6 @@ namespace App.API.Servises.Implimentations
 
             return posts;
         }
-
         private async Task<IEnumerable<PostHaveTagDto>> _GetTagsByPosts(IEnumerable<int> posts_ids)
         {
 
@@ -166,27 +191,6 @@ namespace App.API.Servises.Implimentations
 
             return tags;
         }
-
-        public async Task<UserReadDto?> ReadUserAsync(int user_id)
-        {
-            string query = $"SELECT * FROM Users u WHERE u.User_Id = @User_Id";
-
-            using var connection = new SqlConnection(_configuration.GetConnectionString(ConnectionStringName));
-
-            UserModel? user = await connection.QueryFirstOrDefaultAsync<UserModel?>
-                (
-                    query,
-                    param: new { User_Id = user_id }
-                );
-
-            if (user == null)
-            {
-                return null;
-            }
-
-            return user.ToDto();
-        }
-
         public async Task<IEnumerable<PostReadMinimulDto>> ReadUserPostsAsync(int user_id)
         {
             using var connection = new SqlConnection(_configuration.GetConnectionString(ConnectionStringName));
@@ -204,6 +208,21 @@ namespace App.API.Servises.Implimentations
 
             return result;
         }
+
+        #endregion
+
+        #region Comment
+        public Task<IEnumerable<CommentPostReadDto>> ReadCommentsByUserIdAsync(int user_id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<CommentUserReadDto>> ReadCommentsByPostIdAsync(int post_id)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
 
     }
 }

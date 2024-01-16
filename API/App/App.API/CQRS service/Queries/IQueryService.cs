@@ -1,4 +1,5 @@
-﻿using App.Models.Dtos.Post.Read;
+﻿using App.Models.Dtos.Comment;
+using App.Models.Dtos.Post.Read;
 using App.Models.Dtos.User.Query;
 
 namespace App.API.Services.Interfaces
@@ -58,6 +59,14 @@ namespace App.API.Services.Interfaces
         public Task<UserReadDto?> LoginUser(string email, string password);
 
         #endregion
-    
+
+        #region Comments
+
+        public Task<IEnumerable<CommentPostReadDto>> ReadCommentsByUserIdAsync(int user_id);
+
+        public Task<IEnumerable<CommentUserReadDto>> ReadCommentsByPostIdAsync(int post_id);
+
+
+        #endregion
     }
 }

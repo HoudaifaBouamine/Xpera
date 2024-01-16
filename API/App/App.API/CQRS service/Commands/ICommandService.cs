@@ -1,4 +1,5 @@
-﻿using App.Models.Dtos.Post.Create;
+﻿using App.Models.Dtos.Comment;
+using App.Models.Dtos.Post.Create;
 using App.Models.Dtos.Post.Read;
 using App.Models.Dtos.User.Command;
 using App.Models.Dtos.User.Query;
@@ -57,6 +58,13 @@ namespace App.API.Services.Interfaces
         /// <param name="UserToDelete_id">The user Id.</param>
         /// <returns>Returns true if the user is deleted successfully.</returns>
         public Task UserDeleteAsync(int UserToDelete_id);
+
+        #endregion
+
+
+        #region Comments
+
+        public Task<int> CreateCommentAsync(CommentCreateDto comment); 
 
         #endregion
     }

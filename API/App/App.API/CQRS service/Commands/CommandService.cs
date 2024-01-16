@@ -2,9 +2,11 @@
 using App.API.Extentions.DtosExtentions;
 using App.API.Models;
 using App.API.Models.PostModels;
+using App.API.Repositories.Comment;
 using App.API.Repositories.PostRepository;
 using App.API.Repositories.UserRepository;
 using App.API.Services.Interfaces;
+using App.Models.Dtos.Comment;
 using App.Models.Dtos.Post.Create;
 using App.Models.Dtos.Post.Read;
 using App.Models.Dtos.User.Command;
@@ -12,9 +14,10 @@ using App.Models.Dtos.User.Query;
 
 namespace App.API.Servises.Implimentations
 {
-    public class CommandService(IPostRepository postRepository, IUserRepository userRepository) : ICommandService
+    public class CommandService(IPostRepository postRepository, IUserRepository userRepository,ICommentRepository commentRepository) : ICommandService
     {
         private readonly IUserRepository _userRepository = userRepository;
+        private readonly ICommentRepository _commentRepository = commentRepository;
         private readonly IPostRepository _postRepository = postRepository;
 
 
@@ -95,7 +98,17 @@ namespace App.API.Servises.Implimentations
         }
 
 
-            #endregion
+        #endregion
 
+
+        #region Comment
+
+        public async Task<int> CreateCommentAsync(CommentCreateDto comment)
+        {
+            return await _commentRepository.CreateCommentAsync(comment.ToEntity());
         }
+
+        #endregion
+
+    }
 }

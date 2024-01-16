@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace App.API.Migrations
 {
     /// <inheritdoc />
-    public partial class CreatingDatabase : Migration
+    public partial class RecreateMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -63,6 +63,33 @@ namespace App.API.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Comments",
+                columns: table => new
+                {
+                    CommentModel_Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Text = table.Column<string>(type: "nvarchar(2000)", maxLength: 2000, nullable: false),
+                    User_Id = table.Column<int>(type: "int", nullable: false),
+                    Post_Id = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Comments", x => x.CommentModel_Id);
+                    table.ForeignKey(
+                        name: "FK_Comments_Posts_Post_Id",
+                        column: x => x.Post_Id,
+                        principalTable: "Posts",
+                        principalColumn: "Post_Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Comments_Users_User_Id",
+                        column: x => x.User_Id,
+                        principalTable: "Users",
+                        principalColumn: "User_Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "PostsHaveTags",
                 columns: table => new
                 {
@@ -89,6 +116,16 @@ namespace App.API.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Comments_Post_Id",
+                table: "Comments",
+                column: "Post_Id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Comments_User_Id",
+                table: "Comments",
+                column: "User_Id");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Posts_User_Id",
                 table: "Posts",
                 column: "User_Id");
@@ -102,11 +139,20 @@ namespace App.API.Migrations
                 name: "IX_PostsHaveTags_Tag_Id",
                 table: "PostsHaveTags",
                 column: "Tag_Id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_Email",
+                table: "Users",
+                column: "Email",
+                unique: true);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Comments");
+
             migrationBuilder.DropTable(
                 name: "PostsHaveTags");
 

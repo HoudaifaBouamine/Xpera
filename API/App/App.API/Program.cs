@@ -5,6 +5,7 @@ using App.API.Repositories.PostRepository;
 using App.API.Repositories.UserRepository;
 using App.API.Services.Interfaces;
 using App.API.Servises.Implimentations;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -41,5 +42,21 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapGet("/comments", async (AppDbContext db) =>
+{
+    db.Comments.Add(new App.API.Models.Post_Models.Comment_Models.CommentModel()
+    {
+        Post_Id = 2,
+        User_Id = 15,
+        Text = "This is a comment",
+        PublishDateTime = DateTime.Now
+    }) ;
+
+    await db.SaveChangesAsync();
+
+    return Results.Ok( db.Comments );
+
+});
 
 app.Run("https://localhost:1234");

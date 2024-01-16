@@ -20,3 +20,9 @@ PUT     : /api/user/{id}              : Update a User						(done)
 																			
 DELETE  : /api/user/{id}              : Delete a user						(done)
 
+
+//////////////////////////////////////////////////
+
+GET		: /api/comments?post_id={post_id}&user_id={user_id}
+
+POST    : /api/comments				   : Create comment
