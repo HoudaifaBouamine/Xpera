@@ -72,3 +72,4 @@ Embracing diversity and inclusivity, Expera serves as a valuable resource for gu
 - **Efficiency:** Save users time by helping them avoid common mistakes and providing curated resources.
 
 By combining a well-architected backend with .NET MVC API, incorporating advanced authentication, utilizing a robust database, and implementing a dynamic React.js frontend, Expera is positioned to be a valuable platform for IT professionals seeking collaborative learning and knowledge sharing. The design process, including Figma for prototyping and Illustrator for graphics, reflects a comprehensive approach to delivering an engaging and user-friendly experience.
+#### Test
