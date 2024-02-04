@@ -1,5 +1,6 @@
 ﻿using App.API.Extentions.DtosExtentions;
 using App.API.Models;
+using App.API.Models.Post_Models.Comment_Models;
 using App.API.Models.PostModels;
 using App.API.Security;
 using App.API.Services.Interfaces;
@@ -212,14 +213,37 @@ namespace App.API.Servises.Implimentations
         #endregion
 
         #region Comment
-        public Task<IEnumerable<CommentPostReadDto>> ReadCommentsByUserIdAsync(int user_id)
+        public async Task<IEnumerable<CommentPostReadDto>> ReadCommentsByUserIdAsync(int user_id)
         {
-            throw new NotImplementedException();
+            var sql = $"exec Get_Comments_With_Posts_By_User_Id @User_Id = {user_id}";
+
+            using var connection = new SqlConnection(_configuration.GetConnectionString(ConnectionStringName));
+
+            var comments = await connection.QueryAsync<CommentModel, PostModel, CommentPostReadDto>(
+                sql,
+                (comment,post) =>
+                {
+                    return comment.ToDto(post.ToDto(new(),new()));
+                },
+                splitOn:"Sep");
+
+            return comments;
         }
 
         public Task<IEnumerable<CommentUserReadDto>> ReadCommentsByPostIdAsync(int post_id)
         {
-            throw new NotImplementedException();
+            var sql = $"exec Get_Comments_With_Users_By_Post_Id @Post_Id = {post_id}";
+
+            using var connection = new SqlConnection(_configuration.GetConnectionString(ConnectionStringName));
+
+
+            var comments = connection.QueryAsync<CommentModel, UserModel, CommentUserReadDto>(sql,
+            (command, user) =>
+            {
+                return command.ToDto(user);
+            });
+
+            return comments;
         }
 
         #endregion

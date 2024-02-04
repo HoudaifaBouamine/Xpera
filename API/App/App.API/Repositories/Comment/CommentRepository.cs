@@ -11,11 +11,11 @@ namespace App.API.Repositories.Comment
         {
             _db = db;
         }
-        public async Task<int> CreateCommentAsync(CommentModel comment)
+        public async Task<CommentModel> CreateCommentAsync(CommentModel comment)
         {
             _db.Comments.Add(comment);
             await _db.SaveChangesAsync();
-            return comment.Id;
+            return comment;
         }
     }
 }

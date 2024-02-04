@@ -1,6 +1,7 @@
 using App.API.AuthenticationService;
 using App.API.Data;
 using App.API.Extentions;
+using App.API.Repositories.Comment;
 using App.API.Repositories.PostRepository;
 using App.API.Repositories.UserRepository;
 using App.API.Services.Interfaces;
@@ -26,6 +27,7 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddDbContext<AppDbContext>();
 builder.Services.AddScoped<IUserRepository, UserRepositoryEF>();
 builder.Services.AddScoped<IPostRepository, PostRepositoryEF>();
+builder.Services.AddScoped<ICommentRepository,CommentRepository >();
 builder.Services.AddScoped<ICommandService,CommandService>();
 builder.Services.AddScoped<IQueryService, QueryService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
@@ -43,20 +45,9 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.MapGet("/comments", async (AppDbContext db) =>
+app.MapGet("/", () =>
 {
-    db.Comments.Add(new App.API.Models.Post_Models.Comment_Models.CommentModel()
-    {
-        Post_Id = 2,
-        User_Id = 15,
-        Text = "This is a comment",
-        PublishDateTime = DateTime.Now
-    }) ;
-
-    await db.SaveChangesAsync();
-
-    return Results.Ok( db.Comments );
-
+    return Results.Redirect( "/swagger/index.html" );
 });
 
 app.Run("https://localhost:1234");

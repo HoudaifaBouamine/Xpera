@@ -7,8 +7,8 @@ namespace App.API.Models.Post_Models.Comment_Models
     public class CommentModel
     {
         [Key]
-        [Column(name: "Comment_Id")]
-        public int Id { get; set; }
+        [Column(name:"Comment_Id")]
+        public int Comment_Id { get; set; }
 
         [Required]
         [MaxLength(2000)]

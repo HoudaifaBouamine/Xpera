@@ -1,6 +1,7 @@
 ﻿
 using App.API.Extentions.DtosExtentions;
 using App.API.Models;
+using App.API.Models.Post_Models.Comment_Models;
 using App.API.Models.PostModels;
 using App.API.Repositories.Comment;
 using App.API.Repositories.PostRepository;
@@ -103,9 +104,11 @@ namespace App.API.Servises.Implimentations
 
         #region Comment
 
-        public async Task<int> CreateCommentAsync(CommentCreateDto comment)
+        public async Task<CommentMinReadDto> CreateCommentAsync(CommentCreateDto comment)
         {
-            return await _commentRepository.CreateCommentAsync(comment.ToEntity());
+            CommentModel? createdComment = await _commentRepository.CreateCommentAsync(comment.ToEntity());
+
+            return createdComment.ToMinDto();
         }
 
         #endregion

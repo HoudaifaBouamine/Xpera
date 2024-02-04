@@ -10,7 +10,7 @@ namespace App.API.Extentions.DtosExtentions
     {
         public static CommentUserReadDto ToDto(this CommentModel comment, UserModel user) => new ()
         {
-            Id = comment.Id,
+            Id = comment.Comment_Id,
             Text = comment.Text,
             Time = comment.PublishDateTime,
             User = user.ToDto()
@@ -18,7 +18,7 @@ namespace App.API.Extentions.DtosExtentions
 
         public static CommentPostReadDto ToDto(this CommentModel comment, PostReadFullDto post) => new ()
         {
-            Id = comment.Id,
+            Id = comment.Comment_Id,
             Text = comment.Text,
             Time = comment.PublishDateTime,
             Post = post
@@ -34,6 +34,16 @@ namespace App.API.Extentions.DtosExtentions
                 PublishDateTime = DateTime.Now,
             };
 
+        }
+
+        public static CommentMinReadDto ToMinDto(this CommentModel comment)
+        {
+            return new CommentMinReadDto
+            {
+                Id = comment.Comment_Id,
+                Text = comment.Text,
+                Time = comment.PublishDateTime
+            };
         }
     }
 }

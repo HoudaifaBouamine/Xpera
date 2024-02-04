@@ -17,14 +17,6 @@ namespace App.API.Controllers
         private readonly ICommandService _commandService = commandService;
         private readonly IQueryService _queryService = queryService;
 
-        /*
-         
-GET		: /api/comments?post_id={post_id}&user_id={user_id}
-
-POST    : /api/comments				   : Create comment
-         
-         */
-
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ICommentDto>>> GetComments([FromQuery] int? user_id, [FromQuery] int? post_id)
         {
@@ -50,28 +42,28 @@ POST    : /api/comments				   : Create comment
 
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<CommentFullReadDto>> ReadCommentById(int id)
+        [HttpGet("{id}", Name = "ReadCommentById")]
+        public ActionResult<CommentFullReadDto> ReadCommentById(int id)
         {
             return new CommentFullReadDto()
             {
                 Id = 1,
-                Post = new (),
+                Post = new(),
                 Text = "comment",
-                User = new (),
+                User = new(),
                 Time = DateTime.Now,
             };
         }
 
-
         [HttpPost]
-
-        public async Task<ActionResult> CreateComment([FromBody] CommentCreateDto commentCreate)
+        public async Task<ActionResult<CommentMinReadDto>> CreateComment([FromBody] CommentCreateDto commentCreate)
         {
-            int id = await _commandService.CreateCommentAsync(commentCreate);
+            CommentMinReadDto user = await _commandService.CreateCommentAsync(commentCreate);
 
-            return Created();
+            return CreatedAtRoute(nameof(ReadCommentById), new { Id = user.Id }, user);
+
         }
-        
+
+
     }
 }

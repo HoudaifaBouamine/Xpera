@@ -27,8 +27,8 @@ namespace App.API.Extentions.DtosExtentions
                 PublishDateTime = post.PublishDateTime,
                 Post_Id = post.Post_Id,
                 Title = post.Title,
-                User = user.ToDto(),
-                Tags = tags.ToDto(),
+                User = user is null ? null : user.ToDto(),
+                Tags = tags is null ? null : tags.ToDto(),
             };
         }
 
@@ -85,15 +85,20 @@ namespace App.API.Extentions.DtosExtentions
                     }).ToList();
         }
 
-
-        public static PostReadMinimulDto ToDto(this PostModel post, IEnumerable<TagModel> tags)
+        /// <summary>
+        /// convert post to post read
+        /// </summary>
+        /// <param name="post">the post model</param>
+        /// <param name="tags">tags to insert in the post (save to send null)</param>
+        /// <returns></returns>
+        public static PostReadMinimulDto ToDto(this PostModel post, IEnumerable<TagModel>? tags)
         {
             return new PostReadMinimulDto()
             {
                 Body = post.Body,
                 Post_Id = post.Post_Id,
                 PublishDateTime = post.PublishDateTime,
-                Tags = tags.ToDto(),
+                Tags = tags is null ? Enumerable.Empty<TagModel>().ToDto() : tags.ToDto(),
                 Title = post.Title,
                 User_Id = post.User_Id,
             };

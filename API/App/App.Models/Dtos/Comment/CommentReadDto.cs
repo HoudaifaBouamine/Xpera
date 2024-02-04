@@ -9,6 +9,14 @@ using System.Threading.Tasks;
 
 namespace App.Models.Dtos.Comment
 {
+
+    public class CommentMinReadDto
+    {
+        required public int Id { get; set; }
+        required public string Text { get; set; }
+        required public DateTime Time { get; set; }
+    }
+
     /// <summary>
     /// This type will be returned when <c> query by post </c> and want to <c> get user data </c>
     /// </summary>

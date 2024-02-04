@@ -64,7 +64,7 @@ namespace App.API.Services.Interfaces
 
         #region Comments
 
-        public Task<int> CreateCommentAsync(CommentCreateDto comment); 
+        public Task<CommentMinReadDto> CreateCommentAsync(CommentCreateDto comment); 
 
         #endregion
     }
