@@ -2,10 +2,11 @@ import React from 'react'
 import './Style/index.css'
 import CTA_Button from "../component/CTA_Button"
 import SecondaryButton from "../component/SecondaryButton"
+import logo from "./Style/assets/logo.svg"
 const navBar = () => {
   return (
    <div className ="navBar">
-        <h1 className="Logo">LOGO</h1>
+       <img src={logo} className='logo' />
       <div className='navBar-button'>
         <SecondaryButton text={"Log in"}/>
         <CTA_Button text={"Get Started"}/>

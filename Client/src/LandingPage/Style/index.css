@@ -30,15 +30,7 @@ padding-bottom: 0px ;
   justify-content: space-between;
   align-items: center;
 }
-.Logo{
-  color: #2454FF;
-    /* Title Small */
-    font-family: Nunito;
-    font-size: 1.95313rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 0rem;
-}
+
 .navBar-button{
 display: flex;
   justify-content: flex-end;
@@ -49,7 +41,7 @@ display: flex;
 }
 
 /* the Hero Style*/
-.hero-page{
+.hero-Landing-page{
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -59,8 +51,8 @@ display: flex;
 }
 .hero-text{ 
   display: flex;
-  height: 30;
-  gap:1.5rem;
+  width:600px;
+  gap:1.3rem;
   flex-direction: column;
   justify-content: flex-start;
 }
@@ -69,10 +61,11 @@ display: flex;
   gap : 2rem;
 }
 .hero-image{
- scale: 0.6;
- 
+height: 500px;
+width: 400px;
+
 }
-.hero-text1{
+.your-guide-to-honest-reviews-parent{
 
   color: #000;
     font-family: Nunito;
@@ -83,7 +76,7 @@ display: flex;
     text-transform: capitalize;
 
 }
-.hero-text2{
+.reviews{
   
   color: #2454FF;
     /* Big Title */
@@ -93,7 +86,7 @@ display: flex;
     line-height: normal;
     text-transform: capitalize;
 }
-.hero-paragraph1{
+.unveiling-the-tech{
   
   color: rgba(0, 0, 0, 0.60);
     /* Title Small */
@@ -104,7 +97,7 @@ display: flex;
     line-height: normal;
   
 }
-.hero-paragraph2{
+.honest-IT-reviews{
 
 color: rgba(0, 0, 0, 0.60);
  
@@ -120,18 +113,18 @@ color: rgba(0, 0, 0, 0.60);
   width: 3.84806rem;
     height: 4.30469rem;
 }
-.Object{
+.left-side-sercal{
   position: absolute;
     left: -1rem;
     bottom: 5.4375rem;
 }
-.Object1{
+.top-side-sercal{
 position: absolute;
   right: 30.75rem;
 
   top: 4rem;
 }
-.Hightlight_05{
+.diamond-bright{
   position: absolute;
     left: 1.625rem;
     width: 3.35131rem;

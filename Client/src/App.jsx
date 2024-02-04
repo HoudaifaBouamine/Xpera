@@ -3,12 +3,13 @@ import React from 'react'
 import LandingPage from "./LandingPage/LandingPg"
 import NavBar from './LandingPage/navBar';
 import SignIn from './SigninPage/signin';
-import Post from './postdetail/postdetail'
+
+import { Route} from 'react-router-dom';
 
 function App() {
     return (
 <div>
-  <Post />
+  <LandingPage/>
 </div>
     )}
   
