@@ -1,0 +1,197 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;    
+}
+
+
+.horizontal-line1-SingUp{
+    display: inline-block;
+    width: 94.667px;
+    height: 0.2px;
+    align-items: center;
+    background: #808080;
+    margin-right: 10px; /* Adjust the spacing between the line and text as needed */
+}
+.Hero-SingUp-forme{
+    position: absolute;
+    right: 50px;
+    top:30px;
+    display: flex;
+    width: 300px;
+    height: auto;
+    padding: 40px 40px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    border-radius: 36px;
+    box-shadow: 0 8px 32px 0 rgba(17, 17, 26, 0.05), 0 4px 16px 0 rgba(17, 17, 26, 0.05);
+    background: var(--white);
+    
+}
+.Hero-title-SingUp{
+   color: var(--blue1);
+
+    /* Sub Heading */
+    font-family: Nunito;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    width: 292px;
+}
+
+.userName-SingUp{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    align-self: stretch;
+    border-radius: 12px;
+}
+.usernameParagraph-SingUp{
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    align-self: stretch;
+    color: var(--contentColor, #000);
+
+/* Text */
+font-family: Nunito;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.PasswordParagraph-SingUp {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    align-self: stretch;
+    color: var(--contentColor, #000);
+/* Text */
+font-family: Nunito;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.Password-SingUp{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    align-self: stretch;
+    border-radius: 12px;
+
+}
+.logInButton-SingUp{
+    display: flex;
+    padding: 12px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    align-self: stretch;
+    border-radius: 12px;
+background: #00BFFF;  
+}
+.forgotPas-SingUp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    color: #00BFFF;
+    text-align: center;
+    /* Text */
+    font-family: Nunito;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 0px 0px;
+}
+.forgotPasSection-SingUp{    
+    display: flex;
+width: 292px;
+flex-direction: column;
+justify-content: center;
+align-items: flex-end;
+gap: 10px;
+}
+.container-SingUp{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    align-self: stretch;
+    
+}
+.or-SingUp{
+    padding: 0;
+    color: #808080;
+    text-align: center;
+    flex: 1 0 0;
+    /* Text */
+    font-family: Nunito;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.noAccount-SingUp{
+    display: flex;
+width: 292px;
+justify-content: center;
+align-items: center;
+gap: 6px;
+}
+.noAccountParagraph-SingUp{
+    color: #808080;
+    text-align: center;
+    
+    /* Text */
+    font-family: Nunito;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.noAccountParagraph2-SingUp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    color: #2454FF;
+
+text-align: center;
+/* Text */
+font-family: Nunito;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+padding: 0px 0px ;  
+}
+
+.big-CTA-button-SingUp{
+    height: auto;
+    width :100%;
+    background-color: #2454FF;
+  } 
+  
+  .big-CTA-button-SingUp:hover {
+    background: #6D8DFF;
+  }
+  
+  
+  .big-CTA-button-SingUp:active {
+    border: 1px solid #6D8DFF;
+    background:  #2454FF;
+    /* Focus Effect */
+    box-shadow: 0px 2px 16px 0px rgba(70, 102, 255, 0.50);
+  }

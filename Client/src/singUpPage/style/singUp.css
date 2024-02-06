@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+img{
+    user-select: none;
+}
+.split-container-singupPage {
+    position:relative ;
+    display: flex;
+    height: 610px;
+}
+.color-side-singupPage {
+    position: relative;
+    background: white;
+    flex: 1;
+    width: auto;
+    height: 100%;
+}
+
+.image-side-singupPage {
+    position:relative;
+    width: 660px;
+    height: auto;
+    background-image: url('../assets/background-right.svg');
+    background-size:   750px 683px ; 
+    background-repeat: no-repeat;
+    user-select: none;
+}
+.singUp-page-logo{
+    position: absolute;
+    left: 48px; 
+    top : 12px; 
+}
+.HappyMan-image{
+    position: absolute;
+    width: 190px;
+    height: 190px;
+    left:74px ; 
+    top:89px ;
+}
+.manHoldComputer-image{
+    position: absolute;
+    width: 175px;
+    height: 175px;
+    left:344px ;
+    top:150px ;
+}
+.manThink-image{
+    position: absolute;
+    width: 180px;
+    height:220px ;
+    left:97px ;
+    top:320px ;
+}
+.manHoldPhone-image{
+    position: absolute;
+    width: 200px;
+    height:220px ;
+    left:344px;
+    top:350px; 
+}
+.blueDonut-image{
+ position: absolute;
+ z-index: 1;
+ top: 0;
+ left: 570px;
+
+}
+.ZigZag-image{
+    position: absolute;
+    z-index: 1;
+   
+    top: 440px;
+    left:663px ;
+}
+.blueLines-image{
+    position: absolute;
+    z-index: 3;
+    top:420px;
+    left:-10px;
+}
+.gray-donut-image{
+    position: absolute;
+    z-index: 1;
+    top:490px;
+    left:0;
+}
+.BlueXmark-image{
+    position: absolute;
+    z-index: 2;
+    left:333px ;
+    top:290px ;
+}
+.blueStar-image{
+    position: absolute;
+    z-index: 2;
+    left:220px ; 
+    top:79px ;
+    width:60px ;
+    height:60px ;
+}

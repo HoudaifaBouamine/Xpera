@@ -1,9 +1,9 @@
 import React from 'react'
 import './styles.css'
 
-const InputField= ({placeHolder})=>{
+const InputField= ({placeHolder,Type})=>{
     return (
-        <input placeholder={placeHolder}></input>
+        <input placeHolder={placeHolder} type={Type} className="input"></input>
     )
 }
 
