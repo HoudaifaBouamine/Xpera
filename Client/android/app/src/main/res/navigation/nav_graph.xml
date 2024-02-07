@@ -15,8 +15,8 @@
             android:id="@+id/action_loginFragment_to_signupFragment"
             app:destination="@id/signupFragment" />
         <action
-            android:id="@+id/action_loginFragment_to_bottom_nav_graph"
-            app:destination="@id/bottom_nav_graph" />
+            android:id="@+id/action_loginFragment_to_home_nav_graph"
+            app:destination="@id/home_nav_graph" />
         <action
             android:id="@+id/action_loginFragment_to_verificationEmailFragment"
             app:destination="@id/verificationEmailFragment" />
@@ -33,7 +33,7 @@
 
 
     <navigation
-        android:id="@+id/bottom_nav_graph"
+        android:id="@+id/home_nav_graph"
         app:startDestination="@id/homeFragment"
         >
         <fragment
@@ -45,7 +45,7 @@
         <action
             android:id="@+id/action_global_loginFragment"
             app:destination="@id/loginFragment"
-            app:popUpTo="@id/bottom_nav_graph"
+            app:popUpTo="@id/home_nav_graph"
             app:popUpToInclusive="true" />
     </navigation>
     <fragment
@@ -64,7 +64,7 @@
         tools:layout="@layout/fragment_success" >
         <action
             android:id="@+id/action_successFragment_to_bottom_nav_graph"
-            app:destination="@id/bottom_nav_graph" />
+            app:destination="@id/home_nav_graph" />
     </fragment>
 
 </navigation>
