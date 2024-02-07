@@ -108,7 +108,6 @@ class LoginFragment : Fragment() {
                             launch(result)
                         }
                     }
-
                     else -> {
                         //hideProgressbar()
                         if (it.error == ErrorCode.NO_EMAIL_ON_DEVICE_ERROR) {

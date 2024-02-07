@@ -81,7 +81,7 @@
             android:layout_marginEnd="@dimen/_4sdp"
             android:text="@string/link_not_received_or_expired"/>
         <TextView
-            android:id="@+id/signup"
+            android:id="@+id/send_again"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/_13ssp"

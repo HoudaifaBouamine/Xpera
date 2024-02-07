@@ -29,6 +29,9 @@
         <action
             android:id="@+id/action_signupFragment_to_verificationEmailFragment"
             app:destination="@id/verificationEmailFragment" />
+        <action
+            android:id="@+id/action_signupFragment_to_home_nav_graph"
+            app:destination="@id/home_nav_graph" />
     </fragment>
 
 
@@ -63,7 +66,7 @@
         android:label="fragment_success"
         tools:layout="@layout/fragment_success" >
         <action
-            android:id="@+id/action_successFragment_to_bottom_nav_graph"
+            android:id="@+id/action_successFragment_to_home_nav_graph"
             app:destination="@id/home_nav_graph" />
     </fragment>
 
