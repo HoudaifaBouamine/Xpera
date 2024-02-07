@@ -53,12 +53,13 @@ display: flex;
 
 /* the Hero Style*/
 .hero-Landing-page{
+  position: relative;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   height: 32rem;
- flex:1;
-  padding:0 4rem;
+  flex:1;
+  padding-left: 4rem;
+  padding-right: 0;
 }
 .hero-text{ 
   display: flex;
@@ -66,6 +67,7 @@ display: flex;
   gap:2.2rem;
   flex-direction: column;
   justify-content: flex-start;
+  z-index: 5;
 }
 .hero-button{
   display:flex;
@@ -106,7 +108,50 @@ color: rgba(0, 0, 0, 0.60);
 .description-landingPage{
   width: 450px;
 }
-
+.Hero-image-landingPage{
+  width: 700px;
+  position: absolute;
+  right:-50px;
+  top:10px;
+  z-index: 3;
+}
+.bluesercle{
+  position: absolute;
+  z-index:1;
+  scale: 0.85;
+  right: 90px;
+  
+}
+.lightcircle{
+  position: absolute;
+  z-index:2;
+  right:-10px;
+  scale: 1; 
+}
+.smallBlueDonut{
+  position: absolute;
+  left: 670px;
+  bottom:80px;
+  scale: 0.9;
+  z-index: 0;
+}
+.smallBlueHairt{
+  position: absolute;
+  right: 240px;
+  bottom: -120px;
+}
+.smallBlueSercle{
+  position: absolute;
+  right:470px;
+  top:50px;  
+  z-index: 1;
+}
+.BlueStarSmall{
+  position: absolute;
+  left: 550px;
+  top:140px;
+  
+}
 
 
 
