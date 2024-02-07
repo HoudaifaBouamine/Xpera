@@ -4,7 +4,11 @@
   padding: 0;
 
 }
-
+body{
+  background-color:  #f3f4f6;
+margin: 0;
+padding: 0;
+}
 button {
   padding: 0.75rem 1.5rem;
   border-radius: 0.75rem;
@@ -15,6 +19,11 @@ button {
   line-height: 1.6875rem;
   cursor: pointer;
 
+}
+.hero-landingPage{
+  height: auto;
+  width: 100%;
+  
 }
 .aboutUs-buttons{
   display: flex;
@@ -29,6 +38,9 @@ button {
 }
 
 .navBar{
+  position: fixed;
+  z-index: 10;
+  width: 1200px;
 display: flex;
 padding-left: 48px;
 padding-right:28px ;
@@ -37,6 +49,7 @@ height: 46px;
 padding-bottom: 0px ; 
 justify-content: space-between;
 align-items: center;
+
 }
 .navbar-logo{
   width: 99px;
@@ -52,12 +65,13 @@ display: flex;
 }
 
 /* the Hero Style*/
-.hero-Landing-page{
+.countainer-Landing-page{
   position: relative;
   display: flex;
   align-items: center;
   height: 32rem;
   flex:1;
+  padding-top:60px ;
   padding-left: 4rem;
   padding-right: 0;
 }
@@ -109,10 +123,10 @@ color: rgba(0, 0, 0, 0.60);
   width: 450px;
 }
 .Hero-image-landingPage{
-  width: 700px;
+  width: 470px;
   position: absolute;
-  right:-50px;
-  top:10px;
+  right:63px;
+  top:60px;
   z-index: 3;
 }
 .bluesercle{
@@ -125,8 +139,7 @@ color: rgba(0, 0, 0, 0.60);
 .lightcircle{
   position: absolute;
   z-index:2;
-  right:-10px;
-  scale: 1; 
+  right:0px;
 }
 .smallBlueDonut{
   position: absolute;
@@ -137,22 +150,176 @@ color: rgba(0, 0, 0, 0.60);
 }
 .smallBlueHairt{
   position: absolute;
-  right: 240px;
-  bottom: -120px;
+  right: 265px;
+  bottom: -10px;
 }
 .smallBlueSercle{
   position: absolute;
   right:470px;
-  top:50px;  
+  top:110px;  
   z-index: 1;
 }
 .BlueStarSmall{
   position: absolute;
   left: 550px;
-  top:140px;
+  top:200px;
   
+}
+ /*countainer two of the landing page without the @media*/
+ .countainer-two-landingPage{
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: auto;
+  flex:1;
+  padding-top:180px ;
+  padding-bottom: 50px;
+  padding-left: 4rem;
+  padding-right: 0;
+  gap:160px;
+}
+.Xpera-comunity-description{
+  display: flex;
+  width:480px;
+  gap:2.2rem;
+  flex-direction: column;
+  justify-content: flex-start;
+  z-index: 5;
+  
+}
+.Share-your{
+  color: #000;
+  font-family: Nunito;
+  font-size: 3.06rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  text-transform: capitalize;
+
+}
+.Story{
+
+color: #4666FF;
+  /* Big Title */
+  font-family: Nunito;
+  font-style: normal;
+  font-size: 3.06rem;
+  font-weight: 800;
+  line-height: normal;
+  text-transform: capitalize;
+}
+.Xpera-is-an-comunity{
+  color: rgba(0, 0, 0, 0.60);
+  /* Big Text */
+  font-family: Nunito;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.8rem;  
+}
+.Black-Man-Holding-Phone-image{
+  width: 500px;
+}
+ /* the third countainer in the landing page */
+
+ .countainer-tree-landingPage{
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: auto;
+  flex:1;
+  padding-top:80px ;
+  padding-bottom: 160px;
+  padding-left: 4rem;
+  padding-right: 0;
+  gap:190px;  
+
+ }
+ .Man-With-Laptop-Presenting-Something{
+  width: 500px;
+
+ }
+.Xpera-practices-description{
+  display: flex;
+  width:480px;
+  gap:1.5rem;
+  flex-direction: column;
+  justify-content: flex-start;
+  z-index: 5; 
+
+}
+.Hear-TheBest-practices{
+  color: rgba(0, 0, 0, 0.8);
+  font-family: Nunito;
+  font-size: 3.06rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  text-transform: capitalize;
+
+}
+.Strengthen-your-learning{
+  color: rgba(0, 0, 0, 0.60);
+  /* Big Text */
+  font-family: Nunito;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.8rem; 
+
+}
+.intership-image{
+  position: absolute;
+  z-index: 3;
+top: 270px;
+left:258px ;
+}
+.experInUIUX-image{
+  position: absolute;
+  z-index: 3;
+  top:480px;
+  left: 205px;
+
+}
+.experaDotNet-image{
+  position: absolute;
+  z-index: 3;
+  top:90px;
+  left: 205px;
 }
 
 
 
+ /* the fourth countainer in the landing page */
+
+.countainer-four-landingPage{
+ padding: 80px 48px ;
+  background-color: #6d8dff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 4;
+
+}
+.expera-driven-discription{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap:1.5rem;
+  width: 700px;
+  z-index: 4;
+}
+.Become-Experience-Driven{
+  color: #fff;
+  font-family: Nunito;
+  text-align: center;
+  font-size: 3.06rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  text-transform: capitalize;
+  z-index: 4;
+}
 
