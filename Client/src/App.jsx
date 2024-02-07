@@ -7,7 +7,7 @@ import SingUp from "./singUpPage/singUp"
 function App() {
     return (
 <div>
-    <SingUp/>
+    <LandingPage/>
 </div>
     )}
   

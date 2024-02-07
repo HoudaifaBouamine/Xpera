@@ -203,4 +203,8 @@ input:valid{
   background: var(--blue1), rgba(255, 255, 255, 0.24);
   
 }
-
+.navBar_Button{
+  text-align: center; 
+  color: #404040;
+background-color: inherit;
+}

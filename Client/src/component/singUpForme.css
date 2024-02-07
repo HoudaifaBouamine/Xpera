@@ -22,9 +22,10 @@ body{
     position: absolute;
     right: 50px;
     top:30px;
-    display: flex;
+    z-index:4;   
     width: 300px;
     height: auto;
+    display: flex;
     padding: 40px 40px;
     flex-direction: column;
     align-items: flex-start;
@@ -195,3 +196,4 @@ padding: 0px 0px ;
     /* Focus Effect */
     box-shadow: 0px 2px 16px 0px rgba(70, 102, 255, 0.50);
   }
+ 

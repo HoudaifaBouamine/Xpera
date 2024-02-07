@@ -32,7 +32,9 @@ const signin = () => {
 
      </div>
      <div className="image-side-singupPage">
-        <SingUpForme />
+     
+     <SingUpForme />
+     
      </div>  
     </div>
   )
