@@ -7,6 +7,7 @@ import com.google.firebase.auth.FirebaseUser
 
 interface AuthRepository {
 
+
     val currentUser: FirebaseUser?
 
     suspend fun signUserWithOneTap(): Resource<BeginSignInResult>
@@ -17,7 +18,7 @@ interface AuthRepository {
 
     suspend fun sendPasswordResetEmail(email: String): Resource<Boolean>
 
-    suspend fun firebaseSignUpWithEmailAndPassword(email:String,password:String): Resource<Boolean>
+    suspend fun firebaseSignUpWithEmailAndPassword(fullName:String,email:String,password:String): Resource<Boolean>
 
     suspend fun sendEmailVerification(): Resource<Boolean>
 

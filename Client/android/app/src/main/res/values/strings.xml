@@ -20,4 +20,13 @@
     <string name="full_name">Full name</string>
     <string name="login"><u>Login</u></string>
     <string name="your_web_client_id">275899741140-r9bhs1a68e02csgdjorni72n060dlas0.apps.googleusercontent.com</string>
+    <string name="verification_email">Verification email</string>
+    <string name="a_one_time_verification_link_have_n_been_sent_to_your_email_check_it">A one-time verification link have\n been sent to your email check it</string>
+    <string name="open_email_app">Open Email App</string>
+    <string name="already_checked">Already checked</string>
+    <string name="success">Success!</string>
+    <string name="Continue">Continue</string>
+    <string name="congratulations_you_have_been_n_successfully_authenticated">Congratulations! You have been\n successfully authenticated</string>
+    <string name="link_not_received_or_expired">Link not received or Expired ?</string>
+    <string name="resend_again"><u>Resend again</u></string>
 </resources>

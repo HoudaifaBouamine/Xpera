@@ -17,6 +17,9 @@
         <action
             android:id="@+id/action_loginFragment_to_bottom_nav_graph"
             app:destination="@id/bottom_nav_graph" />
+        <action
+            android:id="@+id/action_loginFragment_to_verificationEmailFragment"
+            app:destination="@id/verificationEmailFragment" />
     </fragment>
     <fragment
         android:id="@+id/signupFragment"
@@ -24,8 +27,8 @@
         android:label="fragment_signup"
         tools:layout="@layout/fragment_signup" >
         <action
-            android:id="@+id/action_signupFragment_to_bottom_nav_graph"
-            app:destination="@id/bottom_nav_graph" />
+            android:id="@+id/action_signupFragment_to_verificationEmailFragment"
+            app:destination="@id/verificationEmailFragment" />
     </fragment>
 
 
@@ -45,5 +48,23 @@
             app:popUpTo="@id/bottom_nav_graph"
             app:popUpToInclusive="true" />
     </navigation>
+    <fragment
+        android:id="@+id/verificationEmailFragment"
+        android:name="com.example.expera.presentation.auth.VerificationEmailFragment"
+        android:label="fragment_verification_email"
+        tools:layout="@layout/fragment_verification_email" >
+        <action
+            android:id="@+id/action_verificationEmailFragment_to_successFragment"
+            app:destination="@id/successFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/successFragment"
+        android:name="com.example.expera.presentation.auth.SuccessFragment"
+        android:label="fragment_success"
+        tools:layout="@layout/fragment_success" >
+        <action
+            android:id="@+id/action_successFragment_to_bottom_nav_graph"
+            app:destination="@id/bottom_nav_graph" />
+    </fragment>
 
 </navigation>
