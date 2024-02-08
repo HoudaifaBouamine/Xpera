@@ -1,10 +1,10 @@
-package com.example.expera.di
+package com.example.xpera.di
 
 import android.app.Application
 import android.content.Context
-import com.example.expera.R
-import com.example.expera.core.SIGN_IN_REQUEST
-import com.example.expera.core.SIGN_UP_REQUEST
+import com.example.xpera.R
+import com.example.xpera.core.SIGN_IN_REQUEST
+import com.example.xpera.core.SIGN_UP_REQUEST
 import com.google.android.gms.auth.api.identity.BeginSignInRequest
 import com.google.android.gms.auth.api.identity.Identity
 import com.google.firebase.auth.ktx.auth

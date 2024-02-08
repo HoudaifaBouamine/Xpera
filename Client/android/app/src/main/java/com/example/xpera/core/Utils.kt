@@ -1,8 +1,4 @@
-package com.example.expera.core
-
-import android.annotation.SuppressLint
-import android.content.res.loader.ResourcesLoader
-import com.google.common.io.Resources
+package com.example.xpera.core
 
 
 class Utils {

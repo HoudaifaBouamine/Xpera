@@ -1,11 +1,11 @@
-package com.example.expera.presentation.auth
+package com.example.xpera.presentation.auth
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.expera.core.Resource
-import com.example.expera.domain.repository.AuthRepository
+import com.example.xpera.core.Resource
+import com.example.xpera.domain.repository.AuthRepository
 import com.google.android.gms.auth.api.identity.BeginSignInResult
 import com.google.android.gms.auth.api.identity.SignInClient
 import com.google.firebase.auth.AuthCredential

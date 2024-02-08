@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="com.example.expera" />
-                  <option name="mobileSdkAppId" value="1:275899741140:android:7463c1cddc2b0f85d95c41" />
-                  <option name="projectId" value="expera-49f4a" />
-                  <option name="projectNumber" value="275899741140" />
+                  <option name="appId" value="com.example.xpera" />
+                  <option name="mobileSdkAppId" value="1:104113960076:android:5a81f3b2ffebc7563877a9" />
+                  <option name="projectId" value="xpera-ff8a6" />
+                  <option name="projectNumber" value="104113960076" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

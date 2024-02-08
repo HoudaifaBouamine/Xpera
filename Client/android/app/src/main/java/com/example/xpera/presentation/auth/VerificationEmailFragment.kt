@@ -1,4 +1,4 @@
-package com.example.expera.presentation.auth
+package com.example.xpera.presentation.auth
 
 import android.content.ActivityNotFoundException
 import android.content.Intent
@@ -10,12 +10,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import com.example.expera.R
-import com.example.expera.core.EMAIL_NOT_VERIFIED_MESSAGE
-import com.example.expera.core.Resource
-import com.example.expera.core.UNKNOWN_ERROR_MESSAGE
-import com.example.expera.core.VERIFY_EMAIL_MESSAGE
-import com.example.expera.databinding.FragmentVerificationEmailBinding
+import com.example.xpera.R
+import com.example.xpera.core.EMAIL_NOT_VERIFIED_MESSAGE
+import com.example.xpera.core.Resource
+import com.example.xpera.core.UNKNOWN_ERROR_MESSAGE
+import com.example.xpera.core.VERIFY_EMAIL_MESSAGE
+import com.example.xpera.databinding.FragmentVerificationEmailBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -29,7 +29,6 @@ class VerificationEmailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         binding = FragmentVerificationEmailBinding.inflate(inflater, container, false)
         return binding?.root
     }
@@ -55,9 +54,9 @@ class VerificationEmailFragment : Fragment() {
         viewModel.apply {
             reloadUserResponse.observe(viewLifecycleOwner) {
                 when (it) {
-                    is Resource.Loading -> TODO()// showProgressbar()
+                    is Resource.Loading -> showProgressbar()
                     is Resource.Success -> {
-                        //hideProgressbar()
+                        hideProgressbar()
                         if (viewModel.isEmailVerified)
                             findNavController().navigate(R.id.action_verificationEmailFragment_to_successFragment)
                         else {
@@ -65,7 +64,7 @@ class VerificationEmailFragment : Fragment() {
                         }
                     }
                     else -> {
-                        //hideProgressbar()
+                        hideProgressbar()
                         Toast.makeText(requireContext(), UNKNOWN_ERROR_MESSAGE,Toast.LENGTH_SHORT).show()
                     }
                 }
@@ -73,13 +72,13 @@ class VerificationEmailFragment : Fragment() {
 
             sendEmailVerificationResponse.observe(viewLifecycleOwner) {
                 when (it) {
-                    is Resource.Loading -> TODO()// showProgressbar()
+                    is Resource.Loading -> showProgressbar()
                     is Resource.Success -> {
-                        //hideProgressbar()
+                        hideProgressbar()
                         Toast.makeText(requireContext(), VERIFY_EMAIL_MESSAGE,Toast.LENGTH_SHORT).show()
                     }
                     is Resource.Error -> {
-                        //hideProgressbar()
+                        hideProgressbar()
                         Toast.makeText(requireContext(), UNKNOWN_ERROR_MESSAGE,Toast.LENGTH_SHORT).show()
                     }
                 }
@@ -96,6 +95,21 @@ class VerificationEmailFragment : Fragment() {
             startActivity(Intent.createChooser(intent, "Choose your Email App"))
         } catch (e: ActivityNotFoundException) {
             Toast.makeText(requireContext(), "Email app not found", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun showProgressbar() {
+        binding?.apply {
+            progressIndicator.visibility = View.VISIBLE
+            grayOverlay.visibility =View.VISIBLE
+        }
+
+    }
+
+    private fun hideProgressbar() {
+        binding?.apply {
+            progressIndicator.visibility = View.INVISIBLE
+            grayOverlay.visibility =View.INVISIBLE
         }
     }
 

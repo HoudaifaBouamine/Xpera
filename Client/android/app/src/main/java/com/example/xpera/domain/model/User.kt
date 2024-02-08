@@ -1,4 +1,4 @@
-package com.example.expera.domain.model
+package com.example.xpera.domain.model
 
 import com.google.firebase.firestore.FieldValue
 

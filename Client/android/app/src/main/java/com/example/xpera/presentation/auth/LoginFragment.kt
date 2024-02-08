@@ -1,4 +1,4 @@
-package com.example.expera.presentation.auth
+package com.example.xpera.presentation.auth
 
 import android.app.Activity
 import android.os.Bundle
@@ -8,18 +8,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.example.expera.core.Utils.Companion.ErrorCode
+import com.example.xpera.core.Utils.Companion.ErrorCode
 import androidx.activity.result.IntentSenderRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.example.expera.R
-import com.example.expera.core.CREDENTIAL_INCORRECT_MESSAGE
-import com.example.expera.core.NO_EMAIL_FOUND_MESSAGE
-import com.example.expera.core.RESET_PASSWORD_MESSAGE
-import com.example.expera.core.Resource
-import com.example.expera.core.UNKNOWN_ERROR_MESSAGE
-import com.example.expera.databinding.FragmentLoginBinding
+import com.example.xpera.R
+import com.example.xpera.core.CREDENTIAL_INCORRECT_MESSAGE
+import com.example.xpera.core.NO_EMAIL_FOUND_MESSAGE
+import com.example.xpera.core.RESET_PASSWORD_MESSAGE
+import com.example.xpera.core.Resource
+import com.example.xpera.core.UNKNOWN_ERROR_MESSAGE
+import com.example.xpera.databinding.FragmentLoginBinding
 import com.google.android.gms.auth.api.identity.BeginSignInResult
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.GoogleAuthProvider
@@ -55,7 +55,6 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding?.root
     }
@@ -101,15 +100,15 @@ class LoginFragment : Fragment() {
 
             oneTapSignInResponse.observe(viewLifecycleOwner) {
                 when (it) {
-                    is Resource.Loading -> TODO()// showProgressbar()
+                    is Resource.Loading -> showProgressbar()
                     is Resource.Success -> {
-                        //hideProgressbar()
+                        hideProgressbar()
                         it.data?.let { result ->
                             launch(result)
                         }
                     }
                     else -> {
-                        //hideProgressbar()
+                        hideProgressbar()
                         if (it.error == ErrorCode.NO_EMAIL_ON_DEVICE_ERROR) {
                             Toast.makeText(requireContext(), NO_EMAIL_FOUND_MESSAGE,Toast.LENGTH_SHORT).show()
                         }
@@ -119,14 +118,13 @@ class LoginFragment : Fragment() {
 
             signInWithGoogleResponse.observe(viewLifecycleOwner) {
                 when (it) {
-                    is Resource.Loading -> TODO()// showProgressbar()
+                    is Resource.Loading -> showProgressbar()
                     is Resource.Success -> {
-                        //hideProgressbar()
+                        hideProgressbar()
                         findNavController().navigate(R.id.action_loginFragment_to_home_nav_graph)
                     }
-
                     else -> {
-                        //hideProgressbar()
+                        hideProgressbar()
                         Toast.makeText(requireContext(), UNKNOWN_ERROR_MESSAGE,Toast.LENGTH_SHORT).show()
                     }
                 }
@@ -134,9 +132,9 @@ class LoginFragment : Fragment() {
 
             signInWithEmailAndPasswordResponse.observe(viewLifecycleOwner) {
                 when (it) {
-                    is Resource.Loading -> TODO()// showProgressbar()
+                    is Resource.Loading -> showProgressbar()
                     is Resource.Success -> {
-                        //hideProgressbar()
+                        hideProgressbar()
                         if (viewModel.isEmailVerified)
                             findNavController().navigate(R.id.action_loginFragment_to_home_nav_graph)
                         else {
@@ -144,7 +142,7 @@ class LoginFragment : Fragment() {
                         }
                     }
                     else -> {
-                        //hideProgressbar()
+                        hideProgressbar()
                         if (it.error == ErrorCode.INVALID_CREDENTIAL_ERROR) {
                             Toast.makeText(requireContext(), CREDENTIAL_INCORRECT_MESSAGE,Toast.LENGTH_SHORT).show()
                         }
@@ -154,13 +152,13 @@ class LoginFragment : Fragment() {
 
             sendPasswordResetEmailResponse.observe(viewLifecycleOwner) {
                 when (it) {
-                    is Resource.Loading -> TODO()//showprogress
+                    is Resource.Loading -> showProgressbar()
                     is Resource.Success -> {
-                        //hideProgressbar()
+                        hideProgressbar()
                         Toast.makeText(requireContext(), RESET_PASSWORD_MESSAGE,Toast.LENGTH_SHORT).show()
                     }
                     else -> {
-                        //hideProgressbar()
+                        hideProgressbar()
                         Toast.makeText(requireContext(), UNKNOWN_ERROR_MESSAGE,Toast.LENGTH_SHORT).show()
                     }
                 }
@@ -171,9 +169,25 @@ class LoginFragment : Fragment() {
 
     }
 
+
     private fun launch(signInResult: BeginSignInResult) {
         val intent = IntentSenderRequest.Builder(signInResult.pendingIntent.intentSender).build()
         launcher.launch(intent)
+    }
+
+    private fun showProgressbar() {
+        binding?.apply {
+            progressIndicator.visibility = View.VISIBLE
+            grayOverlay.visibility =View.VISIBLE
+        }
+
+    }
+
+    private fun hideProgressbar() {
+        binding?.apply {
+            progressIndicator.visibility = View.INVISIBLE
+            grayOverlay.visibility =View.INVISIBLE
+        }
     }
 
     override fun onDestroyView() {

@@ -1,7 +1,7 @@
-package com.example.expera.di
+package com.example.xpera.di
 
-import com.example.expera.data.repository.AuthRepositoryImpl
-import com.example.expera.domain.repository.AuthRepository
+import com.example.xpera.data.repository.AuthRepositoryImpl
+import com.example.xpera.domain.repository.AuthRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

@@ -1,6 +1,6 @@
-package com.example.expera.domain.repository
+package com.example.xpera.domain.repository
 
-import com.example.expera.core.Resource
+import com.example.xpera.core.Resource
 import com.google.android.gms.auth.api.identity.BeginSignInResult
 import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.FirebaseUser

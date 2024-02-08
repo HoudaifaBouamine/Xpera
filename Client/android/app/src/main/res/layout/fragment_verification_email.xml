@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/_24sdp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.auth.VerificationEmailFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/_24sdp">
+
 
     <TextView
         android:id="@+id/tv_ver_email"
@@ -91,4 +96,25 @@
     </LinearLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/grayOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#3D000000"
+        android:visibility="invisible"/>
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progressIndicator"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_2sdp"
+        android:layout_gravity="top"
+        android:indeterminate="true"
+        android:visibility="invisible" />
+
+
+
+
+
+</FrameLayout>

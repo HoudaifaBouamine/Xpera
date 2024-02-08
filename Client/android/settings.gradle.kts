@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Expera"
+rootProject.name = "Xpera"
 include(":app")

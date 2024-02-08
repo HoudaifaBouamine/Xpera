@@ -1,4 +1,4 @@
-package com.example.expera.core
+package com.example.xpera.core
 
 
 const val TAG = "AppTag"

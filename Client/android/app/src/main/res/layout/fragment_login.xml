@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="@dimen/_24sdp"
     tools:context=".presentation.auth.LoginFragment">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/_24sdp">
 
     <ImageView
         android:id="@+id/logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/expera_logo"
+        android:src="@drawable/xpera_logo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -167,12 +170,33 @@
             android:layout_height="wrap_content"
             android:textSize="@dimen/_13ssp"
             android:textColor="@color/blue"
-            android:text="@string/sign_up"/>
+            android:text="@string/sign_up_u"/>
 
     </LinearLayout>
 
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/grayOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#3D000000"
+        android:visibility="invisible"/>
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progressIndicator"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_2sdp"
+        android:layout_gravity="top"
+        android:indeterminate="true"
+        android:visibility="invisible" />
 
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+</FrameLayout>

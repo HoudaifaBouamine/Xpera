@@ -1,5 +1,5 @@
-package com.example.expera.core
-import com.example.expera.core.Utils.Companion.ErrorCode
+package com.example.xpera.core
+import com.example.xpera.core.Utils.Companion.ErrorCode
 
 
 sealed class Resource<T>(

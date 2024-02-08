@@ -1,4 +1,4 @@
-package com.example.expera.presentation.auth
+package com.example.xpera.presentation.auth
 
 import android.app.Activity
 import android.os.Bundle
@@ -12,13 +12,13 @@ import androidx.activity.result.IntentSenderRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.example.expera.R
-import com.example.expera.core.EMAIL_ALREADY_EXIST_MESSAGE
-import com.example.expera.core.Utils.Companion.ErrorCode
-import com.example.expera.core.NO_EMAIL_FOUND_MESSAGE
-import com.example.expera.core.Resource
-import com.example.expera.core.UNKNOWN_ERROR_MESSAGE
-import com.example.expera.databinding.FragmentSignupBinding
+import com.example.xpera.R
+import com.example.xpera.core.EMAIL_ALREADY_EXIST_MESSAGE
+import com.example.xpera.core.Utils.Companion.ErrorCode
+import com.example.xpera.core.NO_EMAIL_FOUND_MESSAGE
+import com.example.xpera.core.Resource
+import com.example.xpera.core.UNKNOWN_ERROR_MESSAGE
+import com.example.xpera.databinding.FragmentSignupBinding
 import com.google.android.gms.auth.api.identity.BeginSignInResult
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.GoogleAuthProvider
@@ -51,7 +51,6 @@ class SignupFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         binding = FragmentSignupBinding.inflate(inflater, container, false)
         return binding?.root
     }
@@ -100,14 +99,14 @@ class SignupFragment : Fragment() {
 
             oneTapSignInResponse.observe(viewLifecycleOwner) {
                 when(it){
-                    is Resource.Loading -> TODO()// showProgressbar()
+                    is Resource.Loading -> showProgressbar()
                     is Resource.Success -> {
-                        //hideProgressbar()
+                        hideProgressbar()
                         it.data?.let { result -> launch(result)
                         }
                     }
                     is Resource.Error ->{
-                        //hideProgressbar()
+                        hideProgressbar()
                         if (it.error == ErrorCode.NO_EMAIL_ON_DEVICE_ERROR){
                             Toast.makeText(requireContext(), NO_EMAIL_FOUND_MESSAGE,Toast.LENGTH_SHORT).show()
                         }
@@ -117,13 +116,13 @@ class SignupFragment : Fragment() {
 
             signInWithGoogleResponse.observe(viewLifecycleOwner) {
                 when(it){
-                    is Resource.Loading -> TODO()// showProgressbar()
+                    is Resource.Loading -> showProgressbar()
                     is Resource.Success -> {
-                        //hideProgressbar()
+                        hideProgressbar()
                         findNavController().navigate(R.id.action_signupFragment_to_home_nav_graph)
                     }
                     is Resource.Error ->{
-                        //hideProgressbar()
+                        hideProgressbar()
                         Toast.makeText(requireContext(), UNKNOWN_ERROR_MESSAGE,Toast.LENGTH_SHORT).show()
                     }
                 }
@@ -131,13 +130,13 @@ class SignupFragment : Fragment() {
 
             signUpWithEmailAndPasswordResponse.observe(viewLifecycleOwner) {
                 when(it){
-                    is Resource.Loading ->   TODO()// showProgressbar()
+                    is Resource.Loading -> showProgressbar()
                     is Resource.Success -> {
-                        //hideProgressbar()
+                        hideProgressbar()
                         viewModel.sendEmailVerification()
                     }
                     else -> {
-                        //hideProgressbar()
+                        hideProgressbar()
                         if (it.error ==ErrorCode.ALREADY_EXISTS_ERROR){
                             Toast.makeText(requireContext(), EMAIL_ALREADY_EXIST_MESSAGE,Toast.LENGTH_SHORT).show()
                         }
@@ -147,13 +146,13 @@ class SignupFragment : Fragment() {
 
             sendEmailVerificationResponse.observe(viewLifecycleOwner) {
                 when(it){
-                    is Resource.Loading -> TODO()// showProgressbar()
+                    is Resource.Loading -> showProgressbar()
                     is Resource.Success -> {
-                        //hideProgressbar()
+                        hideProgressbar()
                         findNavController().navigate(R.id.action_signupFragment_to_verificationEmailFragment)
                     }
                     else -> {
-                        //hideProgressbar()
+                        hideProgressbar()
                         Toast.makeText(requireContext(), UNKNOWN_ERROR_MESSAGE,Toast.LENGTH_SHORT).show()
                     }
                 }
@@ -167,6 +166,21 @@ class SignupFragment : Fragment() {
     private fun launch(signInResult: BeginSignInResult) {
         val intent = IntentSenderRequest.Builder(signInResult.pendingIntent.intentSender).build()
         launcher.launch(intent)
+    }
+
+    private fun showProgressbar() {
+        binding?.apply {
+            progressIndicator.visibility = View.VISIBLE
+            grayOverlay.visibility =View.VISIBLE
+        }
+
+    }
+
+    private fun hideProgressbar() {
+        binding?.apply {
+            progressIndicator.visibility = View.INVISIBLE
+            grayOverlay.visibility =View.INVISIBLE
+        }
     }
 
     override fun onDestroyView() {

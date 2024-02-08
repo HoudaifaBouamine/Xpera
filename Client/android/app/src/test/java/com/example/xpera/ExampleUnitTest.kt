@@ -1,4 +1,4 @@
-package com.example.expera
+package com.example.xpera
 
 import org.junit.Test
 

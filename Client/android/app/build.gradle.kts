@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.expera"
+    namespace = "com.example.xpera"
     compileSdk = 34
 
     buildFeatures {
@@ -16,7 +16,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.example.expera"
+        applicationId = "com.example.xpera"
         minSdk = 21
         targetSdk = 34
         versionCode = 1
@@ -85,7 +85,6 @@ dependencies {
     //intuit library ..sdp/ssp
     implementation ("com.intuit.sdp:sdp-android:1.1.0")
     implementation ("com.intuit.ssp:ssp-android:1.1.0")
-
 
 
     //splash screen
