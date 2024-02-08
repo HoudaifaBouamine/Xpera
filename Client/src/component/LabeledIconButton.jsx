@@ -1,5 +1,5 @@
 import React from 'react';
-import "./styles.css";
+import './styles.module.css';
 
 const LabeledIconButton = ({ label, icon, onClick }) => {
   return (

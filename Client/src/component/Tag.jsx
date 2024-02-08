@@ -1,11 +1,11 @@
 import React from 'react'
-import './styles.css'
+import TagStyle from './styles.module.css'
 
 
 const Tag= ({text}) =>
 {
     return (
-        <a className="tag">{text}</a>
+        <a className={TagStyle.tag}>{text}</a>
     )
 }
 

@@ -1,9 +1,9 @@
 import React from 'react'
-import './styles.css'
+import SecondaryButtonStyle from'./styles.module.css'
 
 const SecondaryButton = ({text}) => {
   return (
-      <button className='secondary-button'>{text}</button>
+      <button className={SecondaryButtonStyle.secondary_button}>{text}</button>
   )
 }
 

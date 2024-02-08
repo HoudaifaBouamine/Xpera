@@ -1,10 +1,10 @@
 import React from 'react'
-import './styles.css'
+import TeriTiaryButtonStyle from'./styles.module.css'
 
 const TeriTiaryButton = ({text}) =>
 {
     return (
-        <a className="teritiary-button">{text}</a>
+        <a className={TeriTiaryButtonStyle.teritiaryButton}>{text}</a>
     )
 }
 

@@ -1,9 +1,9 @@
 import React from 'react'
-import './styles.css'
+import  BigCTAButtonStyle from './styles.module.css'
 
 const BigCTA_Button = ({text}) => {
   return (
-       <button className='big-CTA-button'>{text}</button>
+       <button className={BigCTAButtonStyle.bigCTAButton}>{text}</button>
   )
 }
 export default BigCTA_Button

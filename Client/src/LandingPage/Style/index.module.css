@@ -20,12 +20,11 @@ button {
   cursor: pointer;
 
 }
-.hero-landingPage{
+.herolandingPage{
   height: auto;
   width: 100%;
-  
 }
-.aboutUs-buttons{
+.aboutUsbuttons{
   display: flex;
   gap:2rem;
   margin-right: -120px;
@@ -33,14 +32,14 @@ button {
 
 }
 /* the NavBar Style*/
-.hero-button1{
+.herobutton1{
   display: none;
 }
 
 .navBar{
   position: absolute;
   z-index: 10;
-  width: 1200px;
+  width: 1180px;
 display: flex;
 padding-left: 48px;
 padding-right:28px ;
@@ -51,11 +50,11 @@ justify-content: space-between;
 align-items: center;
 
 }
-.navbar-logo{
+.navbarlogo{
   width: 99px;
   height: 32px;
 }
-.logIn-GetStarted-Button{
+.logInGetStartedButton{
 display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -65,7 +64,7 @@ display: flex;
 }
 
 /* the Hero Style*/
-.countainer-Landing-page{
+.countainerLandingpage{
   position: relative;
   display: flex;
   align-items: center;
@@ -75,7 +74,7 @@ display: flex;
   padding-left: 4rem;
   padding-right: 0;
 }
-.hero-text{ 
+.herotext{ 
   display: flex;
   width:550px;
   gap:2.2rem;
@@ -83,12 +82,12 @@ display: flex;
   justify-content: flex-start;
   z-index: 5;
 }
-.hero-button{
+.herobutton{
   display:flex;
   gap : 2rem;
 }
 
-.An-area-with-real{
+.Anareawithreal{
     color: #000;
     font-family: Nunito;
     font-size: 3.815rem;
@@ -109,7 +108,7 @@ display: flex;
     text-transform: capitalize;
 }
 
-.Share-Your-Tech-Story{
+.ShareYourTechStory{
 color: rgba(0, 0, 0, 0.60);
   /* Big Text */
   font-family: Nunito;
@@ -119,10 +118,10 @@ color: rgba(0, 0, 0, 0.60);
   line-height: 1.8rem;
   /* 110% */
 }
-.description-landingPage{
+.descriptionlandingPage{
   width: 450px;
 }
-.Hero-image-landingPage{
+.HeroimagelandingPage{
   width: 470px;
   position: absolute;
   right:63px;
@@ -140,6 +139,7 @@ color: rgba(0, 0, 0, 0.60);
   position: absolute;
   z-index:2;
   right:0px;
+  
 }
 .smallBlueDonut{
   position: absolute;
@@ -166,7 +166,7 @@ color: rgba(0, 0, 0, 0.60);
   
 }
  /*countainer two of the landing page without the @media*/
- .countainer-two-landingPage{
+ .countainertwolandingPage{
   position: relative;
   display: flex;
   align-items: center;
@@ -178,7 +178,7 @@ color: rgba(0, 0, 0, 0.60);
   padding-right: 0;
   gap:160px;
 }
-.Xpera-comunity-description{
+.Xperacomunitydescription{
   display: flex;
   width:480px;
   gap:2.2rem;
@@ -187,7 +187,7 @@ color: rgba(0, 0, 0, 0.60);
   z-index: 5;
   
 }
-.Share-your{
+.Shareyour{
   color: #000;
   font-family: Nunito;
   font-size: 3.06rem;
@@ -208,7 +208,7 @@ color: #4666FF;
   line-height: normal;
   text-transform: capitalize;
 }
-.Xpera-is-an-comunity{
+.Xperaisancomunity{
   color: rgba(0, 0, 0, 0.60);
   /* Big Text */
   font-family: Nunito;
@@ -217,12 +217,12 @@ color: #4666FF;
   font-weight: 600;
   line-height: 1.8rem;  
 }
-.Black-Man-Holding-Phone-image{
+.BlackManHoldingPhoneimage{
   width: 500px;
 }
  /* the third countainer in the landing page */
 
- .countainer-tree-landingPage{
+ .countainertreelandingPage{
   position: relative;
   display: flex;
   align-items: center;
@@ -235,11 +235,11 @@ color: #4666FF;
   gap:190px;  
 
  }
- .Man-With-Laptop-Presenting-Something{
+ .ManWithLaptopPresentingSomething{
   width: 500px;
 
  }
-.Xpera-practices-description{
+.Xperapracticesdescription{
   display: flex;
   width:480px;
   gap:1.5rem;
@@ -248,7 +248,7 @@ color: #4666FF;
   z-index: 5; 
 
 }
-.Hear-TheBest-practices{
+.HearTheBestpractices{
   color: rgba(0, 0, 0, 0.8);
   font-family: Nunito;
   font-size: 3.06rem;
@@ -258,7 +258,7 @@ color: #4666FF;
   text-transform: capitalize;
 
 }
-.Strengthen-your-learning{
+.Strengthenyourlearning{
   color: rgba(0, 0, 0, 0.60);
   /* Big Text */
   font-family: Nunito;
@@ -268,20 +268,20 @@ color: #4666FF;
   line-height: 1.8rem; 
 
 }
-.intership-image{
+.intershipimage{
   position: absolute;
   z-index: 3;
 top: 270px;
 left:258px ;
 }
-.experInUIUX-image{
+.experInUIUXimage{
   position: absolute;
   z-index: 3;
   top:480px;
   left: 205px;
 
 }
-.experaDotNet-image{
+.experaDotNetimage{
   position: absolute;
   z-index: 3;
   top:90px;
@@ -292,7 +292,7 @@ left:258px ;
 
  /* the fourth countainer in the landing page */
 
-.countainer-four-landingPage{
+.countainerfourlandingPage{
  padding: 80px 48px ;
   background-color: #6d8dff;
   display: flex;
@@ -302,7 +302,7 @@ left:258px ;
   z-index: 4;
 
 }
-.expera-driven-discription{
+.experadrivendiscription{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -311,7 +311,7 @@ left:258px ;
   width: 700px;
   z-index: 4;
 }
-.Become-Experience-Driven{
+.BecomeExperienceDriven{
   color: #fff;
   font-family: Nunito;
   text-align: center;
@@ -323,7 +323,7 @@ left:258px ;
   z-index: 4;
 }
 /* the fiveth countainer last one */
-.countainer-five-landingPage{
+.countainerfivelandingPage{
   display: flex;
  justify-content: space-around;
   gap:10px;
@@ -332,7 +332,7 @@ left:258px ;
   padding-bottom: 30px;
  
 }
-.Quick-Links{
+.QuickLinks{
   display: flex;
   flex-direction: column;
 
@@ -341,11 +341,11 @@ left:258px ;
   display: flex;
   flex-direction: column;
 }
-.Creat-Account{
+.CreatAccount{
   display: flex;
   flex-direction: column;
 }
-.countainer-five--text{
+.countainerfivetext{
   color: #fff;
   font-family: Nunito;
   text-align: center;
@@ -358,7 +358,7 @@ left:258px ;
   padding-bottom:15px ;
 
 }
-.Creat-Account--text{
+.CreatAccounttext{
   color: #fff;
   font-family: Nunito;
   font-size: 1.5rem;
@@ -369,7 +369,7 @@ left:258px ;
   z-index: 4; 
   padding-bottom:25px ;
 }
-.Follow-US--text{
+.FollowUStext{
   color: #fff;
   font-family: Nunito;
   font-size: 1.5rem;
@@ -381,11 +381,11 @@ left:258px ;
   padding-bottom:30px ;
   padding-top: 30px;
 }
-.signUp-OR-creatAccount{
+.signUpORcreatAccount{
    display: flex;
    gap:22px
 }
-.social-media-icons{
+.socialmediaicons{
   display: flex;
 gap:30px
 }
@@ -396,7 +396,7 @@ height: 0px;
 z-index: 10;
 }
 /*last countainer*/
-.last-countainer-landingpage{
+.lastcountainerlandingpage{
   display: flex;
  align-items: center;
  justify-content: space-around;
@@ -404,13 +404,13 @@ z-index: 10;
   background-color: white;
   padding-top: 5px;
 }
-.All-Rights-Reserved{
+.AllRightsReserved{
   font-family: Nunito;
   font-weight: 300;
   font-size: 12px;
   color: #000;
 }
-.navigation-Icons{
+.navigationIcons{
   display: flex;
   align-items: center;
 }

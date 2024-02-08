@@ -1,6 +1,6 @@
 import React from 'react'
 import NavBar from './navBar'
-import './Style/index.css'
+import LPStyle from './Style/index.module.css'
 import GetStarted from "../component/CTA_Button"
 import LogIn  from "../component/SecondaryButton"
 import HeroImage from "./Style/assets/HeroImg.png"
@@ -28,91 +28,89 @@ import iconFour from "./Style/assets/Vector-3.svg"
 
 const LandingPg = () => {
   return (
-       <div className='hero-landingPage'>
+       <div className={LPStyle.herolandingPage}>
         <NavBar/>
-
-
-        <div className='countainer-Landing-page'>
-          <div className='hero-text'>
-            <h1 className='An-area-with-real'>An area with real<span className='experiences'> experiences</span></h1>  
-            <div className='description-landingPage'>   
-              <p className='Share-Your-Tech-Story'>Share Your Tech Story, Interact, and Learn from Community Experiences with Xpera</p>
+        <div className={LPStyle.countainerLandingpage}>
+          <div className={LPStyle.herotext}>
+            <h1 className={LPStyle.Anareawithreal}>An area with real<span className={LPStyle.experiences}> experiences</span></h1>  
+            <div className={LPStyle.descriptionlandingPage}>   
+              <p className={LPStyle.ShareYourTechStory}>Share Your Tech Story, Interact, and Learn from Community Experiences with Xpera</p>
             </div>  
-             <div className='hero-button'>
+             <div className={LPStyle.herobutton}>
                 <GetStarted text={"Start For Free"}/>   
               </div>
           </div>
 
-          <img src={HeroImage} className='Hero-image-landingPage' />
-          <img src={bluesecrle} className='bluesercle'/>
-          <img src={lightcircle} className='lightcircle'/>
-          <img src={smallBlueDonut} className='smallBlueDonut'/>
-          <img src={smallBlueHairt} className='smallBlueHairt'/>
-          <img src={smallBlueSercle} className='smallBlueSercle'/>
-          <img src={BlueStarSmall} className='BlueStarSmall'/>
+          <img src={HeroImage} className={LPStyle.HeroimagelandingPage}/>
+          <img src={bluesecrle} className={LPStyle.bluesercle}/>
+          <img src={lightcircle} className={LPStyle.lightcircle}/>
+          <img src={smallBlueDonut} className={LPStyle.smallBlueDonut}/>
+          <img src={smallBlueHairt} className={LPStyle.smallBlueHairt}/>
+          <img src={smallBlueSercle} className={LPStyle.smallBlueSercle}/>
+          <img src={BlueStarSmall} className={LPStyle.BlueStarSmall}/>
 
         </div>
         
         {/* the second countainer of the landing page */}
 
-        <div className='countainer-two-landingPage'>
+        <div className={LPStyle.countainertwolandingPage}>
 
-          <div className='Xpera-comunity-description'>
-            <h1 className='Share-your'>Share your <span className='Story'> Story</span></h1>
-            <p className='Xpera-is-an-comunity'>Xpera is an comunity platforme where you share your experiences to help others make better choices</p>
+          <div className={LPStyle.Xperacomunitydescription}>
+            <h1 className={LPStyle.Shareyour}>Share your <span className={LPStyle.Story}> Story</span></h1>
+            <p className={LPStyle.Xperaisancomunity}>Xpera is an comunity platforme where you share your experiences to help others make better choices</p>
              <SecondaryButton text={"learn more"}></SecondaryButton>
           </div>
-          <img src={BlackManHoldingPhone } className='Black-Man-Holding-Phone-image'/>
+          <img src={BlackManHoldingPhone } className={LPStyle.BlackManHoldingPhoneimage}/>
         </div>
         
          {/* the third countainer of the landing page */}
-        <div className='countainer-tree-landingPage'>
-          <img src={ManWithLaptopPresentingSomething} className='Man-With-Laptop-Presenting-Something'/>
-          <img src={intership} className='intership-image'/>
-          <img src={experaInUiUx} className='experInUIUX-image'/>
-          <img src={experaIndotNet} className='experaDotNet-image'/>
-          <div className='Xpera-practices-description'>
-            <h1 className='Hear-TheBest-practices'>Hear the best practices</h1>
-            <p className='Strengthen-your-learning'>Strengthen your learning journey by gathering insights from others, empowering you to make informed decisions and steer clear of potential pitfalls</p>
+        <div className={LPStyle.countainertreelandingPage}>
+          <img src={ManWithLaptopPresentingSomething} className={LPStyle.ManWithLaptopPresentingSomething}/>
+          <img src={intership} className={LPStyle.intershipimage}/>
+          <img src={experaInUiUx} className={LPStyle.experInUIUXimage}/>
+          <img src={experaIndotNet} className={LPStyle.experaDotNetimage}/>
+          <div className={LPStyle.Xperapracticesdescription}>
+            <h1 className={LPStyle.HearTheBestpractices}>Hear the best practices</h1>
+            <p className={LPStyle.Strengthenyourlearning}>Strengthen your learning journey by gathering insights from others, empowering you to make informed decisions and steer clear of potential pitfalls</p>
             <SecondaryButton text={"learn more"}></SecondaryButton>
           </div>
         </div>
 
          {/* the fourth countainer of the landing page */}
-        <div className='countainer-four-landingPage'>
-          <div className='expera-driven-discription'>
-           <h1 className='Become-Experience-Driven'>Become Experience-Driven Today</h1>
+        <div className={LPStyle.countainerfourlandingPage}>
+          <div className={LPStyle.experadrivendiscription}>
+           <h1 className={LPStyle.BecomeExperienceDriven}>Become Experience-Driven Today</h1>
            <SmallTeritiaryButtons text={"Get Started"}></SmallTeritiaryButtons>
            </div>
         </div>
                 {/* the lastcountainer of the landing page */}
-        <div className='lineBetweenSection'></div>
-        <div className='countainer-five-landingPage'>
+        <div className={LPStyle.lineBetweenSection}></div>
+        <div className={LPStyle.countainerfivelandingPage}>
           <img src={xperaWhiteLogo} />
-          <div className='Quick-Links'>
-            <h1 className='countainer-five--text'>Quick Links</h1>
+          <div className={LPStyle.QuickLinks}>
+            <h1 className={LPStyle.countainerfivetext}>Quick Links</h1>
               <NavigationIcon text={"About Us"}/>
               <NavigationIcon text={"Careers"}/>
               <NavigationIcon text={"FAQs"}/>
               <NavigationIcon text={"Teams"}/>
               <NavigationIcon text={"Contact Us"}/>
           </div>
-          <div className='Company'>
-          <h1 className='countainer-five--text'>Company</h1>
+          <div className={LPStyle.Company}>
+          <h1 className={LPStyle.countainerfivetext}>Company</h1>
               <NavigationIcon text={"About Us"}/>
               <NavigationIcon text={"Careers"}/>
               <NavigationIcon text={"FAQs"}/>
               <NavigationIcon text={"Teams"}/>
               <NavigationIcon text={"Contact Us"}/>
           </div>
-          <div className='Creat-Account'>
-          <h1 className='Creat-Account--text'>Creat Account</h1>
-            <div className='signUp-OR-creatAccount'>
+          <div className={LPStyle.CreatAccount}>
+          <h1 className={LPStyle.CreatAccounttext}>Creat Account</h1>
+            <div className={LPStyle.signUpORcreatAccount}>
                <InputFieldWhite placeHolder={"simple@mail.com"} Type={"email"}/>
                <SmallTeritiaryButtons text={"Sign Up"}></SmallTeritiaryButtons>
                </div>
-               <h1 className='Follow-US--text'>Follow US</h1>
-               <div className='social-media-icons'>
+               <h1 className={LPStyle.FollowUStext}>Follow US</h1>
+               <div className={LPStyle.socialmediaicons}>
                 <img src={iconOne}/>
                 <img src={iconTwo}/>
                 <img src={iconTree}/>
@@ -122,14 +120,14 @@ const LandingPg = () => {
              
         </div>
                 {/*last of the landing page */}
-        <section className='last-countainer-landingpage'>
-         <h1 className='All-Rights-Reserved'>© 2024 All Rights Reserved</h1>
-          <div className='navigation-Icons'>
-          <button className='navigationIcon'>Privacy Policy</button>
-          <button className='navigationIcon'>Terms of Use</button>
-          <button className='navigationIcon'>Sales and Refunds</button>
-          <button className='navigationIcon'>Legal</button>
-          <button className='navigationIcon'>Site Map</button>
+        <section className={LPStyle.lastcountainerlandingpage}>
+         <h1 className={LPStyle.AllRightsReserved}>© 2024 All Rights Reserved</h1>
+          <div className={LPStyle.navigationIcons}>
+          <button className={LPStyle.navigationIcon}>Privacy Policy</button>
+          <button className={LPStyle.navigationIcon}>Terms of Use</button>
+          <button className={LPStyle.navigationIcon}>Sales and Refunds</button>
+          <button className={LPStyle.navigationIcon}>Legal</button>
+          <button className={LPStyle.navigationIcon}>Site Map</button>
          </div>
         </section>
     </div>

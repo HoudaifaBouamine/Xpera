@@ -1,9 +1,9 @@
 import React from 'react'
-import './styles.css'
+import NavigationIconStyle from './styles.module.css'
 
 const NavigationIcon = ({text}) => {
   return (
-    <button className='Navigation-Icon'>{text}</button>
+    <button className={NavigationIconStyle.Navigation_Icon}>{text}</button>
   )
 }
 

@@ -1,8 +1,8 @@
 import React from 'react'
-import './styles.css'
+import SecondaryButtonIconStyle from './styles.module.css'
 const SecondaryButtonIcon = ({text,Icon}) => {
   return (
-      <button className='secondary-button-icon'>
+      <button className={SecondaryButtonIconStyle.secondary_button_icon}>
     <img className='GoogleImg' src={Icon}></img>
       {text}</button>
   )

@@ -2,64 +2,68 @@
     margin: 0;
     padding: 0;
 }
-body{
+/*body{
     margin: 0;
     padding: 0;
     overflow: hidden;
     height: fit-content;    
-}
+    background-color: white;
+}*/
 img{
     user-select: none;
 }
-.split-container-singupPage {
+.splitcontainersingupPage {
+    overflow: hidden; 
     position:relative ;
     display: flex;
-    height: 610px;
+    height: 585px;
+    background-color: white;
 }
-.color-side-singupPage {
+.colorsidesingupPage {
     background: white;
     flex: 1;
     width: auto;
-    height: 100%;
+  
+    overflow: hidden; 
 }
 
-.image-side-singupPage {
+.imagesidesingupPage {
     position:relative;
     width: 660px;
-    height: auto;
+
     background-image: url('../assets/background-right.svg');
     background-size:   750px 683px ; 
     background-repeat: no-repeat;
     user-select: none;
     transition: all 300ms ease;
 }
-.singUp-page-logo{
+.singUppagelogo{
     position: absolute;
     left: 48px; 
     top : 12px; 
 }
-.HappyMan-image{
+.HappyManimage{
     position: absolute;
     width: 190px;
     height: 190px;
     left:74px ; 
     top:89px ;
 }
-.manHoldComputer-image{
+.manHoldComputerimage{
     position: absolute;
     width: 175px;
     height: 175px;
     left:344px ;
     top:150px ;
 }
-.manThink-image{
+.manThinkimage{
     position: absolute;
     width: 180px;
     height:220px ;
     left:97px ;
     top:320px ;
 }
-.manHoldPhone-image{
+.manHoldPhoneimage{
     position: absolute;
     width: 200px;
     height:220px ;
@@ -71,7 +75,7 @@ img{
     transition: opacity 300ms ease, visibility 300ms ease;
 
 }
-.blueDonut-image{
+.blueDonutimage{
  position: absolute;
  z-index: 1;
  top: 0;
@@ -81,7 +85,7 @@ img{
  transition: opacity 300ms ease, visibility 300ms ease;
 
 }
-.ZigZag-image{
+.ZigZagimage{
     position: absolute;
     z-index: 1;
    
@@ -91,7 +95,7 @@ img{
     visibility: visible;
     transition: all 300ms ease;
 }
-.blueLines-image{
+.blueLinesimage{
     position: absolute;
     z-index: 3;
     top:420px;
@@ -101,7 +105,7 @@ img{
     visibility: visible;
     transition: opacity 300ms ease, visibility 300ms ease;
 }
-.gray-donut-image{
+.graydonutimage{
     position: absolute;
     z-index: 1;
     top:490px;
@@ -111,7 +115,7 @@ img{
     visibility: visible;
     transition: opacity 300ms ease, visibility 300ms ease;
 }
-.BlueXmark-image{
+.BlueXmarkimage{
     position: absolute;
     z-index: 2;
     left:333px ;
@@ -121,7 +125,7 @@ img{
     visibility: visible;
     transition: opacity 300ms ease, visibility 300ms ease;
 }
-.blueStar-image{
+.blueStarimage{
     position: absolute;
     z-index: 2;
     left:220px ; 
@@ -134,27 +138,27 @@ img{
     transition: opacity 300ms ease, visibility 300ms ease;
 }
 @media only screen and  (max-width:1137px){
-    .manHoldPhone-image{
+    .manHoldPhoneimage{
        
         visibility: none;
         opacity: 0;
     }
-    .manHoldComputer-image{
+    .manHoldComputerimage{
    
         visibility: none;
         opacity: 0;
     }
-    .BlueXmark-image{
+    .BlueXmarkimage{
        
         visibility: none;
         opacity: 0;
     }
-    .ZigZag-image{
+    .ZigZagimage{
       
         visibility: none;
         opacity: 0;
     }
-    .blueDonut-image{
+    .blueDonutimage{
         
         visibility: none;
         opacity: 0;
@@ -162,36 +166,36 @@ img{
     
 }
 @media  only screen and (max-width:1111px){
-    .ZigZag-image{
+    .ZigZagimage{
         visibility: visible;
         opacity: 1;
         transform: translateX(-290px) translateY(-190px) ; 
     }
-    .image-side-singupPage{
+    .imagesidesingupPage{
      background-size:1100px 590px  ;       
     }
 }
 
 @media only screen and (max-width:940px){
-    .ZigZag-image{
+    .ZigZagimage{
         transform: translateX(-350px) translateY(-190px) ; 
     }
 }
 
 @media only screen and (max-width:870px ) {
-    .ZigZag-image{
+    .ZigZagimage{
         visibility: none;
         opacity: 0;
     }  
 }
 
 @media only screen and (max-width: 767px ) {
-    .Hero-SingUp-forme{
+    .HeroSingUpforme{
         position: relative;
         right:0;
         top:20px;
     }
-    .image-side-singupPage{
+    .imagesidesingupPage{
     display: flex;
       background-size: 0px;  
       width: 100%;
@@ -200,43 +204,43 @@ img{
 
        }
    
-       .HappyMan-image{
+       .HappyManimage{
 
         visibility: none;
         opacity: 0;
        }
-       .manThink-image{
+       .manThinkimage{
 
         visibility: none;
         opacity: 0;
        }
-       .blueStar-image{
+       .blueStarimage{
         visibility: none;
         opacity: 0;
        }
-       .gray-donut-image{
+       .graydonutimage{
         visibility: none;
         opacity: 0;
        }
-       .blueLines-image{ 
+       .blueLinesimage{ 
         visibility: none;
         opacity: 0;
        }
 }
 @media only screen and (max-width:700px){
-.color-side-singupPage{
+.colorsidesingupPage{
     overflow-y: hidden; /* Enable vertical scrolling */
     overflow-x: hidden;
 }
-.image-side-singupPage{
+.imagesidesingupPage{
     overflow-y: hidden; /* Enable vertical scrolling */
     overflow-x: hidden; 
 }
-.split-container-singupPage{
+.splitcontainersingupPage{
     overflow-y: hidden; /* Enable vertical scrolling */
     overflow-x: hidden;
 }
-.Hero-SingUp-forme{
+.HeroSingUpforme{
     top:30px;
 }
 }

@@ -1,10 +1,10 @@
 import React from "react";
-import './styles.css'
+import DivTestStyle from './styles.module.css'
 
 
 const DivTest= () => {
     return (
-        <div className="div-test"></div>
+        <div className={DivTestStyle.divTest}></div>
     )
 }
 

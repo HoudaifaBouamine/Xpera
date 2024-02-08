@@ -1,9 +1,9 @@
 import React from 'react'
-import './styles.css'
+import navBarButtonStyle from './styles.module.css'
 
 const navBar_Button = ({texte}) => {
   return (
-   <button className='navBar_Button'>{texte}</button>
+   <button className={navBarButtonStyle.navBar_Button}>{texte}</button>
   )
 }
 

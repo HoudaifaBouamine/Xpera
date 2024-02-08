@@ -1,11 +1,11 @@
 import React from 'react'
-import './styles.css'
+import SmallTeriTiaryButtonStyle from './styles.module.css'
 
 
 const SmallTeriTiaryButton = ({text}) =>
 {
     return (
-        <a className="small-teritiary-button">{text}</a>
+        <a className={SmallTeriTiaryButtonStyle.smallTeritiaryButton}>{text}</a>
     )
 }
 

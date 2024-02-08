@@ -1,9 +1,9 @@
 import React from 'react'
-import './styles.css'
+import InputFieldWhiteStyle from './styles.module.css'
 
 const InputFieldWhite= ({placeHolder,Type})=>{
     return (
-        <input placeHolder={placeHolder} type={Type} className="Input-White"></input>
+        <input placeHolder={placeHolder} type={Type} className={InputFieldWhiteStyle.InputWhite}></input>
     )
 }
 

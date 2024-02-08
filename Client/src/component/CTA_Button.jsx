@@ -1,9 +1,9 @@
 import React from 'react'
-import './styles.css'
+import CTAButton from './styles.module.css'
 
 const CTA_button = ({text}) => {
   return (
-       <button className='CTA-button'>{text}</button>
+       <button className={CTAButton.CTAButton}>{text}</button>
   )
 }
 export default CTA_button

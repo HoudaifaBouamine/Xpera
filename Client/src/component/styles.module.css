@@ -85,22 +85,22 @@ input:valid{
 
 
 
-.CTA-button{
+.CTAButton{
   padding: 0.75rem 1.5rem;
   background: #2454FF;
 }
 
-.big-CTA-button{
+.bigCTAButton{
   padding: 1rem 2rem;
   background-color: #2454FF;
 }
 
-.big-CTA-button:hover , .CTA-button:hover{
+.bigCTAButton:hover , .CTAButton:hover{
   background: #6D8DFF;
 }
 
 
-.big-CTA-button:active , .CTA-button:active{
+.bigCTAButton:active , .CTAButton:active{
   
   border: 1px solid #6D8DFF;
   background: #2454FF;
@@ -108,30 +108,30 @@ input:valid{
   box-shadow: 0px 2px 16px 0px rgba(70, 102, 255, 0.50);
 }
 
-.SmallTeritiaryButtons-button{
+.SmallTeritiaryButtons{
   color: #2454FF;
   background-color: white;
   border-radius: 0.75rem;
 }
-.SmallTeritiaryButtons-button:hover{
+.SmallTeritiaryButtons:hover{
   color:rgba(36, 84, 255, 0.6);
 }
-.SmallTeritiaryButtons-button:active{
+.SmallTeritiaryButtons:active{
   color: #2454FF;
 }
 
-.secondary-button{
+.secondary_button{
   color: #2454FF;
   background-color: transparent;
   border-radius: 0.75rem;
   border: 2px solid rgba(36, 84, 255, 0.60);
 }
 
-.secondary-button:hover{
+.secondary_button:hover{
   background: rgba(109, 141, 255, 0.10);
 }
 
-.secondary-button:active{
+.secondary_button:active{
   border-radius: 0.75rem;
   border: 2px solid #2454FF;
   background: rgba(182, 198, 255, 0.60);
@@ -140,19 +140,19 @@ input:valid{
   box-shadow: 0px 2px 16px 0px rgba(70, 102, 255, 0.50);
 }
 
-.teritiary-button{
+.teritiaryButton{
   color: #2454FF;
 }
-.teritiary-button:hover{
+.teritiaryButton:hover{
   color: rgba(36, 84, 255, 0.60)
 }
 
-.teritiary-button:active{
+.teritiaryButton:active{
   /* Focus Effect */
   text-shadow: 0px 2px 16px rgba(70, 102, 255, 0.50);
 }
 
-.small-teritiary-button{
+.smallTeritiaryButton{
   font-size: var(--font-size-text);
   color: #2454FF;
   font-weight: 600;
@@ -187,10 +187,10 @@ input:valid{
 .tag:active{
   background: rgba(36, 84, 255, 0.08);
 }
-.secondary-button-icon{
+.secondary_button_icon{
   width: 100%;
   display: flex;
-  padding: 11px 22px;
+  padding: 11px 4px;
   justify-content: center;
   align-items: flex-end;
   gap: 24px;
@@ -202,12 +202,12 @@ input:valid{
 
 }
 
-.secondary-button-icon:hover{
+.secondary_button_icon:hover{
   border-radius: 12px;
   border: 1px solid  #2454FF;
   background: var(--action-hover, rgba(0, 0, 0, 0.04));
 }
-.secondary-button-icon:active{
+.secondary_button_icon:active{
   border-radius: 12px;
   border: 1px solid  #2454FF;
   box-shadow: 0 2px 16px 0 rgba(70, 102, 255, 0.5);
@@ -219,17 +219,17 @@ input:valid{
   color: #404040;
 background-color: inherit;
 }
-.Navigation-Icon{
+.Navigation_Icon{
   color:white; 
   background-color: transparent;
 }
-.Input-White{
+.InputWhite{
   border: 1px solid rgba(0, 0, 0, 0.2);
   background: var(--whiteColor, #FFF);
 }
-.Input-White:hover{
+.InputWhite:hover{
   color:rgba(0, 0, 0, 0.2);
 }
-.Input-White:active{
+.InputWhite:active{
   color: black;
 }

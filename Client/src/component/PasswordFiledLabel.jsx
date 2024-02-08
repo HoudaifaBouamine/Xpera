@@ -1,5 +1,5 @@
 import React from 'react'
-import './styles.css'
+import './styles.module.css'
 import InputField from './InputField'
 import PasswordField from './PasswordField'
 
