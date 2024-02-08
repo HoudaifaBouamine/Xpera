@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.auth.VerificationEmailFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/_24sdp">
+
+
+    <TextView
+        android:id="@+id/tv_ver_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/verification_email"
+        android:textSize="@dimen/_20ssp"
+        android:textColor="@color/black"
+        android:layout_marginTop="@dimen/_12sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <TextView
+        android:id="@+id/tv_ver_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_9sdp"
+        android:text="@string/a_one_time_verification_link_have_n_been_sent_to_your_email_check_it"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_ver_email"/>
+
+    <ImageView
+        android:id="@+id/img_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/img_message"
+        android:layout_marginTop="@dimen/_9sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_ver_link"
+        android:contentDescription="@string/verification_email" />
+    <Button
+        android:id="@+id/open_email_app"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/open_email_app"
+        android:paddingVertical="@dimen/_10sdp"
+        app:cornerRadius="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_18sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_message"/>
+    <Button
+        android:id="@+id/cont"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/Continue"
+        android:paddingVertical="@dimen/_10sdp"
+        app:cornerRadius="@dimen/_10sdp"
+        app:elevation="@dimen/_16sdp"
+        app:strokeColor="@color/blue"
+        app:strokeWidth="@dimen/_1sdp"
+        android:layout_marginTop="@dimen/_9sdp"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        app:layout_constraintTop_toBottomOf="@id/open_email_app"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_9sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cont">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_13ssp"
+            android:textColor="#4B5563"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:text="@string/link_not_received_or_expired"/>
+        <TextView
+            android:id="@+id/send_again"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_13ssp"
+            android:textColor="@color/blue"
+            android:text="@string/resend_again"/>
+
+    </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/grayOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#3D000000"
+        android:visibility="invisible"/>
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progressIndicator"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_2sdp"
+        android:layout_gravity="top"
+        android:indeterminate="true"
+        android:visibility="invisible" />
+
+
+
+
+
+</FrameLayout>
