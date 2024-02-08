@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.auth.LoginFragment">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/_24sdp">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/xpera_logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/expera" />
+    <TextView
+        android:id="@+id/tv_welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome_back"
+        android:textSize="@dimen/_20ssp"
+        android:textColor="@color/blue"
+        android:layout_marginTop="@dimen/_36sdp"
+        app:layout_constraintTop_toBottomOf="@id/logo"
+        app:layout_constraintStart_toStartOf="@id/logo"
+        app:layout_constraintEnd_toEndOf="@id/logo"/>
+
+    <TextView
+        android:id="@+id/tv_fill_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_13ssp"
+        android:textColor="#333333"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="@string/please_fill_in_the_informations_below"
+        app:layout_constraintTop_toBottomOf="@id/tv_welcome"
+        app:layout_constraintStart_toStartOf="@id/tv_welcome"
+        app:layout_constraintEnd_toEndOf="@id/tv_welcome"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputLayout_email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:endIconMode="clear_text"
+        app:hintEnabled="false"
+        android:layout_marginTop="@dimen/_10sdp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:layout_constraintTop_toBottomOf="@id/tv_fill_info"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+    <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputLayout_password"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:endIconMode="password_toggle"
+        app:hintEnabled="false"
+        android:layout_marginTop="@dimen/_10sdp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:layout_constraintTop_toBottomOf="@id/inputLayout_email"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/password"
+            android:inputType="textPassword"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/log_in"
+        android:paddingVertical="@dimen/_10sdp"
+        app:cornerRadius="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/inputLayout_password"
+        />
+    <CheckBox
+        android:id="@+id/remember_me"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/remember_me"
+        android:textSize="@dimen/_13ssp"
+        android:textColor="#111827"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/forgot_password"
+        app:layout_constraintBottom_toBottomOf="@id/forgot_password"
+        />
+    <TextView
+        android:id="@+id/forgot_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/forgot_password"
+        android:textColor="@color/blue"
+        android:layout_marginTop="@dimen/_13sdp"
+        android:textSize="@dimen/_13ssp"
+        app:layout_constraintTop_toBottomOf="@id/login"
+        app:layout_constraintEnd_toEndOf="@id/login"
+        />
+    <TextView
+        android:id="@+id/tv_continue_with"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/or_continue_with"
+        android:textSize="@dimen/_13ssp"
+        android:layout_marginTop="@dimen/_36sdp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/forgot_password"/>
+    <Button
+        android:id="@+id/sign_with_google"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/google"
+        android:paddingVertical="@dimen/_10sdp"
+        app:cornerRadius="@dimen/_10sdp"
+        app:elevation="@dimen/_16sdp"
+        app:icon="@drawable/ic_google"
+        app:iconGravity="textStart"
+        app:iconPadding="@dimen/_8sdp"
+        app:iconTint="@android:color/transparent"
+        app:iconTintMode="add"
+        android:layout_marginTop="@dimen/_12sdp"
+        app:layout_constraintTop_toBottomOf="@id/tv_continue_with"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:strokeColor="@color/blue"
+        app:strokeWidth="@dimen/_2sdp"
+
+        />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_13ssp"
+            android:textColor="@color/black"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:text="@string/don_t_have_an_account"/>
+        <TextView
+            android:id="@+id/signup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_13ssp"
+            android:textColor="@color/blue"
+            android:text="@string/sign_up_u"/>
+
+    </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/grayOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#3D000000"
+        android:visibility="invisible"/>
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progressIndicator"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_2sdp"
+        android:layout_gravity="top"
+        android:indeterminate="true"
+        android:visibility="invisible" />
+
+
+
+
+
+
+
+
+</FrameLayout>
