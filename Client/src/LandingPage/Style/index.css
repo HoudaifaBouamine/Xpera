@@ -38,7 +38,7 @@ button {
 }
 
 .navBar{
-  position: fixed;
+  position: absolute;
   z-index: 10;
   width: 1200px;
 display: flex;
@@ -322,4 +322,107 @@ left:258px ;
   text-transform: capitalize;
   z-index: 4;
 }
+/* the fiveth countainer last one */
+.countainer-five-landingPage{
+  display: flex;
+ justify-content: space-around;
+  gap:10px;
+  background-color: #6d8dff;
+  padding-top: 50px;
+  padding-bottom: 30px;
+ 
+}
+.Quick-Links{
+  display: flex;
+  flex-direction: column;
 
+}
+.Company{
+  display: flex;
+  flex-direction: column;
+}
+.Creat-Account{
+  display: flex;
+  flex-direction: column;
+}
+.countainer-five--text{
+  color: #fff;
+  font-family: Nunito;
+  text-align: center;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: capitalize;
+  z-index: 4; 
+  padding-bottom:15px ;
+
+}
+.Creat-Account--text{
+  color: #fff;
+  font-family: Nunito;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: capitalize;
+  z-index: 4; 
+  padding-bottom:25px ;
+}
+.Follow-US--text{
+  color: #fff;
+  font-family: Nunito;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: capitalize;
+  z-index: 4; 
+  padding-bottom:30px ;
+  padding-top: 30px;
+}
+.signUp-OR-creatAccount{
+   display: flex;
+   gap:22px
+}
+.social-media-icons{
+  display: flex;
+gap:30px
+}
+.lineBetweenSection{
+  border: 1px solid #f3f4f6 ;
+width: 1200px;
+height: 0px;
+z-index: 10;
+}
+/*last countainer*/
+.last-countainer-landingpage{
+  display: flex;
+ align-items: center;
+ justify-content: space-around;
+  gap:200px;
+  background-color: white;
+  padding-top: 5px;
+}
+.All-Rights-Reserved{
+  font-family: Nunito;
+  font-weight: 300;
+  font-size: 12px;
+  color: #000;
+}
+.navigation-Icons{
+  display: flex;
+  align-items: center;
+}
+.navigationIcon{
+  font-family: Nunito;
+  text-align: center;
+font-weight: 400;
+font-size: 16px;
+color: #000;
+ 
+  background-color:white;
+}
+
+
+  

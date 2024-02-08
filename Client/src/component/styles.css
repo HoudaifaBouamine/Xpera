@@ -219,3 +219,17 @@ input:valid{
   color: #404040;
 background-color: inherit;
 }
+.Navigation-Icon{
+  color:white; 
+  background-color: transparent;
+}
+.Input-White{
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: var(--whiteColor, #FFF);
+}
+.Input-White:hover{
+  color:rgba(0, 0, 0, 0.2);
+}
+.Input-White:active{
+  color: black;
+}

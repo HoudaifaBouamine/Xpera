@@ -17,6 +17,13 @@ import intership from "./Style/assets/MyIntership2023.svg"
 import experaInUiUx from "./Style/assets/Ui-UxExper.svg"
 import experaIndotNet from "./Style/assets/myExperInNet.svg"
 import SmallTeritiaryButtons from '../component/SmallTeritiaryButtons'
+import NavigationIcon from '../component/NavigationIcon'
+import InputFieldWhite from '../component/InputFieldWhite'
+import xperaWhiteLogo from "./Style/assets/xperaWhiteLogo.svg"
+import iconOne from "./Style/assets/Vector.svg"
+import iconTwo from "./Style/assets/Vector-1.svg"
+import iconTree from "./Style/assets/Vector-2.svg"
+import iconFour from "./Style/assets/Vector-3.svg"
 
 
 const LandingPg = () => {
@@ -79,6 +86,52 @@ const LandingPg = () => {
            </div>
         </div>
                 {/* the lastcountainer of the landing page */}
+        <div className='lineBetweenSection'></div>
+        <div className='countainer-five-landingPage'>
+          <img src={xperaWhiteLogo} />
+          <div className='Quick-Links'>
+            <h1 className='countainer-five--text'>Quick Links</h1>
+              <NavigationIcon text={"About Us"}/>
+              <NavigationIcon text={"Careers"}/>
+              <NavigationIcon text={"FAQs"}/>
+              <NavigationIcon text={"Teams"}/>
+              <NavigationIcon text={"Contact Us"}/>
+          </div>
+          <div className='Company'>
+          <h1 className='countainer-five--text'>Company</h1>
+              <NavigationIcon text={"About Us"}/>
+              <NavigationIcon text={"Careers"}/>
+              <NavigationIcon text={"FAQs"}/>
+              <NavigationIcon text={"Teams"}/>
+              <NavigationIcon text={"Contact Us"}/>
+          </div>
+          <div className='Creat-Account'>
+          <h1 className='Creat-Account--text'>Creat Account</h1>
+            <div className='signUp-OR-creatAccount'>
+               <InputFieldWhite placeHolder={"simple@mail.com"} Type={"email"}/>
+               <SmallTeritiaryButtons text={"Sign Up"}></SmallTeritiaryButtons>
+               </div>
+               <h1 className='Follow-US--text'>Follow US</h1>
+               <div className='social-media-icons'>
+                <img src={iconOne}/>
+                <img src={iconTwo}/>
+                <img src={iconTree}/>
+                <img src={iconFour}/>
+               </div>
+          </div>       
+             
+        </div>
+                {/*last of the landing page */}
+        <section className='last-countainer-landingpage'>
+         <h1 className='All-Rights-Reserved'>© 2024 All Rights Reserved</h1>
+          <div className='navigation-Icons'>
+          <button className='navigationIcon'>Privacy Policy</button>
+          <button className='navigationIcon'>Terms of Use</button>
+          <button className='navigationIcon'>Sales and Refunds</button>
+          <button className='navigationIcon'>Legal</button>
+          <button className='navigationIcon'>Site Map</button>
+         </div>
+        </section>
     </div>
   )
 }
