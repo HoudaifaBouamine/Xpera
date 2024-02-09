@@ -32,6 +32,10 @@ button {
     overflow-x: hidden;
   
 }
+.Countainer_Five_Phone{
+  display: none;
+
+}
 .aboutUsbuttons{
   display: flex;
   gap:2rem;
@@ -366,11 +370,16 @@ left:258px ;
 .QuickLinks{
   display: flex;
   flex-direction: column;
+  gap:10px;
 
 }
 .Company{
   display: flex;
   flex-direction: column;
+  gap:10px;
+}
+.InputFieldWhite {
+  width: 200px;
 }
 .CreatAccount{
   display: flex;
@@ -414,7 +423,8 @@ left:258px ;
 }
 .signUpORcreatAccount{
    display: flex;
-   gap:22px
+   gap:60px;
+   height: auto;
 }
 .socialmediaicons{
   display: flex;
@@ -711,7 +721,10 @@ font-weight: 810;
     padding-right:30px ;
   }
   .navBar{
-    gap:250px;
+    gap:220px;
+    overflow-x: hidden;
+    overflow-y: hidden; 
+    padding-right: 0px;
   }
   .herotext{
     gap:15px;
@@ -749,58 +762,77 @@ font-weight: 810;
       padding-left: 2rem;
       padding-bottom: 0px;
       padding-top: 20px;
+      overflow-x: hidden;
+      overflow-y: hidden;
      }
      .countainerfourlandingPage{
-      padding: 30px 80px ; 
-      
+      display:none;
      }
-     .experadrivendiscription{
-      gap:20px;
-      width: 400px;
-     }
-     .BecomeExperienceDriven{
-      font-size:1.6rem ;
-      font-weight: 810;
-     }
+
+
      .lineBetweenSection{
- 
+   display: none  ;
      }
+/* the last section*/
+.countainerfivelandingPage{
+  display: none;
+}
+.navigationIcons{
+  display: none;
+}
+.lastcountainerlandingpage{
+  padding:  10px 0;
+}
+  /*phone countainer for download the app*/
+  .Countainer_Five_Phone{
+    overflow-x: hidden;
+    overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap:30px;
+  padding-top: 100px;
+  }
+  .Get_The_Xpera_App{
+font-family: Nunito;
+font-weight: 800;
+font-size: 40px;
+text-transform: capitalize;
+color: rgba(0, 0, 0, 0.6);
 
-     .countainerfivelandingPage{
-   gap:0px;
-     }
-     .xperaWhiteLogo{
-      width: 60px;
-     }
-     .countainerfivetext{
-      font-size: 1.1rem;
-      font-weight: 700;
-      
+  }
+  .Xpera_Text{
+  color: #4666FF;
+  }
+  .XperaPhone_Image{
+    height: 500px;
+    margin-top:-30px ;
+  }
+.DownloadButtons{
+  display: flex ;
+ gap:30px
 
-     }
-     .QuickLinks{
-      display: none;
-     }
-     .CreatAccounttext{
-      font-size: 1.1rem;
-      font-weight: 700;
-      padding: 0;
-     }
-     .Company{
-      font-size: 1.1rem;
-      font-weight: 700;
-      padding:0px;
-      gap:10px;
-     }
-     .FollowUStext{
-      font-size: 1.1rem;
-      font-weight: 700;
-      padding:0px;
-     }
-     .CreatAccount{
-      gap:10px;
-      padding:0px;
-      width: 60px;
-     }
-    
+}
+.IconDownloadButton{
+  border: none;
+  padding: 0;
+  background-color: transparent;
+}
+.DownloadImage{
+  width: 170px;
+}
+.countainertreelandingPage{
+  display: none;
+}
+.herolandingPage{
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+.lastcountainerlandingpage{
+  overflow-x: hidden;
+  overflow-y: hidden;
+gap:0;  
+}
+
  } 

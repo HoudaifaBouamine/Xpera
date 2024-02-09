@@ -222,8 +222,11 @@ background-color: inherit;
 .Navigation_Icon{
   color:white; 
   background-color: transparent;
+  padding: 0;
 }
 .InputWhite{
+  width: 100%;
+  height: auto;
   border: 1px solid rgba(0, 0, 0, 0.2);
   background: var(--whiteColor, #FFF);
 }

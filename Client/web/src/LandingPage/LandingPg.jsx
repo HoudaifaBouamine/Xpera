@@ -25,8 +25,9 @@ import iconOne from "./Style/assets/Vector.svg"
 import iconTwo from "./Style/assets/Vector-1.svg"
 import iconTree from "./Style/assets/Vector-2.svg"
 import iconFour from "./Style/assets/Vector-3.svg"
-
-
+import XperaPhone_Image from "./Style/assets/XperaPhone.svg"
+import DownloadFromPlayStore from "./Style/assets/DownloadFromPlayStore.svg"
+import DownloadFromAppStore from "./Style/assets/DownloadFromAppStore.svg"
 const LandingPg = () => {
   return (
        <div className={LPStyle.herolandingPage}>
@@ -55,7 +56,7 @@ const LandingPg = () => {
 
         </div>
         
-        {/* the second countainer of the landing page */}
+{/* the second countainer of the landing page */}
 
         <div className={LPStyle.countainertwolandingPage}>
              
@@ -77,7 +78,7 @@ const LandingPg = () => {
         
         </div>
         
-         {/* the third countainer of the landing page */}
+{/* the third countainer of the landing page */}
         <div className={LPStyle.countainertreelandingPage}>
           <img src={ManWithLaptopPresentingSomething} className={LPStyle.ManWithLaptopPresentingSomething}/>
           <img src={intership} className={LPStyle.intershipimage}/>
@@ -90,15 +91,16 @@ const LandingPg = () => {
           </div>
         </div>
 
-         {/* the fourth countainer of the landing page */}
+{/* the fourth countainer of the landing page  (will not apeard in phones) */}
         <div className={LPStyle.countainerfourlandingPage}>
           <div className={LPStyle.experadrivendiscription}>
-           <h1 className={LPStyle.BecomeExperienceDriven}>Become Experience-Driven Today</h1>
-           <SmallTeritiaryButtons text={"Get Started"}></SmallTeritiaryButtons>
-           </div>
+            <h1 className={LPStyle.BecomeExperienceDriven}>Become Experience-Driven Today</h1>
+            <SmallTeritiaryButtons text={"Get Started"}></SmallTeritiaryButtons>
+          </div>
         </div>
-                {/* the lastcountainer of the landing page */}
+         
         <div className={LPStyle.lineBetweenSection}></div>
+{/* the fiveth of the landing page  (will not apeard in phones)  */}
         <div className={LPStyle.countainerfivelandingPage}>
           <img src={xperaWhiteLogo}  className={LPStyle.xperaWhiteLogo}/>
           <div className={LPStyle.QuickLinks}>
@@ -119,22 +121,37 @@ const LandingPg = () => {
               <NavigationIcon text={"Contact Us"}/>
           </div>
           <div className={LPStyle.CreatAccount}>
-          <h1 className={LPStyle.CreatAccounttext}>Creat Account</h1>
+            <h1 className={LPStyle.CreatAccounttext}>Creat Account</h1>
             <div className={LPStyle.signUpORcreatAccount}>
-               <InputFieldWhite placeHolder={"simple@mail.com"} Type={"email"}/>
+               <section className={LPStyle.InputFieldWhite }>
+                   <InputFieldWhite placeHolder={"simple@mail.com"} Type={"email"}/>
+               </section>
                <SmallTeritiaryButtons text={"Sign Up"}></SmallTeritiaryButtons>
                </div>
-               <h1 className={LPStyle.FollowUStext}>Follow US</h1>
+              <h1 className={LPStyle.FollowUStext}>Follow US</h1>
                <div className={LPStyle.socialmediaicons}>
                 <img src={iconOne}/>
                 <img src={iconTwo}/>
                 <img src={iconTree}/>
                 <img src={iconFour}/>
                </div>
-          </div>       
-             
+          </div>        
         </div>
-                {/*last of the landing page */}
+        {/* The fourth section that will apeard for phones*/}      
+        <section className={LPStyle.Countainer_Five_Phone}>
+          <h1 className={LPStyle.Get_The_Xpera_App}>Get The <span className={LPStyle.Xpera_Text}>Xpera</span> App</h1>
+          <img src={XperaPhone_Image} className={LPStyle.XperaPhone_Image}/>
+          <sub>
+            <button  className={LPStyle.bigCTAbuttonSingUp}>INSTALL NOW</button>
+            </sub>
+          <div className={LPStyle.DownloadButtons}>
+            <button  className={LPStyle.IconDownloadButton}><img src={DownloadFromPlayStore} className={LPStyle.DownloadImage}/></button>
+            <button  className={LPStyle.IconDownloadButton}><img src={DownloadFromAppStore} className={LPStyle.DownloadImage}/></button>
+          </div>
+
+
+        </section>
+         {/*last of the landing page */}
         <section className={LPStyle.lastcountainerlandingpage}>
          <h1 className={LPStyle.AllRightsReserved}>© 2024 All Rights Reserved</h1>
           <div className={LPStyle.navigationIcons}>
