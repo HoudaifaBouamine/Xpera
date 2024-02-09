@@ -5,9 +5,13 @@
 
 }
 body{
-  background-color:  #f3f4f6;
+background-color:  #f3f4f6;
 margin: 0;
 padding: 0;
+}
+.Menue{
+  display: none;
+  height: 65px;
 }
 button {
   padding: 0.75rem 1.5rem;
@@ -23,6 +27,10 @@ button {
 .herolandingPage{
   height: auto;
   width: 100%;
+  
+    overflow-y: hidden; /* Enable vertical scrolling */
+    overflow-x: hidden;
+  
 }
 .aboutUsbuttons{
   display: flex;
@@ -32,14 +40,11 @@ button {
 
 }
 /* the NavBar Style*/
-.herobutton1{
-  display: none;
-}
+
 
 .navBar{
   position: absolute;
   z-index: 10;
-  width: 1180px;
 display: flex;
 padding-left: 48px;
 padding-right:28px ;
@@ -48,8 +53,11 @@ height: 46px;
 padding-bottom: 0px ; 
 justify-content: space-between;
 align-items: center;
+gap:227px;
+flex: 1;
 
 }
+
 .navbarlogo{
   width: 99px;
   height: 32px;
@@ -85,6 +93,25 @@ display: flex;
 .herobutton{
   display:flex;
   gap : 2rem;
+  width: 189px;
+}
+.bigCTAbuttonSingUp{
+  height: auto;
+  width :100%;
+  padding: 0.75rem 1.5rem;
+  background-color: #2454FF;
+} 
+
+.bigCTAbuttonSingUp:hover {
+  background: #6D8DFF;
+}
+
+
+.bigCTAbuttonSingUp:active {
+  border: 1px solid #6D8DFF;
+  background:  #2454FF;
+  /* Focus Effect */
+  box-shadow: 0px 2px 16px 0px rgba(70, 102, 255, 0.50);
 }
 
 .Anareawithreal{
@@ -96,6 +123,9 @@ display: flex;
     line-height: normal;
     text-transform: capitalize;
 
+}
+.Learn_More_button{
+  display: none;
 }
 .experiences{
   
@@ -219,6 +249,7 @@ color: #4666FF;
 }
 .BlackManHoldingPhoneimage{
   width: 500px;
+
 }
  /* the third countainer in the landing page */
 
@@ -423,6 +454,353 @@ color: #000;
  
   background-color:white;
 }
+.BlackManHoldingPhoneimageFlipped{
+  display: none;
+}
+.XperacomunitydescriptionFlipped{
+  display: none;
+}
 
+@media only screen and (max-width:1262px) {
+ .navBar{
+  gap:210px;
+ }
+}
+@media only screen and (max-width:1230px) {
+  .navBar{
+   gap:200px;
+  }
+ }
+ @media only screen and (max-width:1208px) {
+  .navBar{
+   gap:180px;
+  }
+ }
+ @media only screen and (max-width:1170px) {
+  .navBar{
+   gap:160px;
+  }
+ }
+ @media only screen and (max-width:1130px) {
+  .navBar{
+    gap:120px;
+  }
+  .aboutUsbuttons{
+    gap:0.8rem;
+  }
+  .HeroimagelandingPage{
+  display: none;
+  }
+  .bluesercle{
+    display: none;
+  }
+  .lightcircle{
+    display: none;
+  }
+  .smallBlueDonut{
+    display: none;
+  }
+  .smallBlueHairt{
+    display: none;
+  }
+  .smallBlueSercle{
+    display: none;
+  }
+  .BlueStarSmall{
+    display: none;
+  }
+  .countainerLandingpage{
+    justify-content: center;
+    align-items: center;
+  }
+  .Learn_More_button{
+    display: block;
+    width: 300px;
+  }
+  .herotext{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 930px;
+    font-weight: 900;
 
+  }
+
+  .herobutton{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap : 2rem;
+    padding: 0;
+    width: 300px;
+  }
+  .countainertwolandingPage{
+    display: flex;
+    flex-direction: column; 
+
+  }
+  .Xperacomunitydescription{
+    align-self: flex-end; 
   
+  }
+  .BlackManHoldingPhoneimage{
+    align-self: flex-start;
+  }
+  .BlackManHoldingPhoneimage{
+    display: none;
+  }
+  .Xperacomunitydescription{
+    display: none;
+  }
+  .BlackManHoldingPhoneimageFlipped{
+    display: block;
+    width: 500px;
+  }
+  .XperacomunitydescriptionFlipped{
+    display: flex;
+    width:480px;
+    gap:2.2rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+  }
+  .Story{
+    color: black;
+  }
+  .Xperaisancomunity{
+    text-align: center;
+  }
+  .countainertreelandingPage{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .Xperapracticesdescription{
+    align-items: center;
+    text-align: center;
+  }
+.intershipimage{
+  left:560px;
+}
+.experInUIUXimage{
+    left: 450px;
+}
+.experaDotNetimage{
+ left: 530px;
+}
+
+ 
+ }
+ 
+ @media only screen  and (max-width:1046px){
+  .intershipimage{
+    left:500px;
+  }
+  .experInUIUXimage{
+      left: 400px;
+  }
+  .experaDotNetimage{
+   left: 500px;
+  }
+ }
+ @media only screen  and (max-width:1008px){
+  .navBar{
+    gap:110px;
+  }
+  .aboutUsbuttons{
+    gap:0rem;
+  }
+ }
+ @media only screen  and (max-width:960px){
+  .aboutUsbuttons{
+    display: none;
+  }
+  .navBar{
+    gap:430px;
+  }
+  .intershipimage{
+    left:500px;
+  }
+  .experInUIUXimage{
+      left: 400px;
+  }
+  .experaDotNetimage{
+   left: 500px;
+  }
+ }
+ @media only screen  and (max-width:904px){
+  .navBar{
+    gap:400px;
+  }
+  .intershipimage{
+    left:450px;
+  }
+  .experInUIUXimage{
+      left: 400px;
+  }
+  .experaDotNetimage{
+   left: 400px;
+  }
+ }
+ @media only screen  and (max-width:875px){
+  .navBar{
+ gap:350px;
+  }
+  .intershipimage{
+    display: none;
+  }
+  .experInUIUXimage{
+    display: none;
+  }
+  .experaDotNetimage{
+    display: none;
+  }
+ }
+ @media only screen  and (max-width:710px){
+  .logInGetStartedButton{
+    display: none;
+  }
+  .Menue{
+    display: block;
+ 
+  }
+ .navBar{
+  gap:475px;
+  overflow-y: hidden; /* Enable vertical scrolling */
+  overflow-x: hidden;
+ }
+ .ManWithLaptopPresentingSomething{
+  display: none;
+ }
+ .Xperapracticesdescription{
+  display: none;
+ }
+ .herotext{
+
+ }
+ .Anareawithreal{
+font-size:3rem ;
+font-weight: 810;
+  
+ }
+ .ShareYourTechStory{
+ font-size:1.2rem ;
+ }
+
+ }
+ @media only screen  and (max-width:677px){
+.navBar{
+  padding-left: 20px;
+
+}
+ }
+ @media only screen  and (max-width:646px){
+  .navBar{
+    gap:450px;
+  }
+ }
+ @media only screen  and (max-width:617px){
+  .countainerLandingpage{ 
+    padding-top: 30px;
+    padding-left: 0rem;
+  }
+  .BlackManHoldingPhoneimageFlipped{
+    width: 350px;
+    padding-right:30px ;
+  }
+  .navBar{
+    gap:250px;
+  }
+  .herotext{
+    gap:15px;
+  }
+  .herobutton{
+    gap: 25px;
+  }
+  .Anareawithreal{
+    font-size:2rem ;
+    font-weight: 810;
+      
+     }
+     .ShareYourTechStory{
+     font-size:1rem ;
+     }
+     .descriptionlandingPage{
+      width: 300px;
+     }
+     .Shareyour{
+      font-size:2rem ;
+      font-weight: 810;
+     }
+     .Story{
+      font-size:2rem ;
+      font-weight: 810;
+     }
+     .Xperaisancomunity{
+      font-size:1rem ;
+     }
+    
+     .XperacomunitydescriptionFlipped{
+      width: 350px;
+     }
+     .countainertwolandingPage{
+      padding-left: 2rem;
+      padding-bottom: 0px;
+      padding-top: 20px;
+     }
+     .countainerfourlandingPage{
+      padding: 30px 80px ; 
+      
+     }
+     .experadrivendiscription{
+      gap:20px;
+      width: 400px;
+     }
+     .BecomeExperienceDriven{
+      font-size:1.6rem ;
+      font-weight: 810;
+     }
+     .lineBetweenSection{
+ 
+     }
+
+     .countainerfivelandingPage{
+   gap:0px;
+     }
+     .xperaWhiteLogo{
+      width: 60px;
+     }
+     .countainerfivetext{
+      font-size: 1.1rem;
+      font-weight: 700;
+      
+
+     }
+     .QuickLinks{
+      display: none;
+     }
+     .CreatAccounttext{
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding: 0;
+     }
+     .Company{
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding:0px;
+      gap:10px;
+     }
+     .FollowUStext{
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding:0px;
+     }
+     .CreatAccount{
+      gap:10px;
+      padding:0px;
+      width: 60px;
+     }
+    
+ } 

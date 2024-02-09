@@ -1,7 +1,8 @@
 import React from 'react'
 import NavBar from './navBar'
 import LPStyle from './Style/index.module.css'
-import GetStarted from "../component/CTA_Button"
+import GetStarted from "../component/BigCTA_Button"
+import BigSecondaryButton from "../component/BigSecondaryButton"
 import LogIn  from "../component/SecondaryButton"
 import HeroImage from "./Style/assets/HeroImg.png"
 import bluesecrle from "./Style/assets/bluesecrle.svg"
@@ -32,12 +33,15 @@ const LandingPg = () => {
         <NavBar/>
         <div className={LPStyle.countainerLandingpage}>
           <div className={LPStyle.herotext}>
-            <h1 className={LPStyle.Anareawithreal}>An area with real<span className={LPStyle.experiences}> experiences</span></h1>  
+            <h1 className={LPStyle.Anareawithreal}>An area with real <span className={LPStyle.experiences}>experiences</span></h1>  
             <div className={LPStyle.descriptionlandingPage}>   
               <p className={LPStyle.ShareYourTechStory}>Share Your Tech Story, Interact, and Learn from Community Experiences with Xpera</p>
             </div>  
              <div className={LPStyle.herobutton}>
-                <GetStarted text={"Start For Free"}/>   
+             <button  className={LPStyle.bigCTAbuttonSingUp}>Start For Free </button>
+                <section className={LPStyle.Learn_More_button}>
+                <BigSecondaryButton text={"learn more"}/>
+                </section>
               </div>
           </div>
 
@@ -54,13 +58,23 @@ const LandingPg = () => {
         {/* the second countainer of the landing page */}
 
         <div className={LPStyle.countainertwolandingPage}>
-
-          <div className={LPStyle.Xperacomunitydescription}>
+             
+             <img src={BlackManHoldingPhone } className={LPStyle.BlackManHoldingPhoneimageFlipped}/>
+           
+           <div className={LPStyle.Xperacomunitydescription}>
             <h1 className={LPStyle.Shareyour}>Share your <span className={LPStyle.Story}> Story</span></h1>
             <p className={LPStyle.Xperaisancomunity}>Xpera is an comunity platforme where you share your experiences to help others make better choices</p>
              <SecondaryButton text={"learn more"}></SecondaryButton>
           </div>
+         
           <img src={BlackManHoldingPhone } className={LPStyle.BlackManHoldingPhoneimage}/>
+         
+          <div className={LPStyle.XperacomunitydescriptionFlipped}>
+            <h1 className={LPStyle.Shareyour}>Share your <span className={LPStyle.Story}> Story</span></h1>
+            <p className={LPStyle.Xperaisancomunity}>Xpera is an comunity platforme where you share your experiences to help others make better choices</p>
+             <SecondaryButton text={"learn more"}></SecondaryButton>
+          </div>
+        
         </div>
         
          {/* the third countainer of the landing page */}
@@ -86,7 +100,7 @@ const LandingPg = () => {
                 {/* the lastcountainer of the landing page */}
         <div className={LPStyle.lineBetweenSection}></div>
         <div className={LPStyle.countainerfivelandingPage}>
-          <img src={xperaWhiteLogo} />
+          <img src={xperaWhiteLogo}  className={LPStyle.xperaWhiteLogo}/>
           <div className={LPStyle.QuickLinks}>
             <h1 className={LPStyle.countainerfivetext}>Quick Links</h1>
               <NavigationIcon text={"About Us"}/>
@@ -95,6 +109,7 @@ const LandingPg = () => {
               <NavigationIcon text={"Teams"}/>
               <NavigationIcon text={"Contact Us"}/>
           </div>
+          
           <div className={LPStyle.Company}>
           <h1 className={LPStyle.countainerfivetext}>Company</h1>
               <NavigationIcon text={"About Us"}/>
