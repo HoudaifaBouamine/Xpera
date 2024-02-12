@@ -137,6 +137,7 @@ const LandingPg = () => {
                </div>
           </div>        
         </div>
+
         {/* The fourth section that will apeard for phones*/}      
         <section className={LPStyle.Countainer_Five_Phone}>
           <h1 className={LPStyle.Get_The_Xpera_App}>Get The <span className={LPStyle.Xpera_Text}>Xpera</span> App</h1>
@@ -148,9 +149,40 @@ const LandingPg = () => {
             <button  className={LPStyle.IconDownloadButton}><img src={DownloadFromPlayStore} className={LPStyle.DownloadImage}/></button>
             <button  className={LPStyle.IconDownloadButton}><img src={DownloadFromAppStore} className={LPStyle.DownloadImage}/></button>
           </div>
-
-
-        </section>
+          </section>
+                {/* The five section that will apeard for phones*/}    
+          <div className={LPStyle.Countainer_Six_Phone}>
+            <img className={LPStyle.xpera_logo_for_Phone} src={xperaWhiteLogo}/>
+            <section className={LPStyle.Icon_For_Phone}>
+            <h1 className={LPStyle.FollowUStext}>Follow US</h1>
+               <div className={LPStyle.socialmediaicons}>
+                <img src={iconOne} className={LPStyle.icon_socailmedia}/>
+                <img src={iconTwo} className={LPStyle.icon_socailmedia}/>
+                <img src={iconTree} className={LPStyle.icon_socailmedia}/>
+                <img src={iconFour} className={LPStyle.icon_socailmedia}/>
+               </div>
+            </section>
+          </div>
+           {/* The six section that will apeard for phones*/}    
+           <div className={LPStyle.seven_countainer}>
+           <div className={LPStyle.Company}>
+            <h1 className={LPStyle.countainerfivetext}>Company</h1>
+              <NavigationIcon text={"About Us"}/>
+              <NavigationIcon text={"Careers"}/>
+              <NavigationIcon text={"FAQs"}/>
+              <NavigationIcon text={"Teams"}/>
+              <NavigationIcon text={"Contact Us"}/>
+          </div>
+          <div className={LPStyle.Company}>
+          <h1 className={LPStyle.countainerfivetext}>Legal</h1>
+              <NavigationIcon text={"Privacy Policy"}/>
+              <NavigationIcon text={"Terms of use"}/>
+              <NavigationIcon text={"Site map"}/>
+              <NavigationIcon text={"Legal"}/>
+          </div>  
+         
+          </div>
+       
          {/*last of the landing page */}
         <section className={LPStyle.lastcountainerlandingpage}>
          <h1 className={LPStyle.AllRightsReserved}>© 2024 All Rights Reserved</h1>

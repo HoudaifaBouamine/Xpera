@@ -223,6 +223,8 @@ background-color: inherit;
   color:white; 
   background-color: transparent;
   padding: 0;
+  font-weight: 400;
+font-size: 16px;
 }
 .InputWhite{
   width: 100%;

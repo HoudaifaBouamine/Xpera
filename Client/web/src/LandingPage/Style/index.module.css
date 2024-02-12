@@ -94,6 +94,9 @@ display: flex;
   justify-content: flex-start;
   z-index: 5;
 }
+.Countainer_Six_Phone{
+  display: none;
+}
 .herobutton{
   display:flex;
   gap : 2rem;
@@ -117,7 +120,9 @@ display: flex;
   /* Focus Effect */
   box-shadow: 0px 2px 16px 0px rgba(70, 102, 255, 0.50);
 }
-
+.seven_countainer{
+  display:none;
+}
 .Anareawithreal{
     color: #000;
     font-family: Nunito;
@@ -668,6 +673,43 @@ color: #000;
     display: none;
   }
  }
+ @media only screen  and (max-width:823px){
+  .navBar{
+    gap:330px;
+  } 
+  .lastcountainerlandingpage{
+    justify-content: center;
+    padding: 10px;
+  }
+  .navigationIcons{
+    display: none;
+  }
+ }
+ @media only screen  and (max-width:790px){
+  .navBar{
+    gap:290px;
+  } 
+  .xperaWhiteLogo{
+    width: 100px;
+  }
+  .countainerfivetext{
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 133%;
+    text-align: start;
+  }
+  .CreatAccounttext{
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 133%;
+  }
+  .InputFieldWhite{
+  width: 140px;
+  }
+  .signUpORcreatAccount{
+ gap:50px;
+  }
+ }
  @media only screen  and (max-width:710px){
   .logInGetStartedButton{
     display: none;
@@ -718,10 +760,10 @@ font-weight: 810;
   }
   .BlackManHoldingPhoneimageFlipped{
     width: 350px;
-    padding-right:30px ;
+   
   }
   .navBar{
-    gap:220px;
+    gap:420px;
     overflow-x: hidden;
     overflow-y: hidden; 
     padding-right: 0px;
@@ -759,7 +801,7 @@ font-weight: 810;
       width: 350px;
      }
      .countainertwolandingPage{
-      padding-left: 2rem;
+      padding-left: 0rem;
       padding-bottom: 0px;
       padding-top: 20px;
       overflow-x: hidden;
@@ -793,6 +835,8 @@ font-weight: 810;
   justify-content: center;
   gap:30px;
   padding-top: 100px;
+padding-bottom: 80px;
+  height: auto;
   }
   .Get_The_Xpera_App{
 font-family: Nunito;
@@ -832,7 +876,111 @@ color: rgba(0, 0, 0, 0.6);
 .lastcountainerlandingpage{
   overflow-x: hidden;
   overflow-y: hidden;
-gap:0;  
+  gap:0;  
+}
+.Countainer_Six_Phone{
+  display: flex;
+  justify-content: space-around;
+  padding-right: 100px;
+padding: 60px 0px;
+width: 100%;
+  background-color: #6D8DFF;
+}
+.icon_socailmedia{
+  width:20px;
+}
+.FollowUStext{
+  font-weight: 700;
+font-size: 18px;
+line-height: 133%;
+}
+
+.xpera_logo_for_Phone{
+  width: 80px;
+}
+.socialmediaicons{
+  gap:15px
+}
+.seven_countainer{
+  display: flex;
+  justify-content: space-around;
+  background-color: #6D8DFF;
+  width: 100%;
+  height: auto;
+  padding-bottom: 30px;
+  padding-top: 40px;
+}
+.countainerfivetext{
+  font-weight: 700;
+font-size: 18px;
+line-height: 133%;
+text-align: start;
+
 }
 
  } 
+@media only screen  and (max-width:606px){
+.navBar{
+  gap:420px;
+}
+}
+@media only screen  and (max-width:586px){
+  .navBar{
+    gap:400px;
+  }
+ }
+ @media only screen  and (max-width:562px){
+  .navBar{
+    gap:380px;
+  }
+ }
+ @media only screen  and (max-width:566px){
+  .navBar{
+    gap:370px;
+  }
+ }
+ @media only screen  and (max-width:536px){
+  .navBar{
+    gap:340px;
+  }
+ }
+ @media only screen  and (max-width:502px){
+  .navBar{
+    gap:320px;
+  }
+ }
+ @media only screen  and (max-width:486px){
+  .navBar{
+    gap:300px;
+  }
+ }
+ @media only screen  and (max-width:466px){
+  .navBar{
+    gap:280px;
+  }
+ }
+ @media only screen  and (max-width:446px){
+  .navBar{
+    gap:260px;
+  }
+ }
+ @media only screen  and (max-width:424px){
+  .navBar{
+    gap:240px;
+  }
+ }
+ @media only screen  and (max-width:402px){
+  .navBar{
+    gap:220px;
+  }
+ }
+ @media only screen  and (max-width:386px){
+  .navBar{
+    gap:200px;
+  }
+ }
+ @media only screen  and (max-width:364px){
+  .navBar{
+    gap:180px;
+  }
+ }
