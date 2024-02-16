@@ -1,0 +1,183 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.splitcontainersingupPage {
+    overflow: hidden; 
+    position:relative ;
+    display: flex;
+    height: auto;
+    background-color: #f3f4f6;
+   
+}
+.color_side{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    align-items: center;
+    flex: 1;
+    width: auto;
+    overflow: hidden; 
+}
+.image_side{
+ 
+    position:relative;
+    width: 724px;
+    height: 587px;
+    background-image: url('./images/background.svg');
+    background-size:   724px; 
+    background-repeat: no-repeat;
+    user-select: none;
+    transition: all 300ms ease;
+}
+.image_side::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(36, 84, 255, 0.12);
+
+}
+.text{
+    position: absolute;
+    top:60px;
+    left:40px;
+    font-family: Nunito;
+    font-weight: 300;
+    font-size: 39px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: white;
+}
+.logo{
+    position: absolute;
+    bottom: 30px;
+    left: 20px;
+}
+.halfDonute{
+    position: absolute;
+    bottom: 0;
+    right: -170px;
+    z-index:1;
+}
+.blueLine{
+    position: absolute;
+    bottom: 0px;
+    right: -80px;
+    z-index: 2;
+}
+.blueX{
+    position: absolute;
+    right: -60px;
+}
+.xperaLogo{
+    display: none;
+}
+.blueX_Color_Side{
+    display: none;
+}
+.zigzagblue{
+    display: none;
+}
+.whiteline{
+    display: none;
+}
+.xperaLogo{
+    display: none;
+}
+.star{
+    display: none;
+}
+
+@media only screen and (max-width:1134px){
+    .image_side{
+        width: 630px;
+    }
+}
+@media only screen and (max-width:1134px){
+    .image_side{
+        width: 600px;
+    }
+    .text{
+        width: 300px;
+    }
+}
+@media only screen and (max-width:1026px){
+    .image_side{
+        width: 500px;
+    }
+
+}
+@media only screen and (max-width:927px){
+    .image_side{
+        width: 400px;
+    }
+}
+@media only screen and (max-width:828px){
+    .image_side{
+        width: 0px;
+    }
+    .text{
+        display: none;
+    }
+    .blueX{
+        display: none;
+    }
+    .blueLine{
+        display: none;
+    }
+    .logo{
+        display: none;
+    }
+    .xperaLogo{
+        display: block;
+        width: 110px;
+
+    }
+    .halfDonute{
+        right:-160px;
+    }
+    .blueX_Color_Side{
+       display: block;
+       position: absolute;
+       right:-30px ;
+       top: 0;
+    }
+    .zigzagblue{
+        display:block;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+    .star{
+        display:block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100px;
+    }
+
+}
+@media only screen and (max-width:578px){
+    .blueX_Color_Side{
+        display: none;
+    }
+    .zigzagblue{
+        display: none;
+    }
+    .whiteline{
+        display: none;
+    }
+    .halfDonute{
+        display: none;
+    }
+    .star{
+        display: none;
+    }
+ 
+
+}

@@ -33,8 +33,9 @@ const signin = () => {
 
      </div>
      <div className={styles.imagesidesingupPage}>
-     
+   
      <SingUpForme />
+  
      
      </div>  
     </div>

@@ -16,27 +16,46 @@ img{
     overflow: hidden; 
     position:relative ;
     display: flex;
-    height: 585px;
-    background-color: white;
+    height: 100vh;
+    background-color: #f3f4f6;
 }
 .colorsidesingupPage {
-    background: white;
     flex: 1;
     width: auto;
-  
     overflow: hidden; 
 }
 
 .imagesidesingupPage {
     position:relative;
-    width: 660px;
-
+    width:clamp(550px,660px,1080px);
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-image: url('../assets/background-right.svg');
     background-size:   750px 683px ; 
     background-repeat: no-repeat;
     user-select: none;
     transition: all 300ms ease;
 }
+.bigCTAbuttonSingUp{
+    height: auto;
+    width :100%;
+    padding: 11px 4px;
+    background-color: #2454FF;
+  } 
+  
+  .bigCTAbuttonSingUp:hover {
+    background: #6D8DFF;
+  }
+  
+  
+  .bigCTAbuttonSingUp:active {
+    border: 1px solid #6D8DFF;
+    background:  #2454FF;
+    /* Focus Effect */
+    box-shadow: 0px 2px 16px 0px rgba(70, 102, 255, 0.50);
+  }
 .singUppagelogo{
     position: absolute;
     left: 48px; 
@@ -194,7 +213,12 @@ img{
         position: relative;
         right:0;
         top:20px;
+        
     }
+    .singUppagelogo{
+        left:10px;
+    }
+    
     .imagesidesingupPage{
     display: flex;
       background-size: 0px;  
@@ -203,7 +227,7 @@ img{
       align-items: center;
 
        }
-   
+     
        .HappyManimage{
 
         visibility: none;
@@ -239,8 +263,31 @@ img{
 .splitcontainersingupPage{
     overflow-y: hidden; /* Enable vertical scrolling */
     overflow-x: hidden;
+    
 }
 .HeroSingUpforme{
     top:30px;
 }
 }
+@media only screen and (max-width:644px){
+   .singUppagelogo{
+    width: 100px;
+   } 
+}
+
+@media only screen and (max-width:599px){
+.splitcontainersingupPage{
+    padding-top: 70px;
+}
+.singUppagelogo{
+    width: 130px;
+   } 
+}
+
+/*hight riglage */
+
+
+
+
+
+

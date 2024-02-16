@@ -39,9 +39,9 @@ const LandingPg = () => {
               <p className={LPStyle.ShareYourTechStory}>Share Your Tech Story, Interact, and Learn from Community Experiences with Xpera</p>
             </div>  
              <div className={LPStyle.herobutton}>
-             <button  className={LPStyle.bigCTAbuttonSingUp}>Start For Free </button>
+             <GetStarted  text={"Start For Free "}/>
                 <section className={LPStyle.Learn_More_button}>
-                <BigSecondaryButton text={"learn more"}/>
+                <BigSecondaryButton text={"learn more"} />
                 </section>
               </div>
           </div>
@@ -75,7 +75,6 @@ const LandingPg = () => {
             <p className={LPStyle.Xperaisancomunity}>Xpera is an comunity platforme where you share your experiences to help others make better choices</p>
              <SecondaryButton text={"learn more"}></SecondaryButton>
           </div>
-        
         </div>
         
 {/* the third countainer of the landing page */}

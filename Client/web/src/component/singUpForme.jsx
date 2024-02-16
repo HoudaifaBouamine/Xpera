@@ -23,7 +23,7 @@ const singInForme = () => {
          <p className={singUpFormStyle.PasswordParagraphSingUp}>Password</p>
          <InputField  placeHolder={"Password"} Type='password'  />
       </div> 
-      <button  className={singUpFormStyle.bigCTAbuttonSingUp}>Sign Up </button>
+      <CTA_button  text={"Sign Up"}/>
       <section className={singUpFormStyle.containerSingUp}>
         <div className={singUpFormStyle.horizontalline1SingUp}></div>
           <p className={singUpFormStyle.orSingUp}>Or</p>
