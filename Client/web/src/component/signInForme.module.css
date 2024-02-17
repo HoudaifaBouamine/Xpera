@@ -13,7 +13,7 @@
 .horizontalline1SingIn{
     overflow: hidden; 
     display: inline-block;
-    width: 94.667px;
+    max-width: 94.667px;
     height: 0.2px;
     align-items: center;
     background: #808080;
@@ -22,7 +22,7 @@
 .Hero_forme{ 
     position: relative;
     z-index: 5;
-    width: 300px;
+    width: clamp(290px,300px ,327px);
     height: auto;
     display: flex;
     padding: 40px 40px;
@@ -43,7 +43,7 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    width: 292px;
+    max-width: 292px;
 }
 
 .userName{
@@ -91,16 +91,7 @@ line-height: normal;
     border-radius: 12px;
 
 }
-.logInButtonSingIn{
-    display: flex;
-    padding: 12px 24px;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
-    align-self: stretch;
-    border-radius: 12px;
-background: #00BFFF;  
-}
+
 .forgotPasSingIn{
     display: flex;
     justify-content: center;
@@ -118,7 +109,7 @@ background: #00BFFF;
 }
 .forgot_Password_Section{    
     display: flex;
-width: 292px;
+max-width: 292px;
 flex-direction: column;
 justify-content: center;
 align-items: flex-end;
@@ -145,14 +136,14 @@ gap: 10px;
 }
 .noAccount{
     display: flex;
-width: 292px;
+max-width: 292px;
 justify-content: center;
 align-items: center;
 gap: 6px;
 }
 .forgotPasSection_singInPage{    
     display: flex;
-width: 292px;
+max-width: 292px;
 flex-direction: column;
 justify-content: center;
 align-items: flex-end;
@@ -200,30 +191,11 @@ font-weight: 400;
 line-height: normal;
 padding: 0px 0px ;  
 }
-
-.bigCTAbuttonSingUp{
-    height: auto;
-    width :100%;
-    padding: 11px 4px;
-    background-color: #2454FF;
-  } 
-  
-  .bigCTAbuttonSingUp:hover {
-    background: #6D8DFF;
-  }
-  
-  
-  .bigCTAbuttonSingUp:active {
-    border: 1px solid #6D8DFF;
-    background:  #2454FF;
-    /* Focus Effect */
-    box-shadow: 0px 2px 16px 0px rgba(70, 102, 255, 0.50);
-  }
-  @media only screen and (max-width:398px){
+  @media only screen and (max-width:767px){
    .Hero_forme{
-    padding:30px 30px ;
-    width: 280px;
-    gap:8px;
+       max-width:300px;
+       overflow: hidden;
+        padding: max(10px, min(9%, 40px)) max(10px, min(9%, 40px));
    } 
   }
  

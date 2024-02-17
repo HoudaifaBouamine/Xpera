@@ -232,6 +232,29 @@ input:valid{
   text-align: center; 
   color: #404040;
 background-color: inherit;
+position: relative;
+transition: color 0.3s ease;
+}
+.navBar_Button::before{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2.7px;
+  border-radius: 1.35px; 
+  bottom: 0;
+  left: 0;
+  background-color: #007BFF; /* Change this color to your desired underline color */
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out;
+}
+
+.navBar_Button:hover::before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+.navBar_Button:active{
+  color: #007BFF;
 }
 .Navigation_Icon{
   color:white; 

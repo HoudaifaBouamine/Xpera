@@ -146,11 +146,11 @@ gap: 10px;
     line-height: normal;
 }
 .noAccountSingUp{
-    display: flex;
-max-width: 292px;
-justify-content: center;
+    width: 100%;
+ display: flex;
+ justify-content: center;
 align-items: center;
-gap: 6px;
+ gap: 20px;
 }
 .noAccountParagraphSingUp{
     color: #808080;

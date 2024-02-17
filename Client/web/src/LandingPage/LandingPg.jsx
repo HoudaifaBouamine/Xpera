@@ -28,7 +28,13 @@ import iconFour from "./Style/assets/Vector-3.svg"
 import XperaPhone_Image from "./Style/assets/XperaPhone.svg"
 import DownloadFromPlayStore from "./Style/assets/DownloadFromPlayStore.svg"
 import DownloadFromAppStore from "./Style/assets/DownloadFromAppStore.svg"
+import { useNavigate } from 'react-router-dom'
 const LandingPg = () => {
+  const Navigate = useNavigate("");
+  const  GoToSinUp = (e)=>{
+    e.preventDefault()
+    Navigate("/signup")
+  }
   return (
        <div className={LPStyle.herolandingPage}>
         <NavBar/>
@@ -39,7 +45,7 @@ const LandingPg = () => {
               <p className={LPStyle.ShareYourTechStory}>Share Your Tech Story, Interact, and Learn from Community Experiences with Xpera</p>
             </div>  
              <div className={LPStyle.herobutton}>
-             <GetStarted  text={"Start For Free "}/>
+             <GetStarted  text={"Start For Free "} onclick={GoToSinUp}/>
                 <section className={LPStyle.Learn_More_button}>
                 <BigSecondaryButton text={"learn more"} />
                 </section>
@@ -94,7 +100,7 @@ const LandingPg = () => {
         <div className={LPStyle.countainerfourlandingPage}>
           <div className={LPStyle.experadrivendiscription}>
             <h1 className={LPStyle.BecomeExperienceDriven}>Become Experience-Driven Today</h1>
-            <SmallTeritiaryButtons text={"Get Started"}></SmallTeritiaryButtons>
+            <SmallTeritiaryButtons text={"Get Started"} onclick={GoToSinUp} ></SmallTeritiaryButtons>
           </div>
         </div>
          
@@ -125,7 +131,7 @@ const LandingPg = () => {
                <section className={LPStyle.InputFieldWhite }>
                    <InputFieldWhite placeHolder={"simple@mail.com"} Type={"email"}/>
                </section>
-               <SmallTeritiaryButtons text={"Sign Up"}></SmallTeritiaryButtons>
+               <SmallTeritiaryButtons text={"Sign Up"} onclick={GoToSinUp}></SmallTeritiaryButtons>
                </div>
               <h1 className={LPStyle.FollowUStext}>Follow US</h1>
                <div className={LPStyle.socialmediaicons}>

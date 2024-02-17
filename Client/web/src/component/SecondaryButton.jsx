@@ -1,9 +1,9 @@
 import React from 'react'
 import SecondaryButtonStyle from'./styles.module.css'
 
-const SecondaryButton = ({text}) => {
+const SecondaryButton = ({text,onclick}) => {
   return (
-      <button className={SecondaryButtonStyle.secondary_button}>{text}</button>
+      <button className={SecondaryButtonStyle.secondary_button} onClick={onclick}>{text}</button>
   )
 }
 

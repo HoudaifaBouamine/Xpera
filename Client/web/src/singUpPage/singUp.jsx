@@ -12,6 +12,7 @@ import ZigZag from "./assets/ZigZag.svg"
 import blueLine from "./assets/blueLines.svg"
 import grayDonut from "./assets/grayDonut.svg"
 import BlueXmark from "./assets/XblueMark.svg"
+import Lol from "../component/singInForm.jsx"
 const signin = () => { 
 
   return (
