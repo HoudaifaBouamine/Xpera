@@ -27,6 +27,7 @@ namespace App.API.Extentions.DtosExtentions
                 PublishDateTime = post.PublishDateTime,
                 Post_Id = post.Post_Id,
                 Title = post.Title,
+                CommentsNumber = post.CommentsNumber,
                 User = (user is null ? null : user.ToDto())!,
                 Tags = (tags is null ? null : tags.ToDto())!,
             };
@@ -41,6 +42,7 @@ namespace App.API.Extentions.DtosExtentions
                 PublishDateTime = post.PublishDateTime,
                 Post_Id = post.Post_Id,
                 Title = post.Title,
+                CommentsNumber = post.CommentsNumber,
                 User = null!,
                 Tags = null!
             };
@@ -61,6 +63,7 @@ namespace App.API.Extentions.DtosExtentions
                         PublishDateTime = postsAsList[i].PublishDateTime,
                         Post_Id = postsAsList[i].Post_Id,
                         Title = postsAsList[i].Title,
+                        CommentsNumber = postsAsList[i].CommentsNumber,
                         User = user.ToDto(),
                         Tags = tags[i].ToDto(),
                     }
@@ -92,7 +95,7 @@ namespace App.API.Extentions.DtosExtentions
             PostModel post = _mapper!.Map<PostModel>(postCreate);
             post.User = null!;
             post.PublishDateTime = DateTime.UtcNow;
-
+            post.CommentsNumber = 0;
             return post;
         }
 
@@ -103,6 +106,7 @@ namespace App.API.Extentions.DtosExtentions
                     {
                         Name = t.Name,
                         Tag_Id = t.Tag_Id
+
                     }).ToList();
         }
 
@@ -122,6 +126,7 @@ namespace App.API.Extentions.DtosExtentions
                 Tags = tags is null ? Enumerable.Empty<TagModel>().ToDto() : tags.ToDto(),
                 Title = post.Title,
                 User_Id = post.User_Id,
+                CommentsNumber = post.CommentsNumber
             };
         }
 
@@ -155,7 +160,8 @@ namespace App.API.Extentions.DtosExtentions
                 PublishDateTime = p.PublishDateTime,
                 Tags = tags.Where(t=>t.Post_Id == p.Post_Id).ToEntities().ToDto(),
                 Title = p.Title,
-                User = p.User.ToDto()
+                User = p.User.ToDto(),
+                CommentsNumber = p.CommentsNumber
             };
         }
 
@@ -170,6 +176,7 @@ namespace App.API.Extentions.DtosExtentions
                        PublishDateTime = p.PublishDateTime,
                        Tags = tags.Where(t => t.Post_Id == p.Post_Id).ToEntities().ToDto(),
                        Title = p.Title,
+                       CommentsNumber = p.CommentsNumber
                    };
         }
     }

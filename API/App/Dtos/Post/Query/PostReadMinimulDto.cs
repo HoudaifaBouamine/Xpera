@@ -15,5 +15,7 @@ namespace App.Models.Dtos.Post.Read
         public string Body { get; set; } = string.Empty;
         public DateTime PublishDateTime { get; set; }
         public IEnumerable<TagDto> Tags { get; set; } = new List<TagDto>();
+        public int CommentsNumber { get; set; }
+    
     }
 }

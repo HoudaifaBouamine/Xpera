@@ -27,5 +27,7 @@ namespace App.API.Models.PostModels
         public DateTime PublishDateTime { get; set; }
 
         public List<PostHaveTagRelation> PostTags {get;set;} = new ();
+
+        public int CommentsNumber { get; set; } = 0;
     }
 }

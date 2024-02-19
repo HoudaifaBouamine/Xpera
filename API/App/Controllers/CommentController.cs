@@ -60,12 +60,20 @@ namespace App.API.Controllers
         [HttpPost]
         public async Task<ActionResult<CommentMinReadDto>> CreateComment([FromBody] CommentCreateDto commentCreate)
         {
-            CommentMinReadDto user = await _commandService.CreateCommentAsync(commentCreate);
+            CommentMinReadDto comment = await _commandService.CreateCommentAsync(commentCreate);
 
-            return CreatedAtRoute(nameof(ReadCommentById), new { Id = user.Id }, user);
+            return CreatedAtRoute(nameof(ReadCommentById), new { Id = comment.Id }, comment);
 
         }
+            
+        [HttpDelete]
+        [HttpDelete("{comment_id}")]
+        public async Task<ActionResult> DeleteCommentAsync(int comment_id)
+        {
+            var isDeleted = await _commandService.DeleteCommentAsync(id:comment_id);
 
+            return isDeleted ? Ok() : NotFound();
+        }
 
     }
 }

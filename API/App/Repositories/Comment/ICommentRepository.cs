@@ -6,5 +6,8 @@ namespace App.API.Repositories.Comment
     public interface ICommentRepository
     {
         Task<CommentModel> CreateCommentAsync(CommentModel comment);
+    
+         Task<bool> DeleteCommentAsync(int comment_id);
+
     }
 }

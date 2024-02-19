@@ -68,6 +68,8 @@ namespace App.API.Services.Interfaces
 
         public Task<CommentMinReadDto> CreateCommentAsync(CommentCreateDto comment); 
 
+        public Task<bool> DeleteCommentAsync(int id);
+
         #endregion
     }
 }

@@ -16,7 +16,8 @@ using App.Models.Dtos.User.Query;
 
 namespace App.API.Servises.Implimentations
 {
-    public class CommandService(IPostRepository postRepository, IUserRepository userRepository,ICommentRepository commentRepository) : ICommandService
+    public class CommandService(IPostRepository postRepository, IUserRepository userRepository,ICommentRepository commentRepository) 
+                    : ICommandService
     {
         private readonly IUserRepository _userRepository = userRepository;
         private readonly ICommentRepository _commentRepository = commentRepository;
@@ -125,6 +126,11 @@ namespace App.API.Servises.Implimentations
 
             return createdUser?.ToDto();
 
+        }
+
+        public async Task<bool> DeleteCommentAsync(int id)
+        {
+            return await _commentRepository.DeleteCommentAsync(id);
         }
 
         #endregion
