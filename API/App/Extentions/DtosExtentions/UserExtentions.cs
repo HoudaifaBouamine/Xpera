@@ -20,7 +20,6 @@ namespace App.API.Extentions.DtosExtentions
         {
             var user = _mapper!.Map<UserModel>(userCreateDto);
             user.HashedPassword = SecurityService.HashPassword( userCreateDto.Password );
-
             return user;
         }
 

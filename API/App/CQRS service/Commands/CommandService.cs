@@ -33,7 +33,6 @@ namespace App.API.Servises.Implimentations
                 return null;
             }
 
-
             UserModel? createdUser = await _userRepository.UserCreate(userToCreate.ToEntity());
 
             if(createdUser == null)

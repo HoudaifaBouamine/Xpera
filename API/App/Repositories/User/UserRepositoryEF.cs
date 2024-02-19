@@ -20,6 +20,7 @@ namespace App.API.Repositories.UserRepository
 
             if(user.User_Id == default)
             {
+                //user.User_Id = Guid.NewGuid();
                 var Entity = await dbContext.Users.AddAsync(user);
                 await dbContext.SaveChangesAsync();
                 UserModel createdUser = Entity.Entity;
@@ -27,6 +28,7 @@ namespace App.API.Repositories.UserRepository
             }
             else
             {
+                System.Console.WriteLine("not default");
                 UserModel? foundUser = await dbContext.Users.Where(u=>u.User_Id == user.User_Id).FirstOrDefaultAsync();
 
                 if(foundUser is null)
