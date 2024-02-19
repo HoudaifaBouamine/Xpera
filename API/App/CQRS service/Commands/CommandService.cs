@@ -1,4 +1,5 @@
 ﻿
+using System.Data.Common;
 using App.API.Extentions.DtosExtentions;
 using App.API.Models;
 using App.API.Models.Post_Models.Comment_Models;
@@ -93,7 +94,7 @@ namespace App.API.Servises.Implimentations
             return true;
         }
 
-        public async Task UserDeleteAsync(int UserToDelete_id)
+        public async Task UserDeleteAsync(Guid UserToDelete_id)
         {
             await _userRepository.UserDelete(UserToDelete_id);
         }
@@ -109,6 +110,22 @@ namespace App.API.Servises.Implimentations
             CommentModel? createdComment = await _commentRepository.CreateCommentAsync(comment.ToEntity());
 
             return createdComment.ToMinDto();
+        }
+
+        public async Task<UserReadDto?> UserFirebaseRegisterAsync(UserFirebaseCreateDto userToCreate)
+        {
+            UserModel user = new UserModel{
+                User_Id = userToCreate.Id,
+                FirstName = "Test",
+                LastName = "Test",
+                Email = "Test",
+                HashedPassword = "Test"
+            };
+
+            var createdUser = await _userRepository.UserCreate(user);
+
+            return createdUser?.ToDto();
+
         }
 
         #endregion

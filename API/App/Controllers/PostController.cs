@@ -38,7 +38,7 @@ namespace App.API.Controllers
         }
 
         [HttpGet("User_Id/{user_Id}")]
-        public async Task<ActionResult<IEnumerable<PostReadFullDto>>> GetUserPosts(int user_Id)
+        public async Task<ActionResult<IEnumerable<PostReadFullDto>>> GetUserPosts(Guid user_Id)
         {
             return Ok( await _queryService.ReadUserPostsAsync(user_Id) );
 

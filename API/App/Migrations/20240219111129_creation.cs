@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace App.API.Migrations
 {
     /// <inheritdoc />
-    public partial class create : Migration
+    public partial class creation : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -29,8 +29,7 @@ namespace App.API.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    User_Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    User_Id = table.Column<Guid>(type: "uuid", nullable: false),
                     FirstName = table.Column<string>(type: "text", nullable: false),
                     LastName = table.Column<string>(type: "text", nullable: false),
                     Email = table.Column<string>(type: "text", nullable: false),
@@ -47,7 +46,7 @@ namespace App.API.Migrations
                 {
                     Post_Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    User_Id = table.Column<int>(type: "integer", nullable: false),
+                    User_Id = table.Column<Guid>(type: "uuid", nullable: false),
                     Title = table.Column<string>(type: "text", nullable: false),
                     Body = table.Column<string>(type: "text", nullable: false),
                     PublishDateTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
@@ -70,7 +69,7 @@ namespace App.API.Migrations
                     Comment_Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Text = table.Column<string>(type: "character varying(2000)", maxLength: 2000, nullable: false),
-                    User_Id = table.Column<int>(type: "integer", nullable: false),
+                    User_Id = table.Column<Guid>(type: "uuid", nullable: false),
                     Post_Id = table.Column<int>(type: "integer", nullable: false),
                     PublishDateTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },

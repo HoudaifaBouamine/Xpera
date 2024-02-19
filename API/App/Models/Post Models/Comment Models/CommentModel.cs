@@ -19,7 +19,7 @@ namespace App.API.Models.Post_Models.Comment_Models
         [Required]
         [ForeignKey(nameof(User))]
         [Column(nameof(User_Id))]
-        public int User_Id { get; set; }
+        public Guid User_Id { get; set; }
         public UserModel User { get; set; } = null!;
 
         [Required]

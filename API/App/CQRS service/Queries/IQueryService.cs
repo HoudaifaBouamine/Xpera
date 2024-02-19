@@ -24,7 +24,7 @@ namespace App.API.Services.Interfaces
         /// </summary>
         /// <param name="user_id">The user_id of the owner of the posts.</param>
         /// <returns>Returns a list of PostReadMinimulDto containing information about all posts owned by the specified user.</returns>
-        public Task<IEnumerable<PostReadMinimulDto>> ReadUserPostsAsync(int user_id);
+        public Task<IEnumerable<PostReadMinimulDto>> ReadUserPostsAsync(Guid user_id);
 
         /// <summary>
         /// Retrieves detailed information about all posts in the system.
@@ -48,7 +48,7 @@ namespace App.API.Services.Interfaces
         /// </summary>
         /// <param name="user_id">The id of the user to retrieve.</param>
         /// <returns>Returns a UserReadDto containing user information if the user exists, otherwise returns null.</returns>
-        public Task<UserReadDto?> ReadUserAsync(int user_id);
+        public Task<UserReadDto?> ReadUserAsync(Guid user_id);
 
         /// <summary>
         /// Authenticates a user based on their email and password.
@@ -62,7 +62,7 @@ namespace App.API.Services.Interfaces
 
         #region Comments
 
-        public Task<IEnumerable<CommentPostReadDto>> ReadCommentsByUserIdAsync(int user_id);
+        public Task<IEnumerable<CommentPostReadDto>> ReadCommentsByUserIdAsync(Guid user_id);
 
         public Task<IEnumerable<CommentUserReadDto>> ReadCommentsByPostIdAsync(int post_id);
 

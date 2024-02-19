@@ -36,7 +36,7 @@ namespace App.API.Repositories.PostRepository
         /// </summary>
         /// <param name="user_Id">The id of the user.</param>
         /// <returns>A list of posts owned by the user.</returns>
-        public Task<List<PostModel>> UserPostsReadAsync(int user_Id);
+        public Task<List<PostModel>> UserPostsReadAsync(Guid user_Id);
 
         /// <summary>
         /// Retrieves tags by their ids.

@@ -32,7 +32,7 @@ namespace App.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<UserReadDto>> GetUser(int id)
+        public async Task<ActionResult<UserReadDto>> GetUser(Guid id)
         {
             UserReadDto? user = await _queryService.ReadUserAsync(id);
 
@@ -58,10 +58,25 @@ namespace App.API.Controllers
         }
 
         [HttpDelete("{Id}")]
-        public async Task<ActionResult> UserDelete(int Id)
+        public async Task<ActionResult> UserDelete(Guid Id)
         {
             await _commandService.UserDeleteAsync(Id);
             return Ok();
         }
+
+        [HttpPost("firebase/register")]
+        public async Task<ActionResult<UserReadDto>> UserFirebaseRegister([FromBody] UserFirebaseCreateDto user)
+        {
+            UserReadDto? userReadDto = await _commandService.UserFirebaseRegisterAsync(user);
+
+            if(userReadDto == null)
+            {
+                return BadRequest($"Failed to register user from firebase Id: [{user.Id}]");
+            }
+
+            return Ok( userReadDto );
+        }    
+        
+        
     }
 }

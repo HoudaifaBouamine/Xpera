@@ -57,7 +57,7 @@ namespace App.API.Servises.Implimentations
             return user.ToDto();
         }
 
-        public async Task<UserReadDto?> ReadUserAsync(int user_id)
+        public async Task<UserReadDto?> ReadUserAsync(Guid user_id)
         {
             string query = $"SELECT * FROM Users u WHERE u.User_Id = @User_Id";
 
@@ -192,7 +192,7 @@ namespace App.API.Servises.Implimentations
 
             return tags;
         }
-        public async Task<IEnumerable<PostReadMinimulDto>> ReadUserPostsAsync(int user_id)
+        public async Task<IEnumerable<PostReadMinimulDto>> ReadUserPostsAsync(Guid user_id)
         {
             using var connection = new SqlConnection(_configuration.GetConnectionString(ConnectionStringName));
 
@@ -213,7 +213,7 @@ namespace App.API.Servises.Implimentations
         #endregion
 
         #region Comment
-        public async Task<IEnumerable<CommentPostReadDto>> ReadCommentsByUserIdAsync(int user_id)
+        public async Task<IEnumerable<CommentPostReadDto>> ReadCommentsByUserIdAsync(Guid user_id)
         {
             var sql = $"exec Get_Comments_With_Posts_By_User_Id @User_Id = {user_id}";
 

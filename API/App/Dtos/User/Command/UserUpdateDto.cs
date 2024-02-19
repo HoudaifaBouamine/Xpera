@@ -8,7 +8,7 @@ namespace App.Models.Dtos.User.Command
 {
     public class UserUpdateDto
     {
-        public int User_Id { get; set; }
+        public Guid User_Id { get; set; }
         public string FirstName { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;

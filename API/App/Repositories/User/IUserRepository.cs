@@ -14,7 +14,7 @@ namespace App.API.Repositories.UserRepository
         /// </summary>
         /// <param name="Id">The Id of the user to retrieve.</param>
         /// <returns>The user with the specified Id or null if not found.</returns>
-        Task<UserModel?> UserRead(int Id);
+        Task<UserModel?> UserRead(Guid Id);
         /// <summary>
         /// Retrieves a user by their email.
         /// </summary>
@@ -39,6 +39,6 @@ namespace App.API.Repositories.UserRepository
         /// Deletes a user by their id.
         /// </summary>
         /// <param name="user_id">The id of the user to be deleted.</param>
-        Task UserDelete(int user_id);
+        Task UserDelete(Guid user_id);
     }
 }

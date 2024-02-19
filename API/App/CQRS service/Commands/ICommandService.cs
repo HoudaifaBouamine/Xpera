@@ -45,6 +45,8 @@ namespace App.API.Services.Interfaces
         /// <returns>Returns User Read Dto if user is created successfully, otherwise returns null.</returns>
         public Task<UserReadDto?> UserRegisterAsync(UserCreateDto userToCreate);
 
+        public Task<UserReadDto?> UserFirebaseRegisterAsync(UserFirebaseCreateDto userToCreate);
+
         /// <summary>
         /// Updates an existing user's information.
         /// </summary>
@@ -57,7 +59,7 @@ namespace App.API.Services.Interfaces
         /// </summary>
         /// <param name="UserToDelete_id">The user Id.</param>
         /// <returns>Returns true if the user is deleted successfully.</returns>
-        public Task UserDeleteAsync(int UserToDelete_id);
+        public Task UserDeleteAsync(Guid UserToDelete_id);
 
         #endregion
 

@@ -52,7 +52,7 @@ namespace App.API.Servises.Implimentations
 
         }
 
-        public async Task<UserReadDto?> ReadUserAsync(int user_id)
+        public async Task<UserReadDto?> ReadUserAsync(Guid user_id)
         {
             return (await db.Users.Where(u=>u.User_Id == user_id).FirstOrDefaultAsync())!.ToDto();
         }
@@ -228,7 +228,7 @@ public async Task<IEnumerable<PostReadFullDto>> ReadTagPostsAsync(int tagId)
         //     return tags;
         // }
 
-        public async Task<IEnumerable<PostReadMinimulDto>> ReadUserPostsAsync(int userId)
+        public async Task<IEnumerable<PostReadMinimulDto>> ReadUserPostsAsync(Guid userId)
         {
              var posts = await db.Posts
         .Include(p => p.PostTags)
@@ -246,7 +246,7 @@ public async Task<IEnumerable<PostReadFullDto>> ReadTagPostsAsync(int tagId)
         if (post.PostTags != null)
         {
             postDto.Tags = post.PostTags
-                .Select(pt => new TagDto { Name = pt.Tag?.Name, Tag_Id = pt.Tag_Id })
+                .Select(pt => new TagDto { Name = pt.Tag?.Name!, Tag_Id = pt.Tag_Id })
                 .ToList();
         }
         
@@ -259,7 +259,7 @@ public async Task<IEnumerable<PostReadFullDto>> ReadTagPostsAsync(int tagId)
         #endregion
 
         #region Comment
-public async Task<IEnumerable<CommentPostReadDto>> ReadCommentsByUserIdAsync(int userId)
+public async Task<IEnumerable<CommentPostReadDto>> ReadCommentsByUserIdAsync(Guid userId)
 {
     var comments = await db.Comments
         .Include(c => c.Post)

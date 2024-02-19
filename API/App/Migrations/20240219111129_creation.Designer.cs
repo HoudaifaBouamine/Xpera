@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace App.API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240217235715_create")]
-    partial class create
+    [Migration("20240219111129_creation")]
+    partial class creation
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -71,8 +71,8 @@ namespace App.API.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("User_Id")
-                        .HasColumnType("integer")
+                    b.Property<Guid>("User_Id")
+                        .HasColumnType("uuid")
                         .HasColumnName("User_Id");
 
                     b.HasKey("Post_Id");
@@ -121,8 +121,8 @@ namespace App.API.Migrations
                         .HasMaxLength(2000)
                         .HasColumnType("character varying(2000)");
 
-                    b.Property<int>("User_Id")
-                        .HasColumnType("integer")
+                    b.Property<Guid>("User_Id")
+                        .HasColumnType("uuid")
                         .HasColumnName("User_Id");
 
                     b.HasKey("Comment_Id");
@@ -136,12 +136,10 @@ namespace App.API.Migrations
 
             modelBuilder.Entity("App.API.Models.UserModel", b =>
                 {
-                    b.Property<int>("User_Id")
+                    b.Property<Guid>("User_Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
+                        .HasColumnType("uuid")
                         .HasColumnName("User_Id");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("User_Id"));
 
                     b.Property<string>("Email")
                         .IsRequired()

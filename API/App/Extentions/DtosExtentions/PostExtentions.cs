@@ -41,8 +41,8 @@ namespace App.API.Extentions.DtosExtentions
                 PublishDateTime = post.PublishDateTime,
                 Post_Id = post.Post_Id,
                 Title = post.Title,
-                User = null,
-                Tags = null
+                User = null!,
+                Tags = null!
             };
         }
 

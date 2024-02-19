@@ -11,7 +11,7 @@ namespace App.API.Models
 
         [Key]
         [Column(nameof(User_Id))]
-        public int User_Id { get; set; }
+        public Guid User_Id { get; set; }
 
         [MinLength(1)]
         public string FirstName { get; set; } = string.Empty;

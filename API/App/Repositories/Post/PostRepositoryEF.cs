@@ -57,7 +57,7 @@ namespace App.API.Repositories.PostRepository
         }
 
         // Done
-        public async Task<List<PostModel>> UserPostsReadAsync(int user_Id)
+        public async Task<List<PostModel>> UserPostsReadAsync(Guid user_Id)
         {
             return await _AppDbContext.Posts.Where(p=>p.User_Id == user_Id).ToListAsync();
         }

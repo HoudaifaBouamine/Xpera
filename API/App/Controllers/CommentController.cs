@@ -21,7 +21,7 @@ namespace App.API.Controllers
         private readonly AppDbContext db = db;
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ICommentDto>>> GetComments([FromQuery] int? user_id, [FromQuery] int? post_id)
+        public async Task<ActionResult<IEnumerable<ICommentDto>>> GetComments([FromQuery] Guid? user_id, [FromQuery] int? post_id)
         {
             IEnumerable <ICommentDto> comments = null!;
 

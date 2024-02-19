@@ -67,6 +67,6 @@ namespace App.Models.Dtos.Comment
         [MinLength(1)]
         required public string Text { get; set; }
         required public int Post_Id { get; set; }
-        required public int User_Id { get; set; }
+        required public Guid User_Id { get; set; }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using App.API.Extentions.DtosExtentions;
-using App.API.Migrations;
 using AutoMapper;
 
 namespace App.API.Extentions
