@@ -8,7 +8,6 @@ using App.Models.Dtos.Post.Create;
 using App.Models.Dtos.Post.Read;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.EntityFrameworkCore;
 
 namespace App.API.Controllers
@@ -79,17 +78,17 @@ namespace App.API.Controllers
 
 
         [HttpGet("/api/tag/{tag_id}")]
-        public async Task<ActionResult<TagDto?>> GetAllTags(int tag_id){
+        public async Task<ActionResult<string?>> GetAllTags(int tag_id){
             return await db.Tags.Where(t=>t.Tag_Id == tag_id).Select(t=>t.ToDto()).FirstOrDefaultAsync();
         }
 
         [HttpGet("/api/tag")]
-        public async Task<ActionResult<IEnumerable<TagDto>>> GetAllTags(){
+        public async Task<ActionResult<IEnumerable<string>>> GetAllTags(){
             return await db.Tags.Select(t=>t.ToDto()).ToListAsync();
         }
 
         [HttpPost("/api/tag")]
-        public async Task<ActionResult<TagDto>> CreateTag([FromBody] TagCreateDto tagCreate)
+        public async Task<ActionResult<string>> CreateTag([FromBody] TagCreateDto tagCreate)
         {
             // Refactor
 

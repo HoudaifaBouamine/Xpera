@@ -5,8 +5,6 @@ using App.Models.Dtos.Post.Create;
 using App.Models.Dtos.Post.Query;
 using App.Models.Dtos.Post.Read;
 using AutoMapper;
-using Microsoft.Extensions.Hosting;
-using System.Linq;
 
 namespace App.API.Extentions.DtosExtentions
 {
@@ -73,21 +71,16 @@ namespace App.API.Extentions.DtosExtentions
             return postsAsDto;
         }
 
-        public static List<TagDto> ToDto(this IEnumerable<TagModel> tags)
+        public static List<string> ToDto(this IEnumerable<TagModel> tags)
         {
             return (from t in tags
-                    select new TagDto()
-                    {
-                        Name = t.Name,
-                        Tag_Id = t.Tag_Id
-                    }).ToList();
+                    select t.Name).ToList();
         }
 
-        public static TagDto ToDto(this TagModel tag){
-            return new TagDto{
-                Tag_Id = tag.Tag_Id,
-                Name = tag.Name
-            };
+        public static string ToDto(this TagModel tag){
+            
+            return tag.Name;
+            
         }
 
         public static PostModel ToEntity(this PostCreateDto postCreate)

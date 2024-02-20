@@ -1,20 +1,14 @@
 using App.API.Data;
 using App.API.Extentions.DtosExtentions;
 using App.API.Models;
-using App.API.Models.Post_Models.Comment_Models;
 using App.API.Models.PostModels;
 using App.API.Security;
 using App.API.Services.Interfaces;
 using App.Models.Dtos.Comment;
-using App.Models.Dtos.Post;
-using App.Models.Dtos.Post.Query;
 using App.Models.Dtos.Post.Read;
 using App.Models.Dtos.User.Query;
-using Dapper;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
-using System.Data.SqlClient;
 
 namespace App.API.Servises.Implimentations
 {
@@ -161,7 +155,7 @@ public async Task<IEnumerable<PostReadFullDto>> ReadTagPostsAsync(int tagId)
         postDto.User = post.User.ToDto();
         postDto.Tags = tags
             .Where(pt => pt.Post_Id == post.Post_Id)
-            .Select(pt => new TagDto { Name = pt.Tag.Name, Tag_Id = pt.Tag_Id })
+            .Select(pt => pt.Tag.Name)
             .ToList();
         return postDto;
     });
@@ -246,7 +240,7 @@ public async Task<IEnumerable<PostReadFullDto>> ReadTagPostsAsync(int tagId)
         if (post.PostTags != null)
         {
             postDto.Tags = post.PostTags
-                .Select(pt => new TagDto { Name = pt.Tag?.Name!, Tag_Id = pt.Tag_Id })
+                .Select(pt => pt.Tag.Name)
                 .ToList();
         }
         

@@ -5,7 +5,6 @@ using App.API.Models.PostModels;
 using App.API.Security;
 using App.API.Services.Interfaces;
 using App.Models.Dtos.Comment;
-using App.Models.Dtos.Post;
 using App.Models.Dtos.Post.Query;
 using App.Models.Dtos.Post.Read;
 using App.Models.Dtos.User.Query;
@@ -163,11 +162,7 @@ namespace App.API.Servises.Implimentations
             for(int i = 0; i < posts.Count; i++)
             {
                 posts[i].Tags = (from t in tags where t.Post_Id == posts[i].Post_Id 
-                                 select new TagDto()
-                                {
-                                     Name = t.Tag_Name,
-                                     Tag_Id = t.Tag_Id
-                                }).ToList() ;
+                                 select t.Tag_Name).ToList() ;
             }
 
             return posts;

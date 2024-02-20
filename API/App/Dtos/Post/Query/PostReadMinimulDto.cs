@@ -1,11 +1,4 @@
-﻿using App.Models.Dtos.User;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace App.Models.Dtos.Post.Read
+﻿namespace App.Models.Dtos.Post.Read
 {
     public class PostReadMinimulDto
     {
@@ -14,7 +7,7 @@ namespace App.Models.Dtos.Post.Read
         public string Title { get; set; } = string.Empty;
         public string Body { get; set; } = string.Empty;
         public DateTime PublishDateTime { get; set; }
-        public IEnumerable<TagDto> Tags { get; set; } = new List<TagDto>();
+        public IEnumerable<string> Tags { get; set; } = new List<string>();
         public int CommentsNumber { get; set; }
     
     }

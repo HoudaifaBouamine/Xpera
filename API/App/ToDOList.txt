@@ -1,6 +1,9 @@
-add comments number to the post  => Done
-update tags list in post to be list of string
+Done => update tags list in post to be list of string
 add favorit relation between user and post and send its number with the post
 add picture url to the user
 take a look to firebase auth
 change the id type of the user from int to guid
+
+may be no need to send the user guid when creating post because he is already authenticated
+when creating post, send tags as string, not as Ids, to simplify the work (the client side dev must do his validation any way , and no problem with creating new tags by the clients)
+add http put to update posts, and may be one for adding tags
