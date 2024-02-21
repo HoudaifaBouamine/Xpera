@@ -25,7 +25,8 @@ namespace App.API.Models
         [MinLength(1)]
         public string HashedPassword { get; set; } = string.Empty;
 
-
+        [MinLength(1)]
+        public string? PictureUrl { get; set; } = null;
         
     }
 }

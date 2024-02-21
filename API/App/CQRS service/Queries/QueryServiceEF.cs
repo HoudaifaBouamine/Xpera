@@ -14,15 +14,10 @@ namespace App.API.Servises.Implimentations
 {
     public class QueryServiceEF : IQueryService
     {
-        private readonly IConfiguration _configuration;
-        private readonly string ConnectionStringName = "DefaultConnection";
         private readonly AppDbContext db;
 
-        List<TagModel> Tags = null!;
-
-        public QueryServiceEF(IConfiguration configuration,AppDbContext db)
+        public QueryServiceEF(AppDbContext db)
         {
-            _configuration = configuration;
             this.db = db;
         }
 

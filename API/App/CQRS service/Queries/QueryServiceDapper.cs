@@ -19,8 +19,6 @@ namespace App.API.Servises.Implimentations
         private readonly IConfiguration _configuration;
         private readonly string ConnectionStringName = "DefaultConnection";
 
-        List<TagModel> Tags = null!;
-
         public QueryServiceDapper(IConfiguration configuration)
         {
             _configuration = configuration;
