@@ -1,4 +1,5 @@
-﻿using App.Models.Dtos.Comment;
+﻿using App.API.Models;
+using App.Models.Dtos.Comment;
 using App.Models.Dtos.Post.Create;
 using App.Models.Dtos.Post.Read;
 using App.Models.Dtos.User.Command;
@@ -18,7 +19,7 @@ namespace App.API.Services.Interfaces
         /// </summary>
         /// <param name="postToCreate">Contains new post data.</param>
         /// <returns>Returns minimal information about the newly created post (including post_id) if successful, otherwise returns null.</returns>
-        public Task<PostReadMinimulDto?> PostCreateAsync(PostCreateDto postToCreate);
+        public Task<PostReadMinimulDto?> PostCreateAsync(PostCreateDto postToCreate,UserModel user);
 
         /// <summary>
         /// Updates an existing post's information.

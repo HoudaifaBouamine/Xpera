@@ -17,6 +17,7 @@ namespace App.API.Repositories.PostRepository
         // Done
         public async Task<PostModel?> PostCreateAsync(PostModel post,IEnumerable<TagModel> tags)
         {
+            post.User = null;
             var e = await _AppDbContext.Posts.AddAsync(post);
 
             PostModel? thePost = e.Entity;
@@ -71,6 +72,14 @@ namespace App.API.Repositories.PostRepository
         {
             _AppDbContext.Posts.Update(post);
             await _AppDbContext.SaveChangesAsync();
+        }
+
+        public Task<List<TagModel>> TagsByNamesAsync(IEnumerable<string> tags_names)
+        {
+            return (from t in _AppDbContext.Tags 
+            join tn in tags_names 
+            on t.Name equals tn
+            select t).ToListAsync();
         }
     }
 }

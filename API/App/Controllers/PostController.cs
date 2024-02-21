@@ -1,6 +1,7 @@
 ﻿using App.API.AuthenticationService;
 using App.API.Data;
 using App.API.Extentions.DtosExtentions;
+using App.API.Models;
 using App.API.Models.PostModels;
 using App.API.Services.Interfaces;
 using App.Models.Dtos.Post;
@@ -59,7 +60,19 @@ namespace App.API.Controllers
         [Authorize(Policy =Auth.Policy.RequireUser)]
         public async Task<ActionResult<PostReadMinimulDto>> CreateNewPost([FromBody] PostCreateDto postCreate)
         {
-            return Ok( await _commandService.PostCreateAsync(postCreate) );
+            string? id_as_string = User.Claims.FirstOrDefault(c=>c.Type == Auth.UserClaims.Id)?.Value ;
+
+            if(id_as_string is null)
+            {
+                return NotFound();
+            }
+
+            var user = await _queryService.ReadUserAsync(Guid.Parse(id_as_string));
+            
+            if(user is null)
+                return NotFound();
+
+            return Ok( await _commandService.PostCreateAsync(postCreate,user.ToEntity() ));
         }
 
         [HttpDelete("{post_id}")]

@@ -17,6 +17,13 @@ namespace App.API.AuthenticationService
             public const string RequireUser = "require-user-policy";
         }
 
+        public class UserClaims
+        {
+            public static readonly string Id = "Id";
+            public static readonly string FirstName = "FirstName";
+            public static readonly string LastName = "LastName";
+            public static readonly string Email = "Email";
+        }
     }
 
 
@@ -26,10 +33,10 @@ namespace App.API.AuthenticationService
         {
             List<Claim> claims = new List<Claim>
             {
-                new ("Id"          ,user.User_Id.ToString()),
-                new ("FirstName"   ,user.FirstName),
-                new ("LastName"    ,user.LastName),
-                new ("Email"       ,user.Email),
+                new (Auth.UserClaims.Id          ,user.User_Id.ToString()),
+                new (Auth.UserClaims.FirstName   ,user.FirstName),
+                new (Auth.UserClaims.LastName    ,user.LastName),
+                new (Auth.UserClaims.Email       ,user.Email),
             };
             ClaimsIdentity claimsIdentity = new(claims, AuthSchem);
             ClaimsPrincipal userClaimsPrincipal = new(claimsIdentity);

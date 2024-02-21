@@ -47,10 +47,10 @@ namespace App.API.Servises.Implimentations
         #endregion
 
         #region Post Commands
-        public async Task<PostReadMinimulDto?> PostCreateAsync(PostCreateDto postToCreate)
+        public async Task<PostReadMinimulDto?> PostCreateAsync(PostCreateDto postToCreate,UserModel user)
         {
-            PostModel post = postToCreate.ToEntity();
-            IEnumerable<TagModel> tags = await _postRepository.TagsByIdsAsync( postToCreate.Tags_Ids );
+            PostModel post = postToCreate.ToEntity(user);
+            IEnumerable<TagModel> tags = await _postRepository.TagsByNamesAsync( postToCreate.TagsNames );
 
             post.PublishDateTime = DateTime.UtcNow;
 

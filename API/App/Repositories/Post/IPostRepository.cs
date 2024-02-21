@@ -45,6 +45,8 @@ namespace App.API.Repositories.PostRepository
         /// <returns>A list of tags with the specified ids.</returns>
         public Task<List<TagModel>> TagsByIdsAsync(IEnumerable<int> tags_ids);
 
+        public Task<List<TagModel>> TagsByNamesAsync(IEnumerable<string> tags_names);
+
         /// <summary>
         /// Deletes a post by its id.
         /// </summary>

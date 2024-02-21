@@ -83,10 +83,11 @@ namespace App.API.Extentions.DtosExtentions
             
         }
 
-        public static PostModel ToEntity(this PostCreateDto postCreate)
+        public static PostModel ToEntity(this PostCreateDto postCreate,UserModel? user = null)
         {
             PostModel post = _mapper!.Map<PostModel>(postCreate);
-            post.User = null!;
+            post.User = user!;
+            post.User_Id = user.User_Id;
             post.PublishDateTime = DateTime.UtcNow;
             post.CommentsNumber = 0;
             return post;
