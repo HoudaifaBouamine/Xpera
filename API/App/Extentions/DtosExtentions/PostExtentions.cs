@@ -121,7 +121,8 @@ namespace App.API.Extentions.DtosExtentions
                 Tags = tags is null ? Enumerable.Empty<TagModel>().ToDto() : tags.ToDto(),
                 Title = post.Title,
                 User_Id = post.User_Id,
-                CommentsNumber = post.CommentsNumber
+                CommentsNumber = post.CommentsNumber,
+                FavoritsNumber = post.NumberOfLikes
             };
         }
 

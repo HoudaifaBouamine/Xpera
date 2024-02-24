@@ -12,12 +12,17 @@ namespace Namespace
 {
     [Route("api/post/[controller]")]
     [ApiController]
-    public class LikeController(IQueryService queryService,AppDbContext db) : ControllerBase
+    public class FavoritController(IQueryService queryService,AppDbContext db) : ControllerBase
     {
         AppDbContext db = db;
         IQueryService _queryService = queryService;
 
-        [HttpGet("/api/post/{post_id}/likes")]
+        /// <summary>
+        /// Get the number of favorits in the post
+        /// </summary>
+        /// <param name="post_id"></param>
+        /// <returns></returns>
+        [HttpGet("/api/post/{post_id}/favorits")]
         public async Task<ActionResult<object>> Get(int post_id)
         {
             
@@ -32,10 +37,16 @@ namespace Namespace
 
             var postDto = post.ToDto();
 
-            return Ok(post.UsersWhoLikedThisPost.Count());
+            return Ok(new { FavoritsNumber = post.UsersWhoLikedThisPost.Count()});
         }
 
-        [HttpPost("/api/post/{post_id}/likes")]
+        /// <summary>
+        /// Add favorit to the post by the user (user identified by cookie)
+        /// if user allready added favorit to the post, the like will be removed
+        /// </summary>
+        /// <param name="post_id"></param>
+        /// <returns></returns>
+        [HttpPost("/api/post/{post_id}/favorits")]
         public async Task<ActionResult> Post(int post_id)
         {
 
@@ -58,11 +69,15 @@ namespace Namespace
                 return NotFound();
 
             if(postModel.UsersWhoLikedThisPost.Contains(user))
-                return BadRequest("--> Error : user allready liked this post");
-            
-            postModel.UsersWhoLikedThisPost.Add(user);
-
-            postModel.NumberOfLikes++;
+            {
+                postModel.UsersWhoLikedThisPost.Remove(user);
+                postModel.NumberOfLikes--;
+            }
+            else
+            {
+                postModel.UsersWhoLikedThisPost.Add(user);
+                postModel.NumberOfLikes++;
+            }
 
             db.SaveChanges();
 

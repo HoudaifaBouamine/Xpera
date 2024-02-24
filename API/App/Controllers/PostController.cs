@@ -1,7 +1,6 @@
 ﻿using App.API.AuthenticationService;
 using App.API.Data;
 using App.API.Extentions.DtosExtentions;
-using App.API.Models;
 using App.API.Models.PostModels;
 using App.API.Services.Interfaces;
 using App.Models.Dtos.Post;
