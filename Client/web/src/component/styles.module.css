@@ -316,3 +316,13 @@ padding: 0  ;
   background: var(--blue1), rgba(255, 255, 255, 0.24);
   
 }
+.Notification_bell{
+  padding: 0;
+  background-color:transparent ;
+}
+.Post_Icon{
+  padding: 0;
+  background-color:transparent ;
+}
+
+
