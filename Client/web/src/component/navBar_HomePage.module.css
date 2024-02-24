@@ -17,5 +17,5 @@
     width: auto;
     justify-content: space-between;
     align-items: center;
-    flex-shrink: 0;
+    gap:2.4vw;
 }
