@@ -29,5 +29,7 @@ namespace App.API.Models.PostModels
         public List<PostHaveTagRelation> PostTags {get;set;} = new ();
 
         public int CommentsNumber { get; set; } = 0;
+        public List<UserModel> UsersWhoLikedThisPost { get; set; } = new();
+        public int NumberOfLikes {get;set;}
     }
 }

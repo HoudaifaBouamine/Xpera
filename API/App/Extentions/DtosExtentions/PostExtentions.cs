@@ -41,6 +41,7 @@ namespace App.API.Extentions.DtosExtentions
                 Post_Id = post.Post_Id,
                 Title = post.Title,
                 CommentsNumber = post.CommentsNumber,
+                NumberOfLikes = post.NumberOfLikes,
                 User = null!,
                 Tags = null!
             };
