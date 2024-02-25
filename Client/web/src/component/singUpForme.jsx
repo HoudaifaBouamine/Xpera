@@ -26,30 +26,27 @@ const singInForme = () => {
   const SingUpClickHandler= async (e)=>{
     e.preventDefault();
     try{
-      response = await fetch(`${API_URL}/User/register`,{
+      const response = await fetch(`${API_URL}/api/User/register`,{
         method: "POST",
-        headers: new Headers({
-          'Content-Type': 'application/json',
-        }),
+        headers : new Headers( {  'content-type' : 'application/json' } ),
         body: JSON.stringify({
-          firstName:userName, 
+          name:userName, 
           email: email,
           password: password,
+          pictureUrl:null,
         }),
-      })
-
-      const Data = await response.json() ; 
-      if (Data){
-        console.log(Data); 
-       }
-
-       const Navigate =useNavigate("");
+      });
+      const data = await  response.json() ; 
+      if (data){
+       console.log(data); 
+      /* Navigate(`/home/${data.user_Id}`);*/
+      }
        Navigate("/home");
 
       }
       catch (e) { 
-          console.log("ahaaaaaaaaaaaaaaaaaaa")
-          Navigate("/home");
+
+          console.log("   > Er "+e)
       }
     
   }
