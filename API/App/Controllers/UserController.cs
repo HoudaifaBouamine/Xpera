@@ -76,7 +76,5 @@ namespace App.API.Controllers
 
             return Ok( userReadDto );
         }    
-        
-        
     }
 }

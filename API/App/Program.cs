@@ -1,4 +1,3 @@
-using System.Text.Json.Serialization;
 using App.API.AuthenticationService;
 using App.API.Data;
 using App.API.Extentions;
@@ -7,7 +6,6 @@ using App.API.Repositories.PostRepository;
 using App.API.Repositories.UserRepository;
 using App.API.Services.Interfaces;
 using App.API.Servises.Implimentations;
-using Microsoft.AspNetCore.Http.HttpResults;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,6 +31,17 @@ builder.Services.AddScoped<ICommandService,CommandService>();
 builder.Services.AddScoped<IQueryService, QueryServiceEF>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll",
+        policy =>
+        {
+            policy.AllowAnyOrigin();
+            policy.AllowAnyMethod();
+            policy.AllowAnyHeader();
+        });
+});
+
 var app = builder.Build();
 
 app.UseConfigration();
@@ -41,6 +50,8 @@ app.UseSwagger();
 app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
+
+app.UseCors("AllowAll");
 
 app.UseAuthorization();
 
@@ -51,4 +62,19 @@ app.MapGet("/", () =>
     return Results.Redirect( "/swagger/index.html" );
 });
 
+// app.MapGet("/database-reset",(AppDbContext db)=>
+// {  
+//      var isCreated =  db.Database.EnsureCreated();
+
+//         if(isCreated)
+//         {
+//             System.Console.WriteLine(" --> Database created secuessfuly");
+//         }
+//         else
+//         {
+//             System.Console.WriteLine(" --> Failed to create database");
+//         }
+// });
+
 app.Run();
+
