@@ -20,12 +20,16 @@ namespace App.API.Extentions.DtosExtentions
         {
             var user = _mapper!.Map<UserModel>(userCreateDto);
             user.HashedPassword = SecurityService.HashPassword( userCreateDto.Password );
+            user.FirstName = userCreateDto.Name;
             return user;
         }
 
         static public UserModel ToEntity(this UserReadDto userReadDto)
         {
-            return _mapper!.Map<UserModel>(userReadDto);
+            UserModel userModel = _mapper!.Map<UserModel>(userReadDto);
+            userModel.FirstName = userReadDto.Name;
+
+            return userModel;
         }
 
         static public UserModel? ToEntity(this UserUpdateDto userUpdate,UserModel userModel)
@@ -49,7 +53,11 @@ namespace App.API.Extentions.DtosExtentions
 
         static public UserReadDto ToDto(this UserModel user)
         {
-            return _mapper!.Map<UserReadDto>(user);
+            var userDto = _mapper!.Map<UserReadDto>(user);
+
+            userDto.Name = user.FirstName;
+
+            return userDto;
         }
 
     }
