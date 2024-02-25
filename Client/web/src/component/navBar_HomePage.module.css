@@ -4,7 +4,7 @@
 }
 .navBar{
     display: flex;
-    height: 50px;
+    height: 45px;
     padding:  0.9vw 1.5vw;  
     justify-content: space-between;
     align-items: center;

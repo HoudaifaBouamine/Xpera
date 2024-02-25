@@ -1,0 +1,14 @@
+.Hero_Page{
+    background: var(--Colors-grey-100, #F3F4F6);
+}
+.Controle_Panel{
+    background-color: var(--Colors-grey-100, #F3F4F6) ;
+    padding: 1.3vw 10.4vw;
+}
+.post{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-left:5.5vw ;
+    padding-top: 5vh ;
+}

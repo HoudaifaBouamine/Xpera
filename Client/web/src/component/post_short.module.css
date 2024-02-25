@@ -1,0 +1,90 @@
+.Post{
+    display: flex;
+    padding: 1.5vw;
+    flex-direction: column;
+    align-items: flex-start;
+    gap:24px;
+    border-radius: 12px;
+    background: #FFF;
+   max-width:550px ;
+    /* ShadowX */
+    box-shadow: 0px 8px 32px 0px rgba(17, 17, 26, 0.05), 0px 4px 16px 0px rgba(17, 17, 26, 0.05);
+}
+.Post_title{
+    display: flex;
+    padding: 0px 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    align-self: stretch;
+    
+}
+.postInfo{
+    display: flex;
+    padding: 0px 24px;
+    align-items: center;
+    gap: 23px;
+    align-self: stretch;
+}
+.profilePics{
+    width: 38.4px;
+    border-radius: 30px;
+    border: 2.4px solid var(--Colors-Dark-Dark-Grey, #404040);
+}
+.profileName{
+    color: #000;
+    font-family: Nunito;
+    font-size: 12.8px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    }
+.postDate{
+    color: rgba(0, 0, 0, 0.40);
+
+/* Small Text */
+    font-family: Nunito;
+    font-size: 12.8px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    
+}
+.Body_Post{
+    display: flex;
+    padding: 0px 24px;
+    align-items: center;
+    align-self: stretch;
+
+}
+.content{
+    border-left: 1.5px solid #4666FF;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+   padding: 0 24px;
+    flex: 1 0 0;
+    color: rgba(0, 0, 0, 0.40);
+
+/* Big Text */
+    font-family: Nunito;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px; /* 140% */
+}
+.horizantalLine{
+}
+.seeMore{
+    color: #2454FF;
+/* Big Text */
+}
+.skills{
+    display: flex;
+padding: 0px 24px;
+align-items: flex-start;
+align-content: flex-start;
+gap: 12px;
+align-self: stretch;
+flex-wrap: wrap;
+}
