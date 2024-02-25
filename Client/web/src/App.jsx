@@ -8,15 +8,14 @@ import Home from './Home Page/Home.jsx'
 function App() {
     return (
 <div>    
-    <Home/>
-{/*<BrowserRouter>
+<BrowserRouter>
     <Routes>
       <Route path="/" element={<LandingPage/>}/>
       <Route path="/signup" element={<SingUp/>}/>
       <Route path="/signin" element={<Signin/>}/>
       <Route path="/home" element={<Home/>}/>
        </Routes>
-    </BrowserRouter>*/}
+    </BrowserRouter>
 </div>
     )}
   
