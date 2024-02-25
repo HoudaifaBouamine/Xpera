@@ -1,5 +1,4 @@
 add favorit relation between user and post and send its number with the post
-Done => add picture url to the user
 take a look to firebase auth
 
 add http put to update posts, and may be one for adding tags

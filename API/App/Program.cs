@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using App.API.AuthenticationService;
 using App.API.Data;
 using App.API.Extentions;

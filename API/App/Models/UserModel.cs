@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using App.API.Models.PostModels;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Net.Mail;
@@ -27,6 +28,9 @@ namespace App.API.Models
 
         [MinLength(1)]
         public string? PictureUrl { get; set; } = null;
+
+        public List<PostModel> LikedPosts { get; set; } = new();
         
+        public List<PostModel> Posts {get;set;} = new();
     }
 }

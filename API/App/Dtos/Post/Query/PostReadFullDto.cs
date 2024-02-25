@@ -11,6 +11,6 @@ namespace App.Models.Dtos.Post.Read
         public DateTime PublishDateTime { get; set; }
         public List<string> Tags { get; set; } = new List<string>();
         public int CommentsNumber { get; set; }
-
+        public int NumberOfLikes {get;set;}
     }
 }

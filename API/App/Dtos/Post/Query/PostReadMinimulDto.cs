@@ -9,6 +9,6 @@
         public DateTime PublishDateTime { get; set; }
         public IEnumerable<string> Tags { get; set; } = new List<string>();
         public int CommentsNumber { get; set; }
-    
+        public int FavoritsNumber { get; set; }
     }
 }
