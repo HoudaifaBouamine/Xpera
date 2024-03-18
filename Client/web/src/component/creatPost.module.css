@@ -1,0 +1,139 @@
+.Header_Creat_Post{
+    display: flex;
+    height: 84px;
+    padding: 0px 48px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    align-self: stretch;
+    background: #F3F4F6;
+  }
+  .creatNewPost{
+    align-self: start;
+    color: #374151;
+  
+  /* Title Small */
+  font-family: Nunito;
+  font-size: 31.25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  display: flex;
+  height: 65px;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1 0 0;
+  }
+  .side_option{
+    display: flex;
+    padding: 48px;
+    flex-direction: column;
+    align-items: start  ;
+  gap: 24px;
+  align-self: stretch;
+  border-radius: 12px 0px 0px 0px;
+  border-right: 1px solid var(--Color, #FFF);
+  background: #F3F4F6;
+  }
+  .option{
+    display: flex;
+   max-width: 209px;
+    align-items: center;
+    gap: 12px;
+    background-color: #9CA3AF;
+  }
+  .title_button{
+    display: flex;
+    padding: 14px 28px;
+    justify-content: center;
+    align-items: center;
+  background-color: transparent;
+  
+  color: #6D8DFF;
+  /* Title */
+  font-family: Nunito;
+  font-size: 48.83px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  text-transform: capitalize;
+  }
+  .sub_header{
+    display: flex;
+    padding: 14px 28px;
+    justify-content: center;
+    align-items: center;
+    color: #6D8DFF;
+    background-color: transparent;
+  /* Sub Heading */
+  font-family: Nunito;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  }
+  .postFeature{
+    display: flex;
+  align-items: flex-start;
+  align-self: stretch;
+  }
+  .PostBody{
+    display: flex;
+    padding: 38px 204px 408px 78px;
+    align-items: center;
+    flex: 1 0 0;
+    align-self: stretch;
+    border-radius: 0px 12px 0px 0px;
+    background: #E5E7EB;
+  
+  color: rgba(128, 128, 128, 0.80);
+  font-family: Nunito;
+  font-size: 48.83px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+  }
+  .PostBody:hover{
+  
+    display: flex;
+    padding: 2.33vw 1.96vw 26.27vw 7.45vw;
+
+  align-items: center;
+  flex: 1 0 0;
+  align-self: stretch;
+  border-radius: 0px 12px 0px 0px;
+  background: #E5E7EB;
+  border-color:#E5E7EB;
+  
+  
+  
+  color: rgba(128, 128, 128, 0.80);
+  font-family: Nunito;
+  font-size: 48.83px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+  }
+  .PostBody:focus{
+   
+    display: flex;
+    padding: 2.33vw 1.96vw 26.27vw 7.45vw;
+
+  align-items: center;
+  flex: 1 0 0;
+  align-self: stretch;
+  border-radius: 0px 12px 0px 0px;
+  background: #E5E7EB;
+  border-color:#E5E7EB;
+  box-shadow: none; 
+  
+  color: rgba(128, 128, 128, 0.80);
+  font-family: Nunito;
+  font-size: 48.83px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+  }

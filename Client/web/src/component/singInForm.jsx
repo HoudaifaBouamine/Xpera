@@ -5,7 +5,7 @@ import GoogleButton from './SecondaryButtonIcon'
 import CTA_button from './BigCTA_Button'
 import { useNavigate } from 'react-router-dom'
 import icon from "./assets/googleIcon.svg"
-import { API_URL } from './API_URL'
+import { API_URL } from './API_URL.jsx'
 const singInForm = () => {
 const Navigate = useNavigate("");
   const [userName, setUserName] = useState('');
@@ -16,9 +16,12 @@ const Navigate = useNavigate("");
   const [password,setPassword]=useState(""); 
   const handlePasswordChange =(value)=>{
     setPassword(value);
-  } 
+  }
+
   const SingInClickHandler = async (e)=>{
+    
      e.preventDefault();
+      /* 
      const response = await fetch(`${API_URL}/api/User/login`,{
       method: "POST",
       headers : new Headers( {  'content-type' : 'application/json' } ),
@@ -30,8 +33,8 @@ const Navigate = useNavigate("");
     const data = await response.json() ; 
     if (data){
      console.log(data); 
-    /* Navigate(`/home/${data.user_Id}`);*/
-    }
+    /* Navigate(`/home/${data.user_Id}`);
+    }*/
     Navigate("/home");
   }
   return (

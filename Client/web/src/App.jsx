@@ -5,6 +5,7 @@ import LandingPage from "./LandingPage/LandingPg"
 import SingUp from "./singUpPage/singUp"
 import Signin from './SigninPage/signin.jsx'
 import Home from './Home Page/Home.jsx'
+import CreatPost from './component/creatPost.jsx'
 function App() {
     return (
 <div>    
