@@ -47,6 +47,7 @@ namespace Namespace
         /// <param name="post_id"></param>
         /// <returns></returns>
         [HttpPost("/api/post/{post_id}/favorits")]
+    
         public async Task<ActionResult> Post(int post_id)
         {
 

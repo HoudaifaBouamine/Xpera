@@ -62,19 +62,19 @@ app.MapGet("/", () =>
     return Results.Redirect( "/swagger/index.html" );
 });
 
-// app.MapGet("/database-reset",(AppDbContext db)=>
-// {  
-//      var isCreated =  db.Database.EnsureCreated();
+app.MapGet("/database-reset",(AppDbContext db)=>
+{  
+     var isCreated =  db.Database.EnsureCreated();
 
-//         if(isCreated)
-//         {
-//             System.Console.WriteLine(" --> Database created secuessfuly");
-//         }
-//         else
-//         {
-//             System.Console.WriteLine(" --> Failed to create database");
-//         }
-// });
+        if(isCreated)
+        {
+            System.Console.WriteLine(" --> Database created secuessfuly");
+        }
+        else
+        {
+            System.Console.WriteLine(" --> Failed to create database");
+        }
+});
 
 app.Run();
 

@@ -1,17 +1,19 @@
-﻿using App.API.Data;
+﻿using System.Linq.Expressions;
+using App.API.Data;
 using App.API.Models;
 using App.Models.Dtos;
 using Microsoft.AspNetCore.HttpLogging;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 
 namespace App.API.Repositories.UserRepository
 {
     public class UserRepositoryEF : IUserRepository
     {
-        private readonly AppDbContext dbContext;
-        public UserRepositoryEF(AppDbContext dbContext)
+        private readonly AppDbContext db;
+        public UserRepositoryEF(AppDbContext db)
         {
-            this.dbContext = dbContext;
+            this.db = db;
         }
 
         // Done
@@ -21,19 +23,19 @@ namespace App.API.Repositories.UserRepository
             if(user.User_Id == default)
             {
                 //user.User_Id = Guid.NewGuid();
-                var Entity = await dbContext.Users.AddAsync(user);
-                await dbContext.SaveChangesAsync();
+                var Entity = await db.Users.AddAsync(user);
+                await db.SaveChangesAsync();
                 UserModel createdUser = Entity.Entity;
                 return createdUser;
             }
             else
             {
                 System.Console.WriteLine("not default");
-                UserModel? foundUser = await dbContext.Users.Where(u=>u.User_Id == user.User_Id).FirstOrDefaultAsync();
+                UserModel? foundUser = await db.Users.Where(u=>u.User_Id == user.User_Id).FirstOrDefaultAsync();
 
                 if(foundUser is null)
                 {
-                    var Entity = await dbContext.Users.AddAsync(user);
+                    var Entity = await db.Users.AddAsync(user);
 
                     System.Console.WriteLine("Creating the user from firebase");
 
@@ -41,7 +43,7 @@ namespace App.API.Repositories.UserRepository
 
                     foundUser = Entity.Entity;
 
-                    await dbContext.SaveChangesAsync();
+                    await db.SaveChangesAsync();
 
                     System.Console.WriteLine("--> created to the database with name : " + foundUser.FirstName);
 
@@ -49,7 +51,7 @@ namespace App.API.Repositories.UserRepository
                 else
                 {
                     foundUser = user;
-                    await dbContext.SaveChangesAsync();
+                    await db.SaveChangesAsync();
                 }
 
                 return foundUser;
@@ -59,26 +61,26 @@ namespace App.API.Repositories.UserRepository
         // Done
         public async Task UserDelete(Guid user_id)
         {
-            int rowAffected = await dbContext.Users.Where(u => u.User_Id == user_id).ExecuteDeleteAsync();
+            int rowAffected = await db.Users.Where(u => u.User_Id == user_id).ExecuteDeleteAsync();
         }
 
-        // Done
         public async Task<UserModel?> UserRead(Guid id)
         {
-            return await dbContext.Users.Where(u => u.User_Id == id).FirstOrDefaultAsync();
+            UserModel? user = await db.Users.FirstOrDefaultAsync(u => u.User_Id == id);
+            return user;
         }
 
         // Done
         public async Task<UserModel?> UserRead(string email)
         {
-            UserModel? user = await dbContext.Users.Where(u => u.Email == email).FirstOrDefaultAsync();
+            UserModel? user = await db.Users.Where(u => u.Email == email).FirstOrDefaultAsync();
             return user;
         }
 
         public async Task UserUpdate(UserModel user)
         {
-            dbContext.Users.Update(user);
-            await dbContext.SaveChangesAsync();
+            db.Users.Update(user);
+            await db.SaveChangesAsync();
         }
     }
 }

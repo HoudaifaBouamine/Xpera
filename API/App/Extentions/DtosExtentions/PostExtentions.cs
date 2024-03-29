@@ -47,7 +47,7 @@ namespace App.API.Extentions.DtosExtentions
             };
         }
 
-        public static IEnumerable<PostReadFullDto> ToDtoList(this IEnumerable<PostModel> posts, UserModel user, List<List<TagModel>> tags)
+        public static IEnumerable<PostReadFullDto> ToDtoList(this IEnumerable<PostModel> posts, UserModel? user, List<List<TagModel>>? tags)
         {
             var postsAsList = posts.ToList();
             var postsAsDto = new List<PostReadFullDto>();
@@ -63,8 +63,8 @@ namespace App.API.Extentions.DtosExtentions
                         Post_Id = postsAsList[i].Post_Id,
                         Title = postsAsList[i].Title,
                         CommentsNumber = postsAsList[i].CommentsNumber,
-                        User = user.ToDto(),
-                        Tags = tags[i].ToDto(),
+                        User = user?.ToDto()!,
+                        Tags = tags?[i]?.ToDto()!,
                     }
                 );
             }

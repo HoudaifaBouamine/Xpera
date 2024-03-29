@@ -81,7 +81,7 @@ namespace App.API.Servises.Implimentations
             {
                 return false;
             }
-
+            
             user = userToUpdate.ToEntity(user);
 
             if (user == null)
