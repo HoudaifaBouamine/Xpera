@@ -2,7 +2,8 @@ import React from 'react'
 import Styles from "./post_short.module.css"
 import Tag from '../component/Tag.jsx'
 import { Style } from '@mui/icons-material'
-const Short_Post = ({title,profilePics,profileName,postDate,content,Skills}) => {
+import Check_fill from "./assets/Check_fill.svg"
+const Short_Post = ({title,profilePics,profileName,postDate,content,work,speciality,Skills}) => {
   return (
     <div className={Styles.Post}>
         <h1 className={Styles.Post_title}>{title}</h1>
@@ -22,6 +23,7 @@ const Short_Post = ({title,profilePics,profileName,postDate,content,Skills}) => 
              <Tag text={skill} />
             ))}
         </section>
+    
 
       
     </div>
@@ -29,3 +31,5 @@ const Short_Post = ({title,profilePics,profileName,postDate,content,Skills}) => 
 }
 
 export default Short_Post
+
+
