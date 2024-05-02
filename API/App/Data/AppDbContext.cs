@@ -9,10 +9,9 @@ namespace App.API.Data
 {
     public class AppDbContext : DbContext
     {
-        public IConfiguration _Configuration { get; set; }
-        public AppDbContext(IConfiguration configuration)
+        public AppDbContext(DbContextOptions<AppDbContext> options) 
+            : base(options)
         {
-            _Configuration = configuration;
         }
 
 
@@ -21,12 +20,6 @@ namespace App.API.Data
         public DbSet<TagModel> Tags { get; set; }
         public DbSet<PostHaveTagRelation> PostsHaveTags { get; set; }
         public DbSet<CommentModel> Comments { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseNpgsql(_Configuration.GetConnectionString("DefaultConnection"));
-        }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 

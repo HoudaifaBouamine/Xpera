@@ -22,8 +22,20 @@ namespace App.API.Controllers
         // Refactor
         private readonly AppDbContext db = db;
     
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK,Type = typeof(IEnumerable<PostReadMinimulDto>))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> GetAllPosts()
+        {
+            return Ok( await _queryService.ReadAllPostsAsync() );
+        }
+
         [HttpGet("{id}")]
-        public async Task<ActionResult<PostReadFullDto>> GetPost(int id)
+        [ProducesResponseType(StatusCodes.Status200OK,Type = typeof(PostReadFullDto))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        
+        public async Task<IActionResult> GetPost(int id)
         {
             PostReadFullDto? post = await _queryService.ReadPostAsync(id);
             if(post == null)
@@ -49,21 +61,22 @@ namespace App.API.Controllers
             return Ok(  await _queryService.ReadTagPostsAsync(tag_Id) );
         }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<PostReadFullDto>>> GetAllPosts()
-        {
-            return Ok( await _queryService.ReadAllPostsAsync() );
-        }
 
         [HttpPost]
         [Authorize(Policy =Auth.Policy.RequireUser)]
-        public async Task<ActionResult<PostReadMinimulDto>> CreateNewPost([FromBody] PostCreateDto postCreate)
+        
+        [ProducesResponseType(StatusCodes.Status200OK,Type = typeof(PostReadMinimulDto))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> CreateNewPost([FromBody] PostCreateDto postCreate)
         {
             string? id_as_string = User.Claims.FirstOrDefault(c=>c.Type == Auth.UserClaims.Id)?.Value ;
 
             if(id_as_string is null)
             {
-                return NotFound();
+                return Unauthorized();
             }
 
             var user = await _queryService.ReadUserAsync(Guid.Parse(id_as_string));

@@ -6,6 +6,7 @@ using App.API.Repositories.PostRepository;
 using App.API.Repositories.UserRepository;
 using App.API.Services.Interfaces;
 using App.API.Servises.Implimentations;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,7 +24,7 @@ builder.Services.AddAuthorization(conf =>
 });
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-builder.Services.AddDbContext<AppDbContext>();
+builder.Services.AddDbContext<AppDbContext>(op=>op.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<IUserRepository, UserRepositoryEF>();
 builder.Services.AddScoped<IPostRepository, PostRepositoryEF>();
 builder.Services.AddScoped<ICommentRepository,CommentRepository >();
